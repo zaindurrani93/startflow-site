@@ -85,27 +85,27 @@ export function HomeHero() {
   return (
     <section className="relative overflow-hidden border-b border-neutral-200">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_35%)]" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <div className="mb-6 inline-flex w-fit items-center rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-sm text-neutral-700">
+          <div className="mb-5 inline-flex w-fit items-center rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-xs text-neutral-700 sm:mb-6 sm:text-sm">
             Beginner-friendly business setup service
           </div>
-          <h1 className="max-w-2xl text-5xl font-semibold tracking-tight text-neutral-950 sm:text-6xl">
+          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
             Start your business the right way.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
+          <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:mt-6 sm:max-w-2xl sm:text-lg sm:leading-8">
             We help beginners go from idea to a fully set-up business with branding, website setup, and a simple launch plan.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="pointer-events-auto rounded-full bg-neutral-950 px-7 py-3.5 text-center text-sm font-medium text-white shadow-sm transition hover:opacity-90"
+              className="pointer-events-auto min-h-12 rounded-full bg-neutral-950 px-7 py-3.5 text-center text-sm font-medium text-white shadow-sm transition hover:opacity-90"
             >
               Start Now
             </Link>
             <Link
               href="/services"
-              className="pointer-events-auto rounded-full border border-neutral-300 px-7 py-3.5 text-center text-sm font-medium text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950"
+              className="pointer-events-auto min-h-12 rounded-full border border-neutral-300 px-7 py-3.5 text-center text-sm font-medium text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950"
             >
               View Services
             </Link>
@@ -119,7 +119,7 @@ export function HomeHero() {
 export function WorkflowStrip() {
   return (
     <section className="border-b border-neutral-200 bg-gradient-to-b from-white to-neutral-50">
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:px-8">
         <div className="flex flex-col items-center text-center">
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">Simple workflow</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -147,7 +147,7 @@ export function WorkflowStrip() {
 
 export function HomePageLinks() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Explore</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Everything has its own page now.</h2>
@@ -175,7 +175,7 @@ export function HomePageLinks() {
 
 export function ServicesSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Services</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">What StartFlow helps you with.</h2>
@@ -202,7 +202,7 @@ export function ServicesSection() {
 
 export function WorkflowSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Workflow</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">From idea to launch, step-by-step.</h2>
@@ -241,7 +241,7 @@ export function WorkflowSection() {
 export function HowItWorksSection() {
   return (
     <section className="border-y border-neutral-200 bg-neutral-50/70">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">A simple 3-step process.</h2>
@@ -266,7 +266,7 @@ export function HowItWorksSection() {
 
 export function PricingSection() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Pricing</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Simple pricing for getting started.</h2>
@@ -316,7 +316,7 @@ export function PricingSection() {
 export function ContactSection() {
   return (
     <section className="pb-24">
-      <div className="mx-auto max-w-5xl px-6 pt-20 lg:px-8">
+      <div className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-20 lg:px-8">
         <div className="rounded-[2rem] bg-neutral-950 px-8 py-14 text-white shadow-[0_25px_70px_rgba(0,0,0,0.18)] sm:px-12">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-400">Contact</p>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">

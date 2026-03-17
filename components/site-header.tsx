@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -10,9 +13,15 @@ const navItems = [
 ];
 
 export function SiteHeader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
+
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200/80 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight text-neutral-950">
           <svg
             viewBox="0 0 24 24"
@@ -47,12 +56,56 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
+        <button
+          type="button"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 text-neutral-950 transition hover:bg-neutral-50 md:hidden"
+        >
+          <span className="relative h-4 w-4">
+            <span
+              className={`absolute left-0 top-0 h-[1.5px] w-4 bg-current transition duration-200 ${isMenuOpen ? "translate-y-[7px] rotate-45" : ""}`}
+            />
+            <span
+              className={`absolute left-0 top-[7px] h-[1.5px] w-4 bg-current transition duration-200 ${isMenuOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`absolute left-0 top-[14px] h-[1.5px] w-4 bg-current transition duration-200 ${isMenuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+            />
+          </span>
+        </button>
         <Link
           href="/contact"
-          className="rounded-full bg-neutral-950 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:opacity-90"
+          className="hidden rounded-full bg-neutral-950 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:opacity-90 md:inline-flex"
         >
           Get Started
         </Link>
+      </div>
+      <div
+        className={`overflow-hidden border-t border-neutral-200 bg-white transition-[max-height,opacity] duration-200 ease-out md:hidden ${
+          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="px-5 py-3 sm:px-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={closeMenu}
+              className="flex min-h-12 items-center rounded-2xl px-4 text-base font-medium text-neutral-900 transition hover:bg-neutral-50"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            onClick={closeMenu}
+            className="mt-2 flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-5 text-base font-medium text-white shadow-sm transition hover:opacity-90"
+          >
+            Get Started
+          </Link>
+        </nav>
       </div>
     </header>
   );
