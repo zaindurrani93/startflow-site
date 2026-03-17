@@ -1,0 +1,10 @@
+import { ContactSection, PricingSection } from "@/components/startflow-sections";
+
+export default function PricingPage() {
+  return (
+    <main>
+      <PricingSection />
+      <ContactSection />
+    </main>
+  );
+}
