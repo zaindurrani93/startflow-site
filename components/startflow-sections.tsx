@@ -84,8 +84,8 @@ const pageLinks = [
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden border-b border-neutral-200">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_35%)]" />
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_35%)]" />
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <div className="mb-6 inline-flex w-fit items-center rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-sm text-neutral-700">
             Beginner-friendly business setup service
@@ -99,13 +99,13 @@ export function HomeHero() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="rounded-full bg-neutral-950 px-7 py-3.5 text-center text-sm font-medium text-white shadow-sm transition hover:opacity-90"
+              className="pointer-events-auto rounded-full bg-neutral-950 px-7 py-3.5 text-center text-sm font-medium text-white shadow-sm transition hover:opacity-90"
             >
               Start Now
             </Link>
             <Link
               href="/services"
-              className="rounded-full border border-neutral-300 px-7 py-3.5 text-center text-sm font-medium text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950"
+              className="pointer-events-auto rounded-full border border-neutral-300 px-7 py-3.5 text-center text-sm font-medium text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950"
             >
               View Services
             </Link>
