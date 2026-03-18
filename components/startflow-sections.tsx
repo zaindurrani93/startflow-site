@@ -275,38 +275,77 @@ export function PricingSection() {
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-2xl rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.18em] text-neutral-500">Business Starter Package</p>
-            <div className="mt-3 flex items-end gap-2">
-              <span className="text-5xl font-semibold tracking-tight">$300-$500</span>
+      <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
+        <div className="rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.18em] text-neutral-500">Starter</p>
+              <div className="mt-3 flex items-end gap-2">
+                <span className="text-5xl font-semibold tracking-tight">$299</span>
+              </div>
+              <p className="mt-4 max-w-lg text-neutral-600">
+                For beginners who want clarity, structure, and a clean starting point.
+              </p>
             </div>
-            <p className="mt-4 max-w-lg text-neutral-600">
-              Best for beginners who want a clear setup, real structure, and guidance through the launch process.
-            </p>
+            <Link
+              href="/contact"
+              className="rounded-full bg-neutral-950 px-6 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
+            >
+              Get Started
+            </Link>
           </div>
+
+          <div className="mt-8 grid gap-4">
+            {[
+              "Business idea clarity",
+              "Brand direction",
+              "Simple landing page",
+              "Launch plan",
+              "1:1 guidance"
+            ].map((item) => (
+              <div key={item} className="rounded-2xl bg-neutral-50 px-4 py-4 text-sm text-neutral-700 ring-1 ring-neutral-100">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-[2rem] border border-neutral-950 bg-white p-8 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:p-10">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-sm uppercase tracking-[0.18em] text-neutral-500">Growth</p>
+              <div className="mt-3 flex items-end gap-2">
+                <span className="text-5xl font-semibold tracking-tight">$499</span>
+              </div>
+              <p className="mt-4 max-w-lg text-neutral-600">
+                For people who want a more complete setup and stronger brand presence.
+              </p>
+            </div>
+            <div className="rounded-full bg-neutral-950 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white">
+              Most Popular
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4">
+            {[
+              "Everything in Starter",
+              "Multi-page website",
+              "Social media setup",
+              "Brand polish",
+              "Stronger launch support"
+            ].map((item) => (
+              <div key={item} className="rounded-2xl bg-neutral-50 px-4 py-4 text-sm text-neutral-700 ring-1 ring-neutral-100">
+                {item}
+              </div>
+            ))}
+          </div>
+
           <Link
             href="/contact"
-            className="rounded-full bg-neutral-950 px-6 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
+            className="mt-8 inline-flex rounded-full bg-neutral-950 px-6 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
           >
             Get Started
           </Link>
-        </div>
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {[
-            "Business idea clarity",
-            "Brand name + direction",
-            "Landing page or simple website",
-            "Social media setup",
-            "Launch plan",
-            "1:1 support"
-          ].map((item) => (
-            <div key={item} className="rounded-2xl bg-neutral-50 px-4 py-4 text-sm text-neutral-700 ring-1 ring-neutral-100">
-              {item}
-            </div>
-          ))}
         </div>
       </div>
     </section>
