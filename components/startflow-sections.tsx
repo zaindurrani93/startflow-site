@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BriefcaseBusiness, Lightbulb, Palette, Rocket, Settings, Sparkles } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Lightbulb, Palette, Rocket, Settings, Sparkles } from "lucide-react";
 
 const services = [
   {
@@ -266,7 +266,7 @@ export function HowItWorksSection() {
 
 export function PricingSection() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:pb-24">
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Pricing</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Simple pricing for getting started.</h2>
@@ -310,10 +310,11 @@ export function PricingSection() {
             </ul>
 
             <Link
-              href="/contact"
-              className="mt-8 inline-flex min-h-11 items-center justify-center rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 transition hover:border-neutral-950"
+              href="/checkout/starter"
+              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-950 hover:shadow-md"
             >
-              See Package
+              Select Package
+              <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
@@ -354,10 +355,11 @@ export function PricingSection() {
             </ul>
 
             <Link
-              href="/contact"
-              className="mt-8 inline-flex min-h-11 items-center justify-center rounded-xl border border-[#b7aadf] bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 transition hover:border-[#8e79be]"
+              href="/checkout/growth"
+              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[#b7aadf] bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition hover:-translate-y-0.5 hover:border-[#8e79be] hover:shadow-md"
             >
-              See Package
+              Select Package
+              <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
@@ -394,8 +396,8 @@ export function ContactSection() {
 
 export function MinimalCtaSection() {
   return (
-    <section className="pb-20">
-      <div className="mx-auto max-w-5xl px-5 pt-12 sm:px-6 sm:pt-16 lg:px-8">
+    <section className="pb-16 sm:pb-20">
+      <div className="mx-auto max-w-5xl px-5 pt-10 sm:px-6 sm:pt-14 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-5 rounded-[1.75rem] border border-neutral-200 bg-white px-6 py-6 shadow-[0_10px_35px_rgba(0,0,0,0.03)] sm:flex-row sm:items-center sm:px-8">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
