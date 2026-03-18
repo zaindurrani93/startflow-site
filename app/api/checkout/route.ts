@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import Stripe from "stripe";
 import {
   startFlowPackages,
   type StartFlowPackageKey
 } from "@/lib/startflow-packages";
+import { getStripe } from "@/lib/stripe";
 
 export const runtime = "nodejs";
 
@@ -42,12 +42,12 @@ export async function POST(request: Request) {
 
   const pkg = startFlowPackages[packageType];
   const siteUrl = getSiteUrl();
-  const stripe = new Stripe(stripeSecretKey);
+  const stripe = getStripe();
 
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      success_url: `${siteUrl}/checkout/success?package=${pkg.key}`,
+      success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&package=${pkg.key}`,
       cancel_url: `${siteUrl}/checkout/cancel?package=${pkg.key}`,
       payment_method_types: ["card"],
       line_items: [
@@ -67,6 +67,9 @@ export async function POST(request: Request) {
         packageType: pkg.key
       }
     });
+
+    // Paid fulfillment should be finalized by a Stripe webhook after payment succeeds.
+    // The success page is only a user-facing confirmation and onboarding handoff.
 
     if (!session.url) {
       return NextResponse.json(
