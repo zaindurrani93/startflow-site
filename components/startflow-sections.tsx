@@ -4,27 +4,27 @@ import { BriefcaseBusiness, Lightbulb, Palette, Rocket, Settings, Sparkles } fro
 const services = [
   {
     title: "Idea Clarity",
-    desc: "Get clear on what business to start, who it serves, and how to position it simply."
+    desc: "Get clear on your business idea, who it is for, and how to position it in a simple, confident way."
   },
   {
-    title: "Brand Setup",
-    desc: "We shape your name, brand direction, and overall look so your business feels legit from day one."
+    title: "Brand Direction",
+    desc: "We shape your brand direction so your business has a look and feel that feels clear, polished, and consistent."
   },
   {
     title: "Website Setup",
-    desc: "Launch with a clean landing page or starter website you can actually send to people."
+    desc: "Launch with a simple landing page or a multi-page website, depending on the level of support you need."
   },
   {
-    title: "Launch Plan",
-    desc: "Walk away with simple next steps so you know exactly what to do after setup."
+    title: "Audience + Offer Clarity",
+    desc: "Define your target audience, content direction, and offer structure so your business makes sense to the right people."
   },
   {
-    title: "Social Setup",
-    desc: "Set up your core pages and content direction when you're ready to start posting."
+    title: "Launch Planning",
+    desc: "Walk away with a practical launch plan, pricing guidance, and next steps so you know what to do after setup."
   },
   {
     title: "1:1 Support",
-    desc: "Get guided help so you are not trying to piece everything together alone."
+    desc: "Get guided support throughout the process so you are not trying to piece everything together on your own."
   }
 ];
 
@@ -37,12 +37,12 @@ const steps = [
   {
     num: "02",
     title: "We build the setup",
-    desc: "We help shape your brand, online presence, and business foundation step by step."
+    desc: "We help shape your brand, website, and business foundation based on the package that fits your stage."
   },
   {
     num: "03",
     title: "Launch with clarity",
-    desc: "You leave with a real setup, a plan, and a clear path to start getting moving."
+    desc: "You leave with a real setup, a launch plan, and clear next steps to start moving with confidence."
   }
 ];
 
@@ -72,12 +72,12 @@ const pageLinks = [
   {
     href: "/pricing",
     label: "Pricing",
-    desc: "Simple pricing for getting started with a clean, beginner-friendly package."
+    desc: "Choose between Starter and Growth based on how much setup, support, and online presence you need."
   },
   {
     href: "/contact",
     label: "Contact",
-    desc: "Reach out when you are ready to build it the right way with a clear setup and strong foundation."
+    desc: "Reach out when you are ready to choose your package and build your business with a clear, strong foundation."
   }
 ];
 
@@ -94,7 +94,7 @@ export function HomeHero() {
             Start your business the right way.
           </h1>
           <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:mt-6 sm:max-w-2xl sm:text-lg sm:leading-8">
-            We help beginners go from idea to a fully set-up business with branding, website setup, and a simple launch plan.
+            We help beginners go from idea to a clear, professional setup with brand direction, website support, and a launch plan through our Starter and Growth packages.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
@@ -152,7 +152,7 @@ export function HomePageLinks() {
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Explore</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Everything has its own page now.</h2>
         <p className="mt-4 text-lg text-neutral-600">
-          Browse services, workflow, how it works, pricing, and contact details in dedicated pages with the same clear StartFlow style.
+          Browse services, workflow, pricing, and contact details to see what is included in Starter and Growth and find the right fit for your business.
         </p>
       </div>
 
@@ -180,7 +180,7 @@ export function ServicesSection() {
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Services</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">What StartFlow helps you with.</h2>
         <p className="mt-4 text-lg text-neutral-600">
-          Everything is designed to help beginners get moving with clarity, structure, and a clean setup.
+          Everything is designed to help beginners move forward with clarity, structure, and the right level of setup for their stage.
         </p>
       </div>
 
@@ -207,7 +207,7 @@ export function WorkflowSection() {
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Workflow</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">From idea to launch, step-by-step.</h2>
         <p className="mt-4 text-lg text-neutral-600">
-          StartFlow is designed to simplify the entire process of starting a business. Instead of guessing what to do next, you follow a clear progression that takes you from an idea to something real.
+          StartFlow is designed to simplify the entire process of starting a business. Instead of guessing what to do next, you follow a clear progression from idea clarity to setup, support, and launch.
         </p>
       </div>
 
@@ -228,10 +228,10 @@ export function WorkflowSection() {
 
       <div className="mt-12 max-w-3xl text-neutral-600 leading-7">
         <p>
-          Everything starts with clarity. Once your idea is defined, we build your brand and structure so you have something real to work with. From there, we set up your online presence and give you a clear plan so you can move forward without second guessing yourself.
+          Everything starts with clarity. Once your idea is defined, we shape your brand direction, website setup, and business structure so you have something real to work with. From there, we map out the next steps based on whether Starter or Growth is the best fit for you.
         </p>
         <p className="mt-4">
-          The goal is not just to start a business, but to start it the right way, with a foundation that actually makes sense and is easy to build on.
+          The goal is not just to start a business, but to start it the right way, with a foundation that makes sense, feels polished, and is easier to build on.
         </p>
       </div>
     </section>
@@ -244,11 +244,11 @@ export function HowItWorksSection() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">A simple 3-step process.</h2>
-          <p className="mt-4 text-lg text-neutral-600">
-            No confusion, no fluff, and no trying to figure it all out on your own.
-          </p>
-        </div>
+        <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">A simple 3-step process.</h2>
+        <p className="mt-4 text-lg text-neutral-600">
+          No confusion, no fluff, and no trying to figure out which pieces you need on your own.
+        </p>
+      </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {steps.map((step) => (
@@ -371,27 +371,43 @@ export function ContactSection() {
     <section className="pb-24">
       <div className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-20 lg:px-8">
         <div className="rounded-[2rem] bg-neutral-950 px-8 py-14 text-white shadow-[0_25px_70px_rgba(0,0,0,0.18)] sm:px-12">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-400">Contact</p>
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-400">Next Step</p>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Ready to start your business?
+            Ready to turn your idea into a real business?
           </h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-neutral-300">
-            Let&apos;s build it the right way with a clear setup, strong foundation, and simple next steps.
+            StartFlow helps you move from idea to setup and launch with clear guidance, brand direction, website support, and a practical plan for what comes next.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="mailto:hello@startflow.co"
+            <Link
+              href="/contact"
               className="rounded-full bg-white px-7 py-3.5 text-center text-sm font-medium text-neutral-950 transition hover:opacity-90"
             >
-              Email StartFlow
-            </a>
-            <a
-              href="https://instagram.com/startflow.co"
-              className="rounded-full border border-white/25 px-7 py-3.5 text-center text-sm font-medium text-white transition hover:border-white/60"
-            >
-              DM on Instagram
-            </a>
+              Start My Business Setup
+            </Link>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function MinimalCtaSection() {
+  return (
+    <section className="pb-20">
+      <div className="mx-auto max-w-5xl px-5 pt-12 sm:px-6 sm:pt-16 lg:px-8">
+        <div className="flex flex-col items-start justify-between gap-5 rounded-[1.75rem] border border-neutral-200 bg-white px-6 py-6 shadow-[0_10px_35px_rgba(0,0,0,0.03)] sm:flex-row sm:items-center sm:px-8">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
+              Ready to get started?
+            </h2>
+          </div>
+          <Link
+            href="/contact"
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+          >
+            Start My Business Setup
+          </Link>
         </div>
       </div>
     </section>
