@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import {
   startFlowPackages,
-  type StartFlowPackageKey
+  type StartFlowPackageKey,
 } from "@/lib/startflow-packages";
 import { getStripe } from "@/lib/stripe";
 
@@ -18,33 +18,35 @@ function getSiteUrl() {
 }
 
 export async function POST(request: Request) {
-  const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-
-  if (!stripeSecretKey) {
-    return NextResponse.json(
-      { error: "Stripe is not configured on the server." },
-      { status: 500 }
-    );
-  }
-
-  const body = (await request.json().catch(() => null)) as
-    | { packageType?: string }
-    | null;
-
-  const packageType = body?.packageType as StartFlowPackageKey | undefined;
-
-  if (!packageType || !(packageType in startFlowPackages)) {
-    return NextResponse.json(
-      { error: "Invalid package selected." },
-      { status: 400 }
-    );
-  }
-
-  const pkg = startFlowPackages[packageType];
-  const siteUrl = getSiteUrl();
-  const stripe = getStripe();
-
   try {
+    const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
+    if (!stripeSecretKey) {
+      return NextResponse.json(
+        { error: "Stripe is not configured on the server." },
+        { status: 500 }
+      );
+    }
+
+    const body = (await request.json().catch(() => null)) as
+      | { packageType?: string }
+      | null;
+
+    const packageType = body?.packageType as
+      | StartFlowPackageKey
+      | undefined;
+
+    if (!packageType || !(packageType in startFlowPackages)) {
+      return NextResponse.json(
+        { error: "Invalid package selected." },
+        { status: 400 }
+      );
+    }
+
+    const pkg = startFlowPackages[packageType];
+    const siteUrl = getSiteUrl();
+    const stripe = getStripe();
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&package=${pkg.key}`,
@@ -58,18 +60,15 @@ export async function POST(request: Request) {
             unit_amount: pkg.priceCents,
             product_data: {
               name: `StartFlow ${pkg.name} Package`,
-              description: pkg.summary
-            }
-          }
-        }
+              description: pkg.summary,
+            },
+          },
+        },
       ],
       metadata: {
-        packageType: pkg.key
-      }
+        packageType: pkg.key,
+      },
     });
-
-    // Paid fulfillment should be finalized by a Stripe webhook after payment succeeds.
-    // The success page is only a user-facing confirmation and onboarding handoff.
 
     if (!session.url) {
       return NextResponse.json(
@@ -79,10 +78,16 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ url: session.url });
-  } catch (error) {
-    console.error("Stripe checkout session error", error);
+
+  } catch (error: any) {
+    console.error("Stripe checkout session error:", error);
+
     return NextResponse.json(
-      { error: "Unable to start secure checkout right now." },
+      {
+        error:
+          error?.message ||
+          "Unable to start secure checkout right now.",
+      },
       { status: 500 }
     );
   }
