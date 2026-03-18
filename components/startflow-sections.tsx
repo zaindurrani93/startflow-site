@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Lightbulb, Palette, Rocket, Settings } from "lucide-react";
+import { BriefcaseBusiness, Lightbulb, Palette, Rocket, Settings, Sparkles } from "lucide-react";
 
 const services = [
   {
@@ -275,77 +275,91 @@ export function PricingSection() {
         </p>
       </div>
 
-      <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
-        <div className="rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.18em] text-neutral-500">Starter</p>
-              <div className="mt-3 flex items-end gap-2">
-                <span className="text-5xl font-semibold tracking-tight">$299</span>
+      <div className="mx-auto mt-12 max-w-5xl rounded-[2.25rem] border border-[#e7dfd1] bg-[linear-gradient(180deg,#fffdf8_0%,#fbf6ec_100%)] p-5 shadow-[0_18px_60px_rgba(80,61,28,0.08)] sm:p-8">
+        <div className="grid gap-5 lg:grid-cols-2">
+          <div className="flex h-full flex-col rounded-[2rem] border border-[#ddd5c8] bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:p-8">
+            <div className="flex flex-col items-center text-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f6efe0] text-[#b89656]">
+                <BriefcaseBusiness size={28} />
               </div>
-              <p className="mt-4 max-w-lg text-neutral-600">
+              <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">$299</p>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">Starter</h3>
+              <p className="mt-4 text-base leading-7 text-neutral-600">
                 For beginners who want clarity, structure, and a clean starting point.
               </p>
+              <div className="mt-5 rounded-full bg-[#d8c48d] px-5 py-2 text-sm font-medium text-white shadow-sm">
+                Starting Package
+              </div>
             </div>
+
+            <ul className="mt-8 flex-1 space-y-3 text-sm leading-6 text-neutral-700">
+              {[
+                "Business idea clarity & positioning",
+                "Target audience definition",
+                "Brand direction",
+                "Simple landing page",
+                "Basic website structure",
+                "Launch plan",
+                "1:1 guidance"
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
             <Link
               href="/contact"
-              className="rounded-full bg-neutral-950 px-6 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
+              className="mt-8 inline-flex min-h-11 items-center justify-center rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 transition hover:border-neutral-950"
             >
-              Get Started
+              See Package
             </Link>
           </div>
 
-          <div className="mt-8 grid gap-4">
-            {[
-              "Business idea clarity",
-              "Brand direction",
-              "Simple landing page",
-              "Launch plan",
-              "1:1 guidance"
-            ].map((item) => (
-              <div key={item} className="rounded-2xl bg-neutral-50 px-4 py-4 text-sm text-neutral-700 ring-1 ring-neutral-100">
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-[2rem] border border-neutral-950 bg-white p-8 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:p-10">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-[0.18em] text-neutral-500">Growth</p>
-              <div className="mt-3 flex items-end gap-2">
-                <span className="text-5xl font-semibold tracking-tight">$499</span>
-              </div>
-              <p className="mt-4 max-w-lg text-neutral-600">
-                For people who want a more complete setup and stronger brand presence.
-              </p>
-            </div>
-            <div className="rounded-full bg-neutral-950 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white">
+          <div className="relative flex h-full flex-col rounded-[2rem] border border-[#d7cae6] bg-white p-7 shadow-[0_14px_34px_rgba(102,78,130,0.10)] ring-1 ring-[#e9e0f3] sm:p-8">
+            <div className="absolute right-5 top-5 rounded-full bg-[#b7aadf] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white">
               Most Popular
             </div>
-          </div>
 
-          <div className="mt-8 grid gap-4">
-            {[
-              "Everything in Starter",
-              "Multi-page website",
-              "Social media setup",
-              "Brand polish",
-              "Stronger launch support"
-            ].map((item) => (
-              <div key={item} className="rounded-2xl bg-neutral-50 px-4 py-4 text-sm text-neutral-700 ring-1 ring-neutral-100">
-                {item}
+            <div className="flex flex-col items-center text-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f1edfb] text-[#8e79be]">
+                <Sparkles size={28} />
               </div>
-            ))}
-          </div>
+              <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">$499</p>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">Growth</h3>
+              <p className="mt-4 max-w-md text-base leading-7 text-neutral-600">
+                For people who want a more complete setup and stronger brand presence.
+              </p>
+              <div className="mt-5 rounded-full bg-[#b7aadf] px-5 py-2 text-sm font-medium text-white shadow-sm">
+                Premium Package
+              </div>
+            </div>
 
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex rounded-full bg-neutral-950 px-6 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
-          >
-            Get Started
-          </Link>
+            <ul className="mt-8 flex-1 space-y-3 text-sm leading-6 text-neutral-700">
+              {[
+                "Everything in Starter",
+                "Multi-page website",
+                "Social media setup",
+                "Content direction",
+                "Offer/pricing guidance",
+                "Launch strategy",
+                "Priority support"
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#8e79be]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href="/contact"
+              className="mt-8 inline-flex min-h-11 items-center justify-center rounded-xl border border-[#b7aadf] bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 transition hover:border-[#8e79be]"
+            >
+              See Package
+            </Link>
+          </div>
         </div>
       </div>
     </section>
