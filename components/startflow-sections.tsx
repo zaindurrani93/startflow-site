@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness, Lightbulb, Palette, Rocket, Settings, Sparkles } from "lucide-react";
+import { WorkflowFlow } from "@/components/workflow-flow";
 
 const services = [
   {
@@ -211,20 +212,7 @@ export function WorkflowSection() {
         </p>
       </div>
 
-      <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-        {workflowItems.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <div key={item.label} className="flex items-center gap-4">
-              <div className="flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-4 text-sm font-medium text-neutral-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md">
-                <Icon size={18} />
-                {item.label}
-              </div>
-              {index < 3 && <div className="hidden text-xl text-neutral-300 sm:block">-&gt;</div>}
-            </div>
-          );
-        })}
-      </div>
+      <WorkflowFlow />
 
       <div className="mt-12 max-w-3xl text-neutral-600 leading-7">
         <p>
