@@ -151,9 +151,9 @@ export async function POST(request: Request) {
 
    const { error } = await resend.emails.send({
   from: "StartFlow <onboarding@resend.dev>",
-  to: "zaindurrani93@gmail.com", // FORCE your email
-  subject: "TEST EMAIL",
-  html: "<p>This is a test email</p>",
+  to: "zaindurrani93@gmail.com",
+  subject: "STARTFLOW HARDCODED EMAIL TEST 123",
+  html: "<p>Hardcoded test from onboarding route.</p>",
 });
 
     if (error) {
@@ -167,7 +167,7 @@ export async function POST(request: Request) {
         fromEmail: emailConfig.fromEmail
       });
 
-      return NextResponse.json(
+     return NextResponse.json({ ok: true, message: "HARDCODED EMAIL TEST RAN" });
         { error: `Unable to send onboarding email: ${errorMessage}` },
         { status: 500 }
       );
