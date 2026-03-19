@@ -3,9 +3,8 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-type OnboardingRequestBody = {
+type OnboardingBody = {
   fullName?: string;
-  name?: string;
   email?: string;
   phone?: string;
   businessName?: string;
@@ -18,117 +17,98 @@ type OnboardingRequestBody = {
   preferredCommunication?: string;
   anythingElse?: string;
   packageType?: string;
-  sessionId?: string;
 };
 
-function extractEmailAddress(value: string) {
-  const trimmedValue = value.trim();
-  const match = trimmedValue.match(/<([^<>]+)>/);
-
-  return match ? match[1].trim() : trimmedValue;
+function clean(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
 }
 
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(extractEmailAddress(value));
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function formatValue(value?: string) {
-  return value && value.trim() ? escapeHtml(value.trim()) : "Not provided";
+function formatValue(value: unknown) {
+  const cleaned = clean(value);
+  return cleaned || "N/A";
 }
 
 function getErrorMessage(error: unknown) {
-  if (error instanceof Error && error.message) {
-    return error.message;
-  }
+  if (error instanceof Error) return error.message;
 
-  if (typeof error === "object" && error !== null && "message" in error) {
-    const message = (error as { message?: unknown }).message;
-    if (typeof message === "string" && message) {
-      return message;
-    }
+  if (
+    error &&
+    typeof error === "object" &&
+    "message" in error &&
+    typeof (error as { message?: unknown }).message === "string"
+  ) {
+    return (error as { message: string }).message;
   }
 
   return "Unknown error";
 }
 
-function getEmailConfig() {
-  const resendApiKey = process.env.RESEND_API_KEY?.trim() ?? "";
-  const toEmail = process.env.CONTACT_TO_EMAIL?.trim() ?? "";
-  const fromEmail = process.env.CONTACT_FROM_EMAIL?.trim() ?? "";
-
-  if (!resendApiKey || !toEmail || !fromEmail) {
-    return {
-      error: "Missing email configuration on the server.",
-      status: 500 as const
-    };
-  }
-
-  if (!isValidEmail(toEmail)) {
-    return {
-      error: "CONTACT_TO_EMAIL is not a valid email address.",
-      status: 500 as const
-    };
-  }
-
-  if (!isValidEmail(fromEmail)) {
-    return {
-      error:
-        "CONTACT_FROM_EMAIL must be a valid email address or use the format \"Name <email@example.com>\".",
-      status: 500 as const
-    };
-  }
-
-  return { resendApiKey, toEmail, fromEmail };
-}
-
 export async function POST(request: Request) {
-  const emailConfig = getEmailConfig();
-
-  if ("error" in emailConfig) {
-    console.error("Onboarding email configuration error:", emailConfig.error);
-
-    return NextResponse.json(
-      { error: emailConfig.error },
-      { status: emailConfig.status }
-    );
-  }
-
   try {
-    const body = (await request.json().catch(() => null)) as OnboardingRequestBody | null;
+    const resendApiKey = clean(process.env.RESEND_API_KEY);
+    const fromEmail = clean(process.env.CONTACT_FROM_EMAIL);
 
-    if (!body) {
-      return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+    if (!resendApiKey || !fromEmail) {
+      return NextResponse.json(
+        { error: "Missing email configuration on the server." },
+        { status: 500 }
+      );
     }
 
-    const fullName = body.fullName?.trim() || body.name?.trim() || "";
-    const customerEmail = body.email?.trim().toLowerCase() || "";
+    const resend = new Resend(resendApiKey);
 
-    const resend = new Resend(emailConfig.resendApiKey);
+    const rawBody = (await request.json().catch(() => null)) as OnboardingBody | null;
+
+    if (!rawBody) {
+      return NextResponse.json(
+        { error: "Invalid onboarding submission." },
+        { status: 400 }
+      );
+    }
+
+    const body = {
+      fullName: clean(rawBody.fullName),
+      email: clean(rawBody.email),
+      phone: clean(rawBody.phone),
+      businessName: clean(rawBody.businessName),
+      businessType: clean(rawBody.businessType),
+      websiteOrSocial: clean(rawBody.websiteOrSocial),
+      whatBuilding: clean(rawBody.whatBuilding),
+      currentStage: clean(rawBody.currentStage),
+      helpNeeded: clean(rawBody.helpNeeded),
+      mainGoal: clean(rawBody.mainGoal),
+      preferredCommunication: clean(rawBody.preferredCommunication),
+      anythingElse: clean(rawBody.anythingElse),
+      packageType: clean(rawBody.packageType),
+    };
+
+    if (
+      !body.fullName ||
+      !body.email ||
+      !body.businessType ||
+      !body.whatBuilding ||
+      !body.currentStage ||
+      !body.helpNeeded ||
+      !body.mainGoal ||
+      !body.preferredCommunication
+    ) {
+      return NextResponse.json(
+        { error: "Please complete all required onboarding fields." },
+        { status: 400 }
+      );
+    }
 
     const html = `
-      <div style="font-family: Arial, Helvetica, sans-serif; color: #171717; line-height: 1.6;">
-        <h2 style="margin-bottom: 20px;">New StartFlow Onboarding Submission</h2>
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
+        <h2>New StartFlow Onboarding Submission</h2>
 
-        <p><strong>Name:</strong> ${formatValue(fullName)}</p>
-        <p><strong>Email:</strong> ${formatValue(customerEmail)}</p>
-        <p><strong>Phone:</strong> ${formatValue(body.phone)}</p>
         <p><strong>Package:</strong> ${formatValue(body.packageType)}</p>
-        <p><strong>Stripe Session:</strong> ${formatValue(body.sessionId)}</p>
-
-        <hr />
-
+        <p><strong>Full Name:</strong> ${formatValue(body.fullName)}</p>
+        <p><strong>Email:</strong> ${formatValue(body.email)}</p>
+        <p><strong>Phone:</strong> ${formatValue(body.phone)}</p>
         <p><strong>Business Name:</strong> ${formatValue(body.businessName)}</p>
         <p><strong>Business Type:</strong> ${formatValue(body.businessType)}</p>
-        <p><strong>Website / Social:</strong> ${formatValue(body.websiteOrSocial)}</p>
+        <p><strong>Website or Social Link:</strong> ${formatValue(body.websiteOrSocial)}</p>
 
         <p><strong>What are they building?</strong></p>
         <p style="white-space: pre-wrap;">${formatValue(body.whatBuilding)}</p>
@@ -136,25 +116,27 @@ export async function POST(request: Request) {
         <p><strong>Current Stage:</strong></p>
         <p style="white-space: pre-wrap;">${formatValue(body.currentStage)}</p>
 
-        <p><strong>What do they need help with?</strong></p>
+        <p><strong>What do they need the most help with right now?</strong></p>
         <p style="white-space: pre-wrap;">${formatValue(body.helpNeeded)}</p>
 
-        <p><strong>Main goal (30-60 days):</strong></p>
+        <p><strong>Main goal for the next 30–60 days:</strong></p>
         <p style="white-space: pre-wrap;">${formatValue(body.mainGoal)}</p>
 
-        <p><strong>Preferred communication:</strong> ${formatValue(body.preferredCommunication)}</p>
+        <p><strong>Preferred communication method:</strong> ${formatValue(body.preferredCommunication)}</p>
 
-        <p><strong>Anything else:</strong></p>
+        <p><strong>Anything else we should know?</strong></p>
         <p style="white-space: pre-wrap;">${formatValue(body.anythingElse)}</p>
       </div>
     `;
 
-   const { error } = await resend.emails.send({
-  from: "StartFlow <onboarding@resend.dev>",
-  to: "zaindurrani93@gmail.com",
-  subject: "STARTFLOW HARDCODED EMAIL TEST 123",
-  html: "<p>Hardcoded test from onboarding route.</p>",
-});
+    // TEMP DEBUG: hardcoded recipient so we can isolate Resend behavior
+    const { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: "zaindurrani93@gmail.com",
+      subject: "STARTFLOW HARDCODED EMAIL TEST 123",
+      html,
+      replyTo: body.email,
+    });
 
     if (error) {
       const errorMessage = getErrorMessage(error);
@@ -162,28 +144,31 @@ export async function POST(request: Request) {
       console.error("Resend onboarding email error:", {
         message: errorMessage,
         error,
-        onboardingEmail: customerEmail,
-        toEmail: emailConfig.toEmail,
-        fromEmail: emailConfig.fromEmail
+        fromEmail,
+        onboardingEmail: body.email,
       });
 
-     return NextResponse.json({ ok: true, message: "HARDCODED EMAIL TEST RAN" });
+      return NextResponse.json(
         { error: `Unable to send onboarding email: ${errorMessage}` },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ ok: true, id: data?.id });
+    return NextResponse.json({
+      ok: true,
+      message: "Email sent successfully",
+      id: data?.id,
+    });
   } catch (error: unknown) {
     const errorMessage = getErrorMessage(error);
 
     console.error("Onboarding route error:", {
       message: errorMessage,
-      error
+      error,
     });
 
     return NextResponse.json(
-      { error: `Onboarding request failed: ${errorMessage}` },
+      { error: `DEBUG: NEW ONBOARDING ROUTE IS LIVE - ${errorMessage}` },
       { status: 500 }
     );
   }
