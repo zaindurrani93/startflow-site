@@ -149,13 +149,12 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    const { data, error } = await resend.emails.send({
-      from: emailConfig.fromEmail,
-      to: emailConfig.toEmail,
-      replyTo: isValidEmail(customerEmail) ? customerEmail : undefined,
-      subject: `New StartFlow client onboarding: ${fullName || "New client"}`,
-      html
-    });
+   const { error } = await resend.emails.send({
+  from: "StartFlow <onboarding@resend.dev>",
+  to: "zaindurrani93@gmail.com", // FORCE your email
+  subject: "TEST EMAIL",
+  html: "<p>This is a test email</p>",
+});
 
     if (error) {
       const errorMessage = getErrorMessage(error);
