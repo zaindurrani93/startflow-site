@@ -46,9 +46,8 @@ function getErrorMessage(error: unknown) {
 export async function POST(request: Request) {
   try {
     const resendApiKey = clean(process.env.RESEND_API_KEY);
-    const fromEmail = clean(process.env.CONTACT_FROM_EMAIL);
 
-    if (!resendApiKey || !fromEmail) {
+    if (!resendApiKey) {
       return NextResponse.json(
         { error: "Missing email configuration on the server." },
         { status: 500 }
@@ -129,9 +128,8 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    // TEMP DEBUG: hardcoded recipient so we can isolate Resend behavior
     const { data, error } = await resend.emails.send({
-      from: fromEmail,
+      from: "onboarding@resend.dev",
       to: "zaindurrani93@gmail.com",
       subject: "STARTFLOW HARDCODED EMAIL TEST 123",
       html,
@@ -144,7 +142,6 @@ export async function POST(request: Request) {
       console.error("Resend onboarding email error:", {
         message: errorMessage,
         error,
-        fromEmail,
         onboardingEmail: body.email,
       });
 
