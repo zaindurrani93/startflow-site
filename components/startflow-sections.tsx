@@ -84,36 +84,37 @@ const pageLinks = [
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden border-b border-neutral-200">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_35%)]" />
-      <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h1 className="max-w-2xl text-4xl sm:text-5xl font-semibold tracking-tight">
-            Simplicity starts here.
-          </h1>
-          <p className="mt-5 max-w-xl text-base sm:text-lg leading-7 text-neutral-600">
-            Turn your idea into a clean, professional system — without the confusion.
-            <br className="hidden sm:block" />
-            We simplify everything so you can focus on growing your business.
-          </p>
-       <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center">
-  <Link
-      href="/contact"
-      className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800 transition-all duration-200"
-  >
-    Start Now
-  </Link>
+  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.06),_transparent_55%)]" />
+  <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+    <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+      <h1 className="max-w-2xl text-4xl sm:text-5xl font-semibold tracking-tight">
+        Simplicity starts here.
+      </h1>
 
-  <Link
-    href="/services"
-    className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-black hover:bg-neutral-100 transition-all duration-200"
-  >
-    View Services
-  </Link>
-</div>
-          </div>
-        </div>
+      <p className="mt-5 max-w-xl text-base sm:text-lg leading-7 text-neutral-600">
+        Turn your idea into a clean, professional system — without the confusion.
+        <br className="hidden sm:block" />
+        We simplify everything so you can focus on growing your business.
+      </p>
+
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center">
+        <Link
+          href="/contact"
+          className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800 transition-all duration-200"
+        >
+          Start Now
+        </Link>
+
+        <Link
+          href="/services"
+          className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-black hover:bg-neutral-100 transition-all duration-200"
+        >
+          View Services
+        </Link>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }
 
