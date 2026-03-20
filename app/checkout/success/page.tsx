@@ -43,19 +43,19 @@ export default async function CheckoutSuccessPage({
               <CheckCircle2 size={28} />
             </div>
             <p className="mt-6 text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-              Payment Received
+              Payment Confirmed
             </p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
-              You're officially in.
+              Welcome to StartFlow — your setup starts now
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-neutral-600">
-              Thank you for your payment. Your StartFlow package is confirmed, and your onboarding can begin right away.
+              Your package has been confirmed. Complete the short onboarding form below so we can review your business, prepare your setup, and map out the right next steps.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-4">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                  Package
+                  Selected Package
                 </p>
                 <p className="mt-2 text-base font-semibold text-neutral-950">
                   {pkg?.name ?? "Confirmed"}
@@ -63,18 +63,39 @@ export default async function CheckoutSuccessPage({
               </div>
               <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-4">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                  Payment Status
+                  Status
                 </p>
                 <p className="mt-2 text-base font-semibold capitalize text-neutral-950">
                   {paymentStatus}
                 </p>
               </div>
-              <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-4">
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-[1.75rem] border border-neutral-200 bg-white px-6 py-5 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:px-8">
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-4 py-4">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                  Session ID
+                  Step 1
                 </p>
-                <p className="mt-2 truncate text-base font-semibold text-neutral-950">
-                  {sessionId || "Unavailable"}
+                <p className="mt-2 text-base font-semibold text-neutral-950">
+                  Payment confirmed
+                </p>
+              </div>
+              <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-4 py-4">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                  Step 2
+                </p>
+                <p className="mt-2 text-base font-semibold text-neutral-950">
+                  Complete onboarding
+                </p>
+              </div>
+              <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-4 py-4">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                  Step 3
+                </p>
+                <p className="mt-2 text-base font-semibold text-neutral-950">
+                  We review and follow up
                 </p>
               </div>
             </div>

@@ -102,12 +102,14 @@ export function PaidOnboardingForm({
     <div className="mt-10 rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-          Paid Client Intake
+          Next Step
         </p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-          Let's get your onboarding started.
+          Complete your onboarding
         </h2>
-        <p className="mt-4 text-lg leading-8 text-neutral-600">{introText}</p>
+        <p className="mt-4 text-lg leading-8 text-neutral-600">
+          Share a few details about your business, goals, and current stage so we can prepare your setup and guide you through the next steps clearly.
+        </p>
       </div>
 
       {isSubmitted ? (
@@ -116,7 +118,7 @@ export function PaidOnboardingForm({
             Intake submitted.
           </h3>
           <p className="mt-3 max-w-2xl text-base leading-7 text-neutral-600">
-            Thanks - your onboarding details were sent. We'll review everything and follow up with your next steps shortly.
+            Thanks — your onboarding details were received. We’ll review everything and follow up soon with your next steps.
           </p>
         </div>
       ) : (
@@ -242,6 +244,10 @@ export function PaidOnboardingForm({
               {submitError}
             </p>
           ) : null}
+
+          <p className="text-sm leading-7 text-neutral-500">
+            Once submitted, we&apos;ll review your details and follow up with your next-step guidance.
+          </p>
 
           <button
             type="submit"

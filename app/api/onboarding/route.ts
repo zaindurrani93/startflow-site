@@ -46,8 +46,9 @@ function getErrorMessage(error: unknown) {
 export async function POST(request: Request) {
   try {
     const resendApiKey = clean(process.env.RESEND_API_KEY);
+    const toEmail = clean(process.env.CONTACT_TO_EMAIL);
 
-    if (!resendApiKey) {
+    if (!resendApiKey || !toEmail) {
       return NextResponse.json(
         { error: "Missing email configuration on the server." },
         { status: 500 }
@@ -130,8 +131,8 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "zaindurrani93@gmail.com",
-      subject: "STARTFLOW HARDCODED EMAIL TEST 123",
+      to: toEmail,
+      subject: `New StartFlow Onboarding - ${body.fullName}`,
       html,
       replyTo: body.email,
     });
@@ -142,6 +143,7 @@ export async function POST(request: Request) {
       console.error("Resend onboarding email error:", {
         message: errorMessage,
         error,
+        toEmail,
         onboardingEmail: body.email,
       });
 
@@ -153,7 +155,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       ok: true,
-      message: "Email sent successfully",
+      message: "Onboarding details sent successfully.",
       id: data?.id,
     });
   } catch (error: unknown) {
@@ -165,7 +167,7 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(
-      { error: `DEBUG: NEW ONBOARDING ROUTE IS LIVE - ${errorMessage}` },
+      { error: `Unable to process onboarding submission: ${errorMessage}` },
       { status: 500 }
     );
   }
