@@ -87,25 +87,29 @@ export function HomeHero() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_35%)]" />
       <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-2xl text-4xl sm:text-5xl font-semibold tracking-tight">
             Simplicity starts here.
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:mt-6 sm:max-w-2xl sm:text-lg sm:leading-8">
-            We help beginners go from idea to a clear, professional setup — with brand direction, website support, and a launch plan built for real progress.
+          <p className="mt-5 max-w-xl text-base sm:text-lg leading-7 text-neutral-600">
+            Turn your idea into a clean, professional system — without the confusion.
+            <br className="hidden sm:block" />
+            We simplify everything so you can focus on growing your business.
           </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="pointer-events-auto min-h-12 rounded-full bg-neutral-950 px-7 py-3.5 text-center text-sm font-medium text-white shadow-sm transition hover:opacity-90"
-            >
-              Start Now
-            </Link>
-            <Link
-              href="/services"
-              className="pointer-events-auto min-h-12 rounded-full border border-neutral-300 px-7 py-3.5 text-center text-sm font-medium text-neutral-800 transition hover:border-neutral-950 hover:text-neutral-950"
-            >
-              View Services
-            </Link>
+       <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center">
+  <Link
+      href="/contact"
+      className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800 transition-all duration-200"
+  >
+    Start Now
+  </Link>
+
+  <Link
+    href="/services"
+    className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-black hover:bg-neutral-100 transition-all duration-200"
+  >
+    View Services
+  </Link>
+</div>
           </div>
         </div>
       </div>
