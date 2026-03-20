@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness, Lightbulb, Palette, Rocket, Settings, Sparkles } from "lucide-react";
-import { WorkflowFlow } from "@/components/workflow-flow";
 
 const services = [
   {
@@ -32,18 +31,23 @@ const services = [
 const steps = [
   {
     num: "01",
-    title: "Tell us your idea",
-    desc: "Share what you want to build, where you're stuck, and what kind of business you want to start."
+    title: "Choose Your Package",
+    desc: "Select the plan that fits your current stage. We’ll handle the rest."
   },
   {
     num: "02",
-    title: "We build the setup",
-    desc: "We help shape your brand, website, and business foundation based on the package that fits your stage."
+    title: "Complete Onboarding",
+    desc: "Answer a few simple questions so we understand your business and goals."
   },
   {
     num: "03",
-    title: "Launch with clarity",
-    desc: "You leave with a real setup, a launch plan, and clear next steps to start moving with confidence."
+    title: "Strategy & Setup",
+    desc: "We take your inputs and turn them into a clear strategy and setup."
+  },
+  {
+    num: "04",
+    title: "Execution & Growth",
+    desc: "We execute, refine, and support you as you move forward with confidence."
   }
 ];
 
@@ -66,11 +70,6 @@ const pageLinks = [
     desc: "Follow a clear progression that takes you from an idea to something real."
   },
   {
-    href: "/how-it-works",
-    label: "How It Works",
-    desc: "A simple 3-step process with no confusion, no fluff, and no trying to figure it all out alone."
-  },
-  {
     href: "/pricing",
     label: "Pricing",
     desc: "Choose between Starter and Growth based on how much setup, support, and online presence you need."
@@ -88,14 +87,11 @@ export function HomeHero() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_35%)]" />
       <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <div className="mb-5 inline-flex w-fit items-center rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-xs text-neutral-700 sm:mb-6 sm:text-sm">
-            Beginner-friendly business setup service
-          </div>
           <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
-            Start your business the right way.
+            Simplicity starts here.
           </h1>
           <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:mt-6 sm:max-w-2xl sm:text-lg sm:leading-8">
-            We help beginners go from idea to a clear, professional setup with brand direction, website support, and a launch plan through our Starter and Growth packages.
+            We help beginners go from idea to a clear, professional setup — with brand direction, website support, and a launch plan built for real progress.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
@@ -201,44 +197,19 @@ export function ServicesSection() {
   );
 }
 
-export function WorkflowSection() {
-  return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-      <div className="max-w-2xl">
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Workflow</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">From idea to launch, step-by-step.</h2>
-        <p className="mt-4 text-lg text-neutral-600">
-          StartFlow is designed to simplify the entire process of starting a business. Instead of guessing what to do next, you follow a clear progression from idea clarity to setup, support, and launch.
-        </p>
-      </div>
-
-      <WorkflowFlow />
-
-      <div className="mt-12 max-w-3xl text-neutral-600 leading-7">
-        <p>
-          Everything starts with clarity. Once your idea is defined, we shape your brand direction, website setup, and business structure so you have something real to work with. From there, we map out the next steps based on whether Starter or Growth is the best fit for you.
-        </p>
-        <p className="mt-4">
-          The goal is not just to start a business, but to start it the right way, with a foundation that makes sense, feels polished, and is easier to build on.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 export function HowItWorksSection() {
   return (
     <section className="border-y border-neutral-200 bg-neutral-50/70">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">A simple 3-step process.</h2>
-        <p className="mt-4 text-lg text-neutral-600">
-          No confusion, no fluff, and no trying to figure out which pieces you need on your own.
-        </p>
-      </div>
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Workflow</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">We make it simple — from start to execution</h2>
+          <p className="mt-4 text-lg text-neutral-600">
+            No guesswork, no overwhelm. Just a clear, guided path to move your business forward.
+          </p>
+        </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {steps.map((step) => (
             <div key={step.num} className="rounded-[1.75rem] border border-neutral-200 bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
               <div className="text-sm font-medium tracking-[0.2em] text-neutral-500">{step.num}</div>
@@ -247,6 +218,10 @@ export function HowItWorksSection() {
             </div>
           ))}
         </div>
+
+        <p className="mt-8 text-sm leading-7 text-neutral-500">
+          You focus on your business — we handle the structure, strategy, and direction.
+        </p>
       </div>
     </section>
   );
