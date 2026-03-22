@@ -374,7 +374,7 @@ export function PricingSection() {
 
             <Link
               href="/checkout/growth"
-              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[#2563eb] bg-[#2563eb] px-5 py-3 text-center text-sm font-medium text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#1d4ed8] hover:bg-[#1d4ed8] hover:shadow-md"
+              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-black shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-950 hover:bg-neutral-100 hover:shadow-md"
             >
               Select Package
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
