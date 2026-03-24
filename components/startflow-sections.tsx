@@ -57,7 +57,7 @@ const steps = [
   {
     num: "01",
     title: "Choose Your Package",
-    desc: "Select the plan that fits your current stage. We'll handle the rest."
+    desc: "Select the plan that fits your current stage. We’ll handle the rest."
   },
   {
     num: "02",
@@ -112,39 +112,39 @@ const pageLinks = [
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden border-b border-neutral-200">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 to-transparent" />
-      <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-            Simplicity starts here.
-          </h1>
+  <section className="relative overflow-hidden border-b border-neutral-200">
+    <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 to-transparent" />
+    <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Simplicity starts here.
+        </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:text-lg">
-            Turn your idea into a clean, professional system - without the confusion.
-            <br className="hidden sm:block" />
-            We simplify everything so you can focus on growing your business.
-          </p>
+        <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:text-lg">
+          Turn an idea into a clean, professional system — without the confusion.
+          <br className="hidden sm:block" />
+          We simplify the process so our clients can focus on growing there business.
+        </p>
 
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-neutral-800"
-            >
-              Start Now
-            </Link>
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center">
+          <Link
+            href="/contact"
+            className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-neutral-800"
+          >
+            Start Now
+          </Link>
 
-            <Link
-              href="/services"
-              className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-black transition-all duration-200 hover:bg-neutral-100"
-            >
-              View Services
-            </Link>
-          </div>
+          <Link
+            href="/services"
+            className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-black transition-all duration-200 hover:bg-neutral-100"
+          >
+            View Services
+          </Link>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }
 
 export function WorkflowStrip() {
@@ -167,7 +167,7 @@ export function WorkflowStrip() {
                     </span>
                     {item.label}
                   </Link>
-                  {index < 3 ? <div className="hidden h-[1px] w-10 bg-[#dcc9a1] sm:block" /> : null}
+                  {index < 3 && <div className="hidden h-[1px] w-10 bg-[#dcc9a1] sm:block" />}
                 </div>
               );
             })}
@@ -250,7 +250,6 @@ export function HowItWorksSection() {
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">We make it simple - from start to execution</h2>
           <p className="mt-4 text-lg text-neutral-600">
-            No guesswork, no overwhelm. Just a clear, guided path to move your business forward.
           </p>
         </div>
 
@@ -258,10 +257,7 @@ export function HowItWorksSection() {
           <div className="absolute left-0 right-0 top-9 hidden h-px bg-[#dcc9a1] xl:block" />
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {steps.map((step, index) => (
-              <div
-                key={step.num}
-                className="relative rounded-[1.9rem] border border-neutral-200 bg-white p-7 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
-              >
+              <div key={step.num} className="relative rounded-[1.9rem] border border-neutral-200 bg-white p-7 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]">
                 <div className="relative z-10 flex items-center">
                   <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-500">
                     Step {index + 1}
@@ -289,23 +285,23 @@ export function PricingSection() {
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Pricing</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Simple pricing for getting started.</h2>
         <p className="mt-4 text-lg text-neutral-600">
-          Start with a clean, beginner-friendly package designed to help you move from idea to launch with clarity.
+          Choose the level of support that matches your stage, with a clear path from setup to momentum.
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-5xl rounded-[2.25rem] border border-[#e7dfd1] bg-[linear-gradient(180deg,#fffdf8_0%,#fbf6ec_100%)] p-5 shadow-[0_18px_60px_rgba(80,61,28,0.08)] sm:p-8">
+      <div className="mx-auto mt-12 max-w-5xl rounded-[2.25rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdf9_0%,#faf7f1_100%)] p-5 shadow-[0_22px_70px_rgba(80,61,28,0.08)] sm:p-8">
         <div className="grid gap-5 lg:grid-cols-2">
-          <div className="flex h-full flex-col rounded-[2rem] border border-[#ddd5c8] bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)] sm:p-8">
+          <div className="flex h-full flex-col rounded-[2rem] border border-neutral-200 bg-white p-7 shadow-[0_14px_34px_rgba(17,24,39,0.05)] sm:p-8">
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f6efe0] text-[#b89656]">
+              <div className={`flex h-14 w-14 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                 <BriefcaseBusiness size={28} />
               </div>
-              <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">Starting at $299</p>
+              <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">$299</p>
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">Starter</h3>
               <p className="mt-4 text-base leading-7 text-neutral-600">
                 For beginners who want clarity, structure, and a clean starting point.
               </p>
-              <div className="mt-5 rounded-full bg-[#d8c48d] px-5 py-2 text-sm font-medium text-white shadow-sm">
+              <div className="mt-5 rounded-full bg-[#b89656] px-5 py-2 text-sm font-medium text-white shadow-sm">
                 Starting Package
               </div>
             </div>
@@ -329,23 +325,23 @@ export function PricingSection() {
 
             <Link
               href="/checkout/starter"
-              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-950 hover:bg-neutral-50 hover:shadow-md"
+              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-950 hover:shadow-md"
             >
               Select Package
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
-          <div className="relative flex h-full flex-col rounded-[2rem] border border-[#d7cae6] bg-white p-7 shadow-[0_14px_34px_rgba(102,78,130,0.10)] ring-1 ring-[#e9e0f3] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_44px_rgba(102,78,130,0.14)] sm:p-8">
-            <div className="absolute right-5 top-5 rounded-full bg-[#b7aadf] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white">
+          <div className={`relative flex h-full flex-col rounded-[2rem] border bg-white p-7 shadow-[0_18px_40px_rgba(80,61,28,0.10)] ring-1 sm:p-8 ${accent.border} ${accent.ring}`}>
+            <div className="absolute right-5 top-5 rounded-full bg-[#b89656] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white">
               Most Popular
             </div>
 
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f1edfb] text-[#8e79be]">
+              <div className={`flex h-14 w-14 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                 <Sparkles size={28} />
               </div>
-              <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">Starting at $499</p>
+              <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">$499</p>
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">Growth</h3>
               <p className="mt-4 max-w-md text-base leading-7 text-neutral-600">
                 For people who want a more complete setup and stronger brand presence.
@@ -366,7 +362,7 @@ export function PricingSection() {
                 "Priority support"
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#8e79be]" />
+                  <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -374,7 +370,7 @@ export function PricingSection() {
 
             <Link
               href="/checkout/growth"
-              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-black shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-950 hover:bg-neutral-100 hover:shadow-md"
+              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[#b89656] bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition hover:-translate-y-0.5 hover:border-[#8f6a2f] hover:shadow-md"
             >
               Select Package
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
