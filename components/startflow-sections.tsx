@@ -110,29 +110,6 @@ const pageLinks = [
   }
 ];
 
-const whyStartFlowItems = [
-  {
-    title: "Clarity First",
-    icon: Lightbulb,
-    desc: "We simplify the process so you always know what matters most and what comes next."
-  },
-  {
-    title: "Guided Support",
-    icon: CheckCircle2,
-    desc: "You get thoughtful guidance throughout the process instead of trying to figure it out alone."
-  },
-  {
-    title: "Built for Beginners",
-    icon: BriefcaseBusiness,
-    desc: "Everything is designed for people starting from scratch and wanting a clean, professional setup."
-  },
-  {
-    title: "Launch-Ready",
-    icon: Rocket,
-    desc: "Our focus is building real momentum so your business feels polished and ready to move forward."
-  }
-];
-
 export function HomeHero() {
   return (
   <section className="relative overflow-hidden border-b border-neutral-200">
@@ -231,53 +208,6 @@ export function HomePageLinks() {
             <p className="mt-3 leading-7 text-neutral-600">{item.desc}</p>
           </Link>
         ))}
-      </div>
-    </section>
-  );
-}
-
-export function WhyStartFlow() {
-  return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-      <div className="max-w-2xl">
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Why StartFlow</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-          A simpler way to build with confidence.
-        </h2>
-        <p className="mt-4 text-lg text-neutral-600">
-          StartFlow is built to make early business setup feel clear, supported, and professionally guided.
-        </p>
-      </div>
-
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {whyStartFlowItems.map((item) => (
-          <div
-            key={item.title}
-            className="group rounded-[1.85rem] border border-neutral-200 bg-white p-6 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
-          >
-            <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
-              <item.icon size={20} />
-            </div>
-            <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.title}</h3>
-            <p className="mt-3 leading-7 text-neutral-600">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-export function AboutStartFlow() {
-  return (
-    <section className="border-y border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f8f6f1_100%)]">
-      <div className="mx-auto max-w-4xl px-5 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-          Professional guidance for the earliest stage of growth.
-        </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-neutral-600">
-          StartFlow helps beginners move from idea to structured execution with clear direction, thoughtful support, and a setup that feels ready to grow.
-        </p>
       </div>
     </section>
   );
@@ -504,6 +434,78 @@ export function MinimalCtaSection() {
             Start My Business Setup
           </Link>
         </div>
+      </div>
+    </section>
+  );
+}
+export function WhyStartFlow() {
+  return (
+    <section className="border-b border-neutral-200 bg-white">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-medium text-blue-600 mb-2">
+            Why StartFlow
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+            Built to simplify your journey
+          </h2>
+          <p className="mt-4 text-sm text-neutral-600">
+            We don’t just build — we simplify, structure, and guide you from idea to execution.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+          {[
+            {
+              title: "Clarity First",
+              desc: "We turn confusion into a clear, structured plan you can actually follow."
+            },
+            {
+              title: "Guided Support",
+              desc: "You’re not left guessing — we guide you every step of the way."
+            },
+            {
+              title: "Built for Beginners",
+              desc: "No jargon, no overwhelm — just a clean path forward."
+            },
+            {
+              title: "Launch-Ready",
+              desc: "Everything we build is designed to help you actually grow."
+            }
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="rounded-2xl border border-neutral-200 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <h3 className="text-base font-semibold">{item.title}</h3>
+              <p className="mt-2 text-sm text-neutral-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+export function AboutStartFlow() {
+  return (
+    <section className="border-b border-neutral-200 bg-neutral-50">
+      <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-6 lg:px-8">
+
+        <p className="text-sm font-medium text-blue-600 mb-2">
+          About StartFlow
+        </p>
+
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+          Built for people who want clarity, not confusion
+        </h2>
+
+        <p className="mt-6 text-base text-neutral-600 leading-7">
+          StartFlow was created for people who have ideas — but don’t know where to start.
+          We simplify the process, remove the overwhelm, and help you build something real.
+        </p>
+
       </div>
     </section>
   );
