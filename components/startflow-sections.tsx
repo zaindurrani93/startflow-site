@@ -110,6 +110,29 @@ const pageLinks = [
   }
 ];
 
+const whyStartFlowItems = [
+  {
+    title: "Clarity First",
+    icon: Lightbulb,
+    desc: "We simplify the process so you always know what matters most and what comes next."
+  },
+  {
+    title: "Guided Support",
+    icon: CheckCircle2,
+    desc: "You get thoughtful guidance throughout the process instead of trying to figure it out alone."
+  },
+  {
+    title: "Built for Beginners",
+    icon: BriefcaseBusiness,
+    desc: "Everything is designed for people starting from scratch and wanting a clean, professional setup."
+  },
+  {
+    title: "Launch-Ready",
+    icon: Rocket,
+    desc: "Our focus is building real momentum so your business feels polished and ready to move forward."
+  }
+];
+
 export function HomeHero() {
   return (
   <section className="relative overflow-hidden border-b border-neutral-200">
@@ -208,6 +231,53 @@ export function HomePageLinks() {
             <p className="mt-3 leading-7 text-neutral-600">{item.desc}</p>
           </Link>
         ))}
+      </div>
+    </section>
+  );
+}
+
+export function WhyStartFlow() {
+  return (
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="max-w-2xl">
+        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Why StartFlow</p>
+        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+          A simpler way to build with confidence.
+        </h2>
+        <p className="mt-4 text-lg text-neutral-600">
+          StartFlow is built to make early business setup feel clear, supported, and professionally guided.
+        </p>
+      </div>
+
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        {whyStartFlowItems.map((item) => (
+          <div
+            key={item.title}
+            className="group rounded-[1.85rem] border border-neutral-200 bg-white p-6 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
+          >
+            <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
+              <item.icon size={20} />
+            </div>
+            <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.title}</h3>
+            <p className="mt-3 leading-7 text-neutral-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function AboutStartFlow() {
+  return (
+    <section className="border-y border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f8f6f1_100%)]">
+      <div className="mx-auto max-w-4xl px-5 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
+        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
+        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+          Professional guidance for the earliest stage of growth.
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-neutral-600">
+          StartFlow helps beginners move from idea to structured execution with clear direction, thoughtful support, and a setup that feels ready to grow.
+        </p>
       </div>
     </section>
   );

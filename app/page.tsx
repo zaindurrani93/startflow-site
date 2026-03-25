@@ -1,4 +1,11 @@
-import { ContactSection, HomeHero, HomePageLinks, WorkflowStrip } from "@/components/startflow-sections";
+import {
+  AboutStartFlow,
+  ContactSection,
+  HomeHero,
+  HomePageLinks,
+  WhyStartFlow,
+  WorkflowStrip
+} from "@/components/startflow-sections";
 
 export default function HomePage() {
   return (
@@ -6,7 +13,9 @@ export default function HomePage() {
       <HomeHero />
       <WorkflowStrip />
       <HomePageLinks />
+      <WhyStartFlow />
       <ContactSection />
+      <AboutStartFlow />
     </main>
   );
 }
