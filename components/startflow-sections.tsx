@@ -462,19 +462,22 @@ export function MinimalCtaSection() {
 export function WhyStartFlow() {
   return (
     <section className="border-b border-neutral-200 bg-white">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-18 sm:px-6 sm:py-22 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Why StartFlow</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
             Built to simplify your journey
           </h2>
+          <p className="mt-4 max-w-xl text-lg leading-8 text-neutral-600">
+            Clear support, thoughtful structure, and a cleaner way to move from idea to action.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {whyStartFlowItems.map((item) => (
             <div
               key={item.title}
-              className="rounded-[1.75rem] border border-neutral-200 bg-white p-6 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
+              className="rounded-[1.85rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] p-7 shadow-[0_16px_40px_rgba(17,24,39,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_22px_50px_rgba(17,24,39,0.08)]"
             >
               <h3 className="text-lg font-semibold tracking-tight text-neutral-950">{item.title}</h3>
               <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
@@ -488,10 +491,11 @@ export function WhyStartFlow() {
 
 export function AboutStartFlow() {
   return (
-    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f8f6f1_100%)]">
-      <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
+    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f5f2eb_100%)]">
+      <div className="mx-auto max-w-3xl px-5 py-18 text-center sm:px-6 sm:py-22 lg:px-8">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
-        <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-neutral-600">
+        <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
           StartFlow was built for people with ideas who need clarity, structure, and a clean path forward.
           We simplify the process so you can focus on building something real.
         </p>
