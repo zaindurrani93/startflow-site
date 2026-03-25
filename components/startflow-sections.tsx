@@ -57,7 +57,7 @@ const steps = [
   {
     num: "01",
     title: "Choose Your Package",
-    desc: "Select the plan that fits your current stage. We’ll handle the rest."
+    desc: "Select the plan that fits your current stage. We'll handle the rest."
   },
   {
     num: "02",
@@ -110,41 +110,60 @@ const pageLinks = [
   }
 ];
 
+const whyStartFlowItems = [
+  {
+    title: "Clarity First",
+    desc: "We turn confusion into a clear, structured plan."
+  },
+  {
+    title: "Guided Support",
+    desc: "We walk you through every step - no guessing."
+  },
+  {
+    title: "Built for Beginners",
+    desc: "Simple, clear, and designed for real people."
+  },
+  {
+    title: "Launch-Ready",
+    desc: "Everything is built to help you move forward fast."
+  }
+];
+
 export function HomeHero() {
   return (
-  <section className="relative overflow-hidden border-b border-neutral-200">
-    <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 to-transparent" />
-    <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-        <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-          Simplicity starts here.
-        </h1>
+    <section className="relative overflow-hidden border-b border-neutral-200">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 to-transparent" />
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+            Simplicity starts here.
+          </h1>
 
-        <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:text-lg">
-          Turn an idea into a clean, professional system — without the confusion.
-          <br className="hidden sm:block" />
-          We simplify the process so our clients can focus on growing there business.
-        </p>
+          <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:text-lg">
+            Turn an idea into a clean, professional system - without the confusion.
+            <br className="hidden sm:block" />
+            We simplify the process so our clients can focus on growing their business.
+          </p>
 
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center">
-          <Link
-            href="/contact"
-            className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-neutral-800"
-          >
-            Start Now
-          </Link>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-neutral-800"
+            >
+              Start Now
+            </Link>
 
-          <Link
-            href="/services"
-            className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-black transition-all duration-200 hover:bg-neutral-100"
-          >
-            View Services
-          </Link>
+            <Link
+              href="/services"
+              className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-black transition-all duration-200 hover:bg-neutral-100"
+            >
+              View Services
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 }
 
 export function WorkflowStrip() {
@@ -167,7 +186,7 @@ export function WorkflowStrip() {
                     </span>
                     {item.label}
                   </Link>
-                  {index < 3 && <div className="hidden h-[1px] w-10 bg-[#dcc9a1] sm:block" />}
+                  {index < 3 ? <div className="hidden h-[1px] w-10 bg-[#dcc9a1] sm:block" /> : null}
                 </div>
               );
             })}
@@ -249,15 +268,16 @@ export function HowItWorksSection() {
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">We make it simple - from start to execution</h2>
-          <p className="mt-4 text-lg text-neutral-600">
-          </p>
         </div>
 
         <div className="relative mt-12">
           <div className="absolute left-0 right-0 top-9 hidden h-px bg-[#dcc9a1] xl:block" />
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {steps.map((step, index) => (
-              <div key={step.num} className="relative rounded-[1.9rem] border border-neutral-200 bg-white p-7 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]">
+              <div
+                key={step.num}
+                className="relative rounded-[1.9rem] border border-neutral-200 bg-white p-7 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
+              >
                 <div className="relative z-10 flex items-center">
                   <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-500">
                     Step {index + 1}
@@ -438,49 +458,26 @@ export function MinimalCtaSection() {
     </section>
   );
 }
+
 export function WhyStartFlow() {
   return (
     <section className="border-b border-neutral-200 bg-white">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-medium text-blue-600 mb-2">
-            Why StartFlow
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="max-w-2xl">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Why StartFlow</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
             Built to simplify your journey
           </h2>
-          <p className="mt-4 text-sm text-neutral-600">
-            We don’t just build — we simplify, structure, and guide you from idea to execution.
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-
-          {[
-            {
-              title: "Clarity First",
-              desc: "We turn confusion into a clear, structured plan you can actually follow."
-            },
-            {
-              title: "Guided Support",
-              desc: "You’re not left guessing — we guide you every step of the way."
-            },
-            {
-              title: "Built for Beginners",
-              desc: "No jargon, no overwhelm — just a clean path forward."
-            },
-            {
-              title: "Launch-Ready",
-              desc: "Everything we build is designed to help you actually grow."
-            }
-          ].map((item, i) => (
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {whyStartFlowItems.map((item) => (
             <div
-              key={i}
-              className="rounded-2xl border border-neutral-200 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              key={item.title}
+              className="rounded-[1.75rem] border border-neutral-200 bg-white p-6 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
             >
-              <h3 className="text-base font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm text-neutral-600">{item.desc}</p>
+              <h3 className="text-lg font-semibold tracking-tight text-neutral-950">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -488,24 +485,16 @@ export function WhyStartFlow() {
     </section>
   );
 }
+
 export function AboutStartFlow() {
   return (
-    <section className="border-b border-neutral-200 bg-neutral-50">
-      <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-6 lg:px-8">
-
-        <p className="text-sm font-medium text-blue-600 mb-2">
-          About StartFlow
+    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f8f6f1_100%)]">
+      <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
+        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-neutral-600">
+          StartFlow was built for people with ideas who need clarity, structure, and a clean path forward.
+          We simplify the process so you can focus on building something real.
         </p>
-
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-          Built for people who want clarity, not confusion
-        </h2>
-
-        <p className="mt-6 text-base text-neutral-600 leading-7">
-          StartFlow was created for people who have ideas — but don’t know where to start.
-          We simplify the process, remove the overwhelm, and help you build something real.
-        </p>
-
       </div>
     </section>
   );

@@ -1,10 +1,10 @@
 import {
-  AboutStartFlow,
   ContactSection,
   HomeHero,
   HomePageLinks,
+  WorkflowStrip,
   WhyStartFlow,
-  WorkflowStrip
+  AboutStartFlow,
 } from "@/components/startflow-sections";
 
 export default function HomePage() {
