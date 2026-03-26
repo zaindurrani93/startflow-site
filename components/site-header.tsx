@@ -40,10 +40,10 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className={`border-b pb-1 transition ${
+              className={`border-b pb-1 transition-all duration-300 ${
                 pathname === item.href
                   ? "border-neutral-950 text-neutral-950 font-medium"
-                  : "border-transparent hover:text-neutral-950"
+                  : "border-transparent hover:border-neutral-300 hover:text-neutral-950"
               }`}
             >
               {item.label}

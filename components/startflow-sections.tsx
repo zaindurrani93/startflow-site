@@ -129,33 +129,40 @@ const whyStartFlowItems = [
   }
 ];
 
+const whoThisIsForItems = [
+  "First-time founders",
+  "People with ideas but no structure",
+  "Anyone stuck on \"where do I start\""
+];
+
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden border-b border-neutral-200">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 to-transparent" />
       <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-            Simplicity starts here.
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+            Beginner-friendly business setup
+          </p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
+            Build your business with more clarity and less confusion.
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:text-lg">
-            Turn an idea into a clean, professional system - without the confusion.
-            <br className="hidden sm:block" />
-            We simplify the process so our clients can focus on growing their business.
+          <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 sm:text-lg">
+            StartFlow helps beginners move from idea to structured execution with guided support, a professional setup, and a clear path forward.
           </p>
 
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-neutral-800"
+              className="pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full bg-black px-7 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-neutral-800"
             >
               Start Now
             </Link>
 
             <Link
               href="/services"
-              className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-black transition-all duration-200 hover:bg-neutral-100"
+              className="pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full border border-neutral-300 px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:bg-neutral-100"
             >
               View Services
             </Link>
@@ -191,6 +198,32 @@ export function WorkflowStrip() {
               );
             })}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function WhoThisIsForSection() {
+  return (
+    <section className="border-b border-neutral-200 bg-white">
+      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="max-w-2xl">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Who This Is For</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+            Built for people who need a clearer place to begin.
+          </h2>
+        </div>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          {whoThisIsForItems.map((item) => (
+            <div
+              key={item}
+              className="rounded-[1.5rem] border border-neutral-200 bg-white px-5 py-5 shadow-[0_14px_34px_rgba(17,24,39,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(17,24,39,0.07)]"
+            >
+              <p className="text-base font-semibold tracking-tight text-neutral-950">{item}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -318,6 +351,7 @@ export function PricingSection() {
               </div>
               <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">$299</p>
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">Starter</h3>
+              <p className="mt-2 text-sm font-medium text-neutral-500">Perfect for getting started</p>
               <p className="mt-4 text-base leading-7 text-neutral-600">
                 For beginners who want clarity, structure, and a clean starting point.
               </p>
@@ -343,9 +377,24 @@ export function PricingSection() {
               ))}
             </ul>
 
+            <div className="mt-2 rounded-[1.25rem] border border-neutral-200 bg-neutral-50 px-4 py-4">
+              <ul className="space-y-2 text-sm leading-6 text-neutral-700">
+                {[
+                  "Clear business direction from the start",
+                  "A simple professional setup you can build on",
+                  "Guided next steps without the overwhelm"
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <Link
               href="/checkout/starter"
-              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-950 hover:shadow-md"
+              className="group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-950 hover:shadow-md"
             >
               Select Package
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
@@ -363,6 +412,7 @@ export function PricingSection() {
               </div>
               <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">$499</p>
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">Growth</h3>
+              <p className="mt-2 text-sm font-medium text-neutral-500">For serious builders</p>
               <p className="mt-4 max-w-md text-base leading-7 text-neutral-600">
                 For people who want a more complete setup and stronger brand presence.
               </p>
@@ -388,15 +438,34 @@ export function PricingSection() {
               ))}
             </ul>
 
+            <div className="mt-2 rounded-[1.25rem] border border-neutral-200 bg-neutral-50 px-4 py-4">
+              <ul className="space-y-2 text-sm leading-6 text-neutral-700">
+                {[
+                  "A stronger online presence from day one",
+                  "More complete support for launch and growth",
+                  "Built for people ready to move faster"
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <Link
               href="/checkout/growth"
-              className="group mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[#b89656] bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition hover:-translate-y-0.5 hover:border-[#8f6a2f] hover:shadow-md"
+              className="group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#b89656] bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8f6a2f] hover:shadow-md"
             >
               Select Package
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
+
+        <p className="mt-8 text-center text-sm font-medium text-neutral-500">
+          No hidden fees. No subscriptions.
+        </p>
       </div>
     </section>
   );
@@ -417,16 +486,19 @@ export function ContactSection() {
           <p className="mt-4 max-w-2xl text-lg leading-8 text-neutral-600">
             StartFlow gives you a guided setup with strategy, structure, and hands-on support so your next steps feel clear from day one.
           </p>
+          <p className="mt-4 text-sm font-medium text-neutral-500">
+            Start today - most setups are completed within days.
+          </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-neutral-950 px-7 py-3.5 text-center text-sm font-medium text-white transition hover:opacity-90"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-7 py-3.5 text-center text-sm font-medium text-white transition-all duration-300 hover:opacity-90"
             >
               Start My Business Setup
             </Link>
             <Link
               href="/workflow"
-              className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-7 py-3.5 text-center text-sm font-medium text-neutral-900 transition hover:border-[#b89656] hover:text-[#8f6a2f]"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-neutral-300 bg-white px-7 py-3.5 text-center text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-[#b89656] hover:text-[#8f6a2f]"
             >
               See How It Works
             </Link>
@@ -468,7 +540,7 @@ export function WhyStartFlow() {
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
             Built to simplify your journey
           </h2>
-          <p className="mt-4 max-w-xl text-lg leading-8 text-neutral-600">
+          <p className="mt-5 max-w-xl text-lg leading-8 text-neutral-600">
             Clear support, thoughtful structure, and a cleaner way to move from idea to action.
           </p>
         </div>
@@ -477,10 +549,10 @@ export function WhyStartFlow() {
           {whyStartFlowItems.map((item) => (
             <div
               key={item.title}
-              className="rounded-[1.85rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] p-7 shadow-[0_16px_40px_rgba(17,24,39,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_22px_50px_rgba(17,24,39,0.08)]"
+              className="rounded-[1.85rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] p-7 shadow-[0_16px_40px_rgba(17,24,39,0.045)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#e7d8b8] hover:shadow-[0_20px_46px_rgba(17,24,39,0.07)]"
             >
-              <h3 className="text-lg font-semibold tracking-tight text-neutral-950">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-neutral-600">{item.desc}</p>
+              <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-neutral-600">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -492,10 +564,10 @@ export function WhyStartFlow() {
 export function AboutStartFlow() {
   return (
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f5f2eb_100%)]">
-      <div className="mx-auto max-w-3xl px-5 py-18 text-center sm:px-6 sm:py-22 lg:px-8">
+      <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
         <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
+        <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
           StartFlow was built for people with ideas who need clarity, structure, and a clean path forward.
           We simplify the process so you can focus on building something real.
         </p>

@@ -2,6 +2,7 @@ import {
   ContactSection,
   HomeHero,
   HomePageLinks,
+  WhoThisIsForSection,
   WorkflowStrip,
   WhyStartFlow,
   AboutStartFlow,
@@ -12,6 +13,7 @@ export default function HomePage() {
     <main>
       <HomeHero />
       <WorkflowStrip />
+      <WhoThisIsForSection />
       <HomePageLinks />
       <WhyStartFlow />
       <ContactSection />
