@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -144,9 +145,11 @@ export function HomeHero() {
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
             Beginner-friendly business setup
           </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
-            Build your business with more clarity and less confusion.
-          </h1>
+          <ScrollReveal>
+            <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
+              Build your business with more clarity and less confusion.
+            </h1>
+          </ScrollReveal>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 sm:text-lg">
             StartFlow helps beginners move from idea to structured execution with guided support, a professional setup, and a clear path forward.
@@ -210,9 +213,11 @@ export function WhoThisIsForSection() {
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Who This Is For</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            Built for people who need a clearer place to begin.
-          </h2>
+          <ScrollReveal>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+              Built for people who need a clearer place to begin.
+            </h2>
+          </ScrollReveal>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -235,9 +240,11 @@ export function HomePageLinks() {
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Explore</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-          Everything you need, organized clearly.
-        </h2>
+        <ScrollReveal>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+            Everything you need, organized clearly.
+          </h2>
+        </ScrollReveal>
         <p className="mt-4 text-lg text-neutral-600">
           Browse the core parts of StartFlow to understand the service, the process, and the support behind each package.
         </p>
@@ -480,9 +487,11 @@ export function ContactSection() {
             <Mail size={20} />
           </div>
           <p className="mt-6 text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Next Step</p>
-          <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Ready to turn your idea into a real business?
-          </h2>
+          <ScrollReveal>
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
+              Ready to turn your idea into a real business?
+            </h2>
+          </ScrollReveal>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-neutral-600">
             StartFlow gives you a guided setup with strategy, structure, and hands-on support so your next steps feel clear from day one.
           </p>
@@ -537,9 +546,11 @@ export function WhyStartFlow() {
       <div className="mx-auto max-w-7xl px-5 py-18 sm:px-6 sm:py-22 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Why StartFlow</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            Built to simplify your journey
-          </h2>
+          <ScrollReveal>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+              Built to simplify your journey
+            </h2>
+          </ScrollReveal>
           <p className="mt-5 max-w-xl text-lg leading-8 text-neutral-600">
             Clear support, thoughtful structure, and a cleaner way to move from idea to action.
           </p>
