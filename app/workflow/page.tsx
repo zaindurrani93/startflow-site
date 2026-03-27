@@ -3,7 +3,7 @@ import { HowItWorksSection, WorkflowStrip } from "@/components/startflow-section
 export default function WorkflowPage() {
   return (
     <main>
-      <WorkflowStrip />
+      <WorkflowStrip isInteractive={false} />
       <HowItWorksSection />
     </main>
   );

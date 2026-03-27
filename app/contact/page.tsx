@@ -120,7 +120,7 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div className="rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
+            <div className="interactive card-hover rounded-[2rem] border border-neutral-200 bg-white p-8 sm:p-10">
               <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
                 What to expect
               </p>
@@ -147,7 +147,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
+            <div className="interactive cta-surface rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
               {isSubmitted ? (
                 <div className="flex min-h-[28rem] flex-col items-center justify-center text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-950 text-white">
@@ -271,7 +271,7 @@ export default function ContactPage() {
                     <button
                       type="button"
                       onClick={goToPreviousStep}
-                      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-medium transition ${
+                      className={`button-secondary interactive inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-medium ${
                         step === 1
                           ? "pointer-events-none opacity-0"
                           : "border border-neutral-300 text-neutral-800 hover:border-neutral-950 hover:text-neutral-950"
@@ -285,7 +285,7 @@ export default function ContactPage() {
                       <button
                         type="button"
                         onClick={goToNextStep}
-                        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-6 text-sm font-medium text-white transition hover:opacity-90"
+                        className="button-primary interactive inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95"
                       >
                         Next
                         <ArrowRight size={16} />
@@ -294,7 +294,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-6 text-sm font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+                        className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {isSubmitting ? "Sending..." : "Send Details"}
                       </button>

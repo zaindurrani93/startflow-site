@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import { Playfair_Display } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair-display",
+  weight: ["600", "700"]
+});
 
 export const metadata: Metadata = {
   title: "StartFlow",
@@ -14,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-white text-neutral-900">
+      <body className={`${playfairDisplay.variable} bg-white text-neutral-900`}>
         <SiteHeader />
         {children}
         <footer className="border-t border-neutral-200 bg-white">

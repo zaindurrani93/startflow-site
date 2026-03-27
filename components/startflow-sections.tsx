@@ -101,7 +101,7 @@ const pageLinks = [
     href: "/pricing",
     label: "Pricing",
     icon: Sparkles,
-    desc: "Choose between Starter and Growth based on the level of setup, support, and momentum you need."
+    desc: "Choose between Launch and Build based on the level of setup, support, and momentum you need."
   }
 ];
 
@@ -152,14 +152,14 @@ export function HomeHero() {
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-[#7a5b28]"
+              className="button-primary interactive pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-sm font-medium text-white hover:bg-[#7a5b28]"
             >
               Start Now
             </Link>
 
             <Link
               href="/services"
-              className="pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#f6efe0] px-7 py-3.5 text-sm font-medium text-[#8f6a2f] transition-all duration-300 hover:bg-[#f2e8d5]"
+              className="button-secondary interactive pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#f6efe0] px-7 py-3.5 text-sm font-medium text-[#8f6a2f] hover:bg-[#f2e8d5]"
             >
               View Services
             </Link>
@@ -170,7 +170,7 @@ export function HomeHero() {
   );
 }
 
-export function WorkflowStrip() {
+export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolean }) {
   return (
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fbfaf7_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:px-8">
@@ -181,15 +181,26 @@ export function WorkflowStrip() {
               const Icon = item.icon;
               return (
                 <div key={item.label} className="flex items-center gap-4">
-                  <Link
-                    href="/workflow"
-                    className={`flex items-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_34px_rgba(17,24,39,0.09)] ${accent.border}`}
-                  >
-                    <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
-                      <Icon size={15} />
-                    </span>
-                    {item.label}
-                  </Link>
+                  {isInteractive ? (
+                    <Link
+                      href="/workflow"
+                      className={`workflow-pill interactive flex items-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
+                    >
+                      <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
+                        <Icon size={15} />
+                      </span>
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <div
+                      className={`flex items-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
+                    >
+                      <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
+                        <Icon size={15} />
+                      </span>
+                      {item.label}
+                    </div>
+                  )}
                   {index < 3 ? <div className="hidden h-[1px] w-10 bg-[#dcc9a1] sm:block" /> : null}
                 </div>
               );
@@ -218,7 +229,7 @@ export function WhoThisIsForSection() {
           {whoThisIsForItems.map((item) => (
             <div
               key={item}
-              className="rounded-[1.5rem] border border-neutral-200 bg-white px-5 py-5 shadow-[0_14px_34px_rgba(17,24,39,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(17,24,39,0.07)]"
+              className="interactive card-hover rounded-[1.5rem] border border-neutral-200 bg-white px-5 py-5"
             >
               <p className="text-base font-semibold tracking-tight text-neutral-950">{item}</p>
             </div>
@@ -249,7 +260,7 @@ export function HomePageLinks() {
           <Link
             key={item.href}
             href={item.href}
-            className="group rounded-[1.85rem] border border-neutral-200 bg-white p-6 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
+            className="interactive card-hover group rounded-[1.85rem] border border-neutral-200 bg-white p-6"
           >
             <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
               <item.icon size={20} />
@@ -281,7 +292,7 @@ export function ServicesSection() {
         {services.map((service) => (
           <div
             key={service.title}
-            className="group rounded-[1.85rem] border border-neutral-200 bg-white p-6 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
+            className="interactive card-hover group rounded-[1.85rem] border border-neutral-200 bg-white p-6"
           >
             <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
               <service.icon size={20} />
@@ -310,7 +321,7 @@ export function HowItWorksSection() {
             {steps.map((step, index) => (
               <div
                 key={step.num}
-                className="relative rounded-[1.9rem] border border-neutral-200 bg-white p-7 shadow-[0_18px_45px_rgba(17,24,39,0.05)] transition hover:-translate-y-1 hover:border-[#e7d8b8] hover:shadow-[0_24px_55px_rgba(17,24,39,0.08)]"
+                className="interactive card-hover relative rounded-[1.9rem] border border-neutral-200 bg-white p-7"
               >
                 <div className="relative z-10 flex items-center">
                   <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-500">
@@ -337,48 +348,53 @@ export function PricingSection() {
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:pb-24">
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Pricing</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Simple pricing for getting started.</h2>
+        <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Clear pricing for your next step.</h2>
         <p className="mt-4 text-lg text-neutral-600">
-          Choose the level of support that matches your stage, with a clear path from setup to momentum.
+          Choose the level of support that fits your stage, with polished setup help and guided momentum built in.
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-5xl rounded-[2.25rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdf9_0%,#faf7f1_100%)] p-5 shadow-[0_22px_70px_rgba(80,61,28,0.08)] sm:p-8">
+      <div className="mx-auto mt-12 max-w-5xl rounded-[2.4rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdf9_0%,#faf7f1_100%)] p-5 shadow-[0_22px_70px_rgba(80,61,28,0.08)] sm:p-8">
         <div className="grid gap-5 lg:grid-cols-2">
-          <div className="flex h-full flex-col rounded-[2rem] border border-neutral-200 bg-white p-7 shadow-[0_14px_34px_rgba(17,24,39,0.05)] sm:p-8">
+          <div className="interactive pricing-card flex h-full flex-col rounded-[2.1rem] border border-neutral-200 bg-white p-7 sm:p-8">
             <div className="flex flex-col items-center text-center">
               <div className={`flex h-14 w-14 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                 <BriefcaseBusiness size={28} />
               </div>
-              <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">$299</p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">Starter</h3>
-              <p className="mt-2 text-sm font-medium text-neutral-500">Perfect for getting started</p>
-              <p className="mt-4 text-base leading-7 text-neutral-600">
+              <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Launch</p>
+              <p className="mt-3 text-4xl font-semibold tracking-tight text-neutral-950">$299</p>
+              <h3 className="plan-title mt-5 text-[2rem] font-semibold leading-none text-neutral-950 sm:text-[2.15rem]">Launch</h3>
+              <p className="mt-3 text-sm font-medium text-neutral-500">For getting your business off the ground</p>
+              <p className="mt-5 text-base leading-7 text-neutral-600">
                 For beginners who want clarity, structure, and a clean starting point.
               </p>
-              <div className="mt-5 rounded-full bg-[#b89656] px-5 py-2 text-sm font-medium text-white shadow-sm">
-                Starting Package
+              <div className="mt-6 rounded-full border border-[#eadfcb] bg-[#f9f3e7] px-5 py-2 text-sm font-medium text-[#8f6a2f]">
+                Essential setup
               </div>
             </div>
 
-            <ul className="mt-8 flex-1 space-y-3 text-sm leading-6 text-neutral-700">
-              {[
-                "Business idea clarity & positioning",
-                "Target audience definition",
-                "Brand direction",
-                "Simple landing page",
-                "Basic website structure",
-                "Launch plan",
-                "1:1 guidance"
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-8 rounded-[1.5rem] border border-neutral-200 bg-[#fcfaf6] px-5 py-5">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
+                {[
+                  "Business idea clarity & positioning",
+                  "Target audience definition",
+                  "Brand direction",
+                  "Simple landing page",
+                  "Basic website structure",
+                  "Launch plan",
+                  "1:1 guidance"
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <div className="mt-2 rounded-[1.25rem] border border-neutral-200 bg-neutral-50 px-4 py-4">
+            <div className="mt-4 rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-5">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">Best for</p>
               <ul className="space-y-2 text-sm leading-6 text-neutral-700">
                 {[
                   "Clear business direction from the start",
@@ -395,14 +411,14 @@ export function PricingSection() {
 
             <Link
               href="/checkout/starter"
-              className="group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-950 hover:shadow-md"
+              className="pricing-button button-secondary interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#eadfcb] bg-[#f9f3e7] px-5 py-3 text-center text-sm font-medium text-[#8f6a2f]"
             >
-              Select Package
+              Choose Launch
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
-          <div className={`relative flex h-full flex-col rounded-[2rem] border bg-white p-7 shadow-[0_18px_40px_rgba(80,61,28,0.10)] ring-1 sm:p-8 ${accent.border} ${accent.ring}`}>
+          <div className={`interactive pricing-card pricing-featured relative flex h-full flex-col rounded-[2.1rem] border bg-white p-7 sm:p-8 ${accent.ring}`}>
             <div className="absolute right-5 top-5 rounded-full bg-[#b89656] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white">
               Most Popular
             </div>
@@ -411,35 +427,40 @@ export function PricingSection() {
               <div className={`flex h-14 w-14 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                 <Sparkles size={28} />
               </div>
-              <p className="mt-5 text-3xl font-semibold tracking-tight text-neutral-950">$499</p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">Growth</h3>
-              <p className="mt-2 text-sm font-medium text-neutral-500">For serious builders</p>
-              <p className="mt-4 max-w-md text-base leading-7 text-neutral-600">
+              <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Build</p>
+              <p className="mt-3 text-4xl font-semibold tracking-tight text-neutral-950">$499</p>
+              <h3 className="plan-title mt-5 text-[2rem] font-semibold leading-none text-neutral-950 sm:text-[2.15rem]">Build</h3>
+              <p className="mt-3 text-sm font-medium text-neutral-500">For a stronger launch presence and support</p>
+              <p className="mt-5 max-w-md text-base leading-7 text-neutral-600">
                 For people who want a more complete setup and stronger brand presence.
               </p>
-              <div className="mt-5 rounded-full bg-[#b7aadf] px-5 py-2 text-sm font-medium text-white shadow-sm">
-                Premium Package
+              <div className="mt-6 rounded-full bg-[#8f6a2f] px-5 py-2 text-sm font-medium text-white shadow-sm">
+                Featured package
               </div>
             </div>
 
-            <ul className="mt-8 flex-1 space-y-3 text-sm leading-6 text-neutral-700">
-              {[
-                "Everything in Starter",
-                "Multi-page website",
-                "Social media setup",
-                "Content direction",
-                "Offer/pricing guidance",
-                "Launch strategy",
-                "Priority support"
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-8 rounded-[1.5rem] border border-[#eadfcb] bg-[#fffaf0] px-5 py-5">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
+                {[
+                  "Everything in Launch",
+                  "Multi-page website",
+                  "Social media setup",
+                  "Content direction",
+                  "Offer/pricing guidance",
+                  "Launch strategy",
+                  "Priority support"
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <div className="mt-2 rounded-[1.25rem] border border-neutral-200 bg-neutral-50 px-4 py-4">
+            <div className="mt-4 rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-5">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">Best for</p>
               <ul className="space-y-2 text-sm leading-6 text-neutral-700">
                 {[
                   "A stronger online presence from day one",
@@ -456,9 +477,9 @@ export function PricingSection() {
 
             <Link
               href="/checkout/growth"
-              className="group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#b89656] bg-white px-5 py-3 text-center text-sm font-medium text-neutral-950 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8f6a2f] hover:shadow-md"
+              className="pricing-button button-primary interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#8f6a2f] px-5 py-3 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
             >
-              Select Package
+              Choose Build
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
@@ -466,6 +487,9 @@ export function PricingSection() {
 
         <p className="mt-8 text-center text-sm font-medium text-neutral-500">
           No hidden fees. No subscriptions.
+        </p>
+        <p className="mt-3 text-center text-sm text-neutral-500">
+          Need something more custom? <Link href="/contact" className="text-[#8f6a2f] underline-offset-4 hover:underline">Contact us for a tailored solution.</Link>
         </p>
       </div>
     </section>
@@ -476,7 +500,7 @@ export function ContactSection() {
   return (
     <section className="pb-24">
       <div className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-20 lg:px-8">
-        <div className="rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] px-8 py-14 shadow-[0_24px_60px_rgba(17,24,39,0.08)] sm:px-12">
+        <div className="interactive cta-surface rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] px-8 py-14 shadow-[0_24px_60px_rgba(17,24,39,0.08)] sm:px-12">
           <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
             <Mail size={20} />
           </div>
@@ -495,13 +519,13 @@ export function ContactSection() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-center text-sm font-medium text-white transition-all duration-300 hover:bg-[#7a5b28]"
+              className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
             >
               Start My Business Setup
             </Link>
             <Link
               href="/workflow"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#f6efe0] px-7 py-3.5 text-center text-sm font-medium text-[#8f6a2f] transition-all duration-300 hover:bg-[#f2e8d5]"
+              className="button-secondary interactive inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#f6efe0] px-7 py-3.5 text-center text-sm font-medium text-[#8f6a2f] hover:bg-[#f2e8d5]"
             >
               See How It Works
             </Link>
@@ -516,7 +540,7 @@ export function MinimalCtaSection() {
   return (
     <section className="pb-16 sm:pb-20">
       <div className="mx-auto max-w-5xl px-5 pt-10 sm:px-6 sm:pt-14 lg:px-8">
-        <div className="flex flex-col items-start justify-between gap-5 rounded-[1.75rem] border border-neutral-200 bg-white px-6 py-6 shadow-[0_10px_35px_rgba(0,0,0,0.03)] sm:flex-row sm:items-center sm:px-8">
+        <div className="interactive cta-surface flex flex-col items-start justify-between gap-5 rounded-[1.75rem] border border-neutral-200 bg-white px-6 py-6 shadow-[0_10px_35px_rgba(0,0,0,0.03)] sm:flex-row sm:items-center sm:px-8">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
               Ready to get started?
@@ -524,7 +548,7 @@ export function MinimalCtaSection() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+            className="button-primary interactive inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white hover:opacity-95"
           >
             Start My Business Setup
           </Link>
@@ -554,7 +578,7 @@ export function WhyStartFlow() {
           {whyStartFlowItems.map((item) => (
             <div
               key={item.title}
-              className="rounded-[1.85rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] p-7 shadow-[0_16px_40px_rgba(17,24,39,0.045)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#e7d8b8] hover:shadow-[0_20px_46px_rgba(17,24,39,0.07)]"
+              className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] p-7"
             >
               <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.title}</h3>
               <p className="mt-4 text-sm leading-7 text-neutral-600">{item.desc}</p>
