@@ -129,9 +129,9 @@ export default function ContactPage() {
                   <div key={item.id} className="flex items-start gap-4">
                     <div
                       className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
-                        step >= item.id
-                          ? "bg-neutral-950 text-white"
-                          : "bg-neutral-100 text-neutral-500"
+                        step === item.id
+                          ? "bg-[#8f6a2f] text-white shadow-[0_10px_24px_rgba(143,106,47,0.22)]"
+                          : "bg-[#f6efe0] text-[#b89656]"
                       }`}
                     >
                       {item.id}

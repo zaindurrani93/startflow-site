@@ -102,12 +102,6 @@ const pageLinks = [
     label: "Pricing",
     icon: Sparkles,
     desc: "Choose between Starter and Growth based on the level of setup, support, and momentum you need."
-  },
-  {
-    href: "/contact",
-    label: "Contact",
-    icon: Mail,
-    desc: "Reach out when you are ready for a guided setup with clear next steps and hands-on support."
   }
 ];
 
@@ -158,14 +152,14 @@ export function HomeHero() {
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full bg-black px-7 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-neutral-800"
+              className="pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-[#7a5b28]"
             >
               Start Now
             </Link>
 
             <Link
               href="/services"
-              className="pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full border border-neutral-300 px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:bg-neutral-100"
+              className="pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#f6efe0] px-7 py-3.5 text-sm font-medium text-[#8f6a2f] transition-all duration-300 hover:bg-[#f2e8d5]"
             >
               View Services
             </Link>
@@ -501,13 +495,13 @@ export function ContactSection() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-7 py-3.5 text-center text-sm font-medium text-white transition-all duration-300 hover:opacity-90"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-center text-sm font-medium text-white transition-all duration-300 hover:bg-[#7a5b28]"
             >
               Start My Business Setup
             </Link>
             <Link
               href="/workflow"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-neutral-300 bg-white px-7 py-3.5 text-center text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-[#b89656] hover:text-[#8f6a2f]"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#f6efe0] px-7 py-3.5 text-center text-sm font-medium text-[#8f6a2f] transition-all duration-300 hover:bg-[#f2e8d5]"
             >
               See How It Works
             </Link>
@@ -579,8 +573,8 @@ export function AboutStartFlow() {
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
         <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
         <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
-          StartFlow was built for people with ideas who need clarity, structure, and a clean path forward.
-          We simplify the process so you can focus on building something real.
+          StartFlow was built for people with ideas who need clarity, structure, and a clean path to launch.
+          We help turn early-stage uncertainty into a more focused plan, a more professional setup, and a simpler way to move forward with confidence.
         </p>
       </div>
     </section>
