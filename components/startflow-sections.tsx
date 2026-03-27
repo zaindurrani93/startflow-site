@@ -597,7 +597,7 @@ export function AboutStartFlow() {
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
         <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
         <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
-          StartFlow was built to support the growth of individuals and small businesses with ideas who need clarity, structure, and a clear path to success.
+          StartFlow was built to support the growth of individuals and small businesses who need clarity, structure, and a clear path to success.
           We help turn early-stage uncertainty into a concise focused plan with a professional setup and a simpler way to move forward with confidence.
         </p>
       </div>

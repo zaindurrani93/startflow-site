@@ -10,7 +10,7 @@ const navItems = [
   { href: "/services", label: "Services" },
   { href: "/workflow", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/contact", label: "Contact" }
+  { href: "/about", label: "About" }
 ];
 
 export function SiteHeader() {

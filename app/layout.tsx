@@ -62,7 +62,7 @@ export default function RootLayout({
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900">Company</h3>
               <div className="mt-5 flex flex-col gap-3">
-                <Link href="/#about-startflow" className="footer-link text-sm text-neutral-600">
+                <Link href="/about" className="footer-link text-sm text-neutral-600">
                   About
                 </Link>
                 <Link href="/contact" className="footer-link text-sm text-neutral-600">

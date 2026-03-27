@@ -140,7 +140,6 @@ export default function ContactPage() {
                       <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
                         {item.label}
                       </p>
-                      <p className="mt-2 text-base leading-7 text-neutral-700">{item.title}</p>
                     </div>
                   </div>
                 ))}
