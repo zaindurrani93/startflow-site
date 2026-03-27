@@ -222,3 +222,83 @@ body {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: color 240ms var(--interactive-ease);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background-color: #d2b27a;
+  transition: width 280ms var(--interactive-ease);
+}
+
+.nav-link:hover {
+  color: #c19a5b;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  background-color: #8f6a2f;
+}
+
+.nav-link.active {
+  color: #1a1a1a;
+}
+
+.nav-link-mobile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition:
+    color 240ms var(--interactive-ease),
+    background-color 240ms var(--interactive-ease);
+}
+
+.nav-link-mobile::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.45rem;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 999px;
+  background-color: #d2b27a;
+  transition: transform 280ms var(--interactive-ease);
+}
+
+.nav-link-mobile:hover {
+  color: #c19a5b;
+  background-color: #fffaf0;
+}
+
+.nav-link-mobile:hover::after,
+.nav-link-mobile.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link-mobile.active::after {
+  background-color: #8f6a2f;
+}
+
+.nav-link-mobile.active {
+  color: #1a1a1a;
+  background-color: #fffaf0;
+}

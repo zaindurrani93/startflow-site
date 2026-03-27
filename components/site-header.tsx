@@ -55,10 +55,10 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className={`border-b pb-1 transition-all duration-300 ${
+              className={`nav-link px-1 pb-1 pt-1 ${
                 pathname === item.href
-                  ? "border-neutral-950 text-neutral-950 font-medium"
-                  : "border-transparent hover:border-neutral-300 hover:text-neutral-950"
+                  ? "active font-medium"
+                  : "text-neutral-600"
               }`}
             >
               {item.label}
@@ -102,9 +102,9 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               onClick={closeMenu}
-              className={`flex min-h-12 items-center rounded-2xl px-4 text-base transition hover:bg-neutral-50 ${
+              className={`nav-link-mobile flex min-h-12 items-center rounded-2xl px-4 text-base ${
                 pathname === item.href
-                  ? "font-medium text-neutral-950"
+                  ? "active font-medium"
                   : "font-normal text-neutral-900"
               }`}
             >
