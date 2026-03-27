@@ -141,7 +141,7 @@ export function HomeHero() {
           </p>
           <ScrollReveal>
             <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
-              Build your business with more clarity and less confusion.
+              Build your business with clarity minus the confusion.
             </h1>
           </ScrollReveal>
 
@@ -592,13 +592,13 @@ export function WhyStartFlow() {
 
 export function AboutStartFlow() {
   return (
-    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f5f2eb_100%)]">
+    <section id="about-startflow" className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f5f2eb_100%)]">
       <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
         <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
         <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
-          StartFlow was built for people with ideas who need clarity, structure, and a clean path to launch.
-          We help turn early-stage uncertainty into a more focused plan, a more professional setup, and a simpler way to move forward with confidence.
+          StartFlow was built to support the growth of individuals and small businesses with ideas who need clarity, structure, and a clear path to success.
+          We help turn early-stage uncertainty into a concise focused plan with a professional setup and a simpler way to move forward with confidence.
         </p>
       </div>
     </section>

@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { MouseEvent, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -21,10 +21,25 @@ export function SiteHeader() {
     setIsMenuOpen(false);
   }
 
+  function handleLogoClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (pathname !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+    closeMenu();
+    window.history.replaceState(null, "", "/#top");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200/80 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="inline-flex items-center gap-3 text-xl font-semibold tracking-tight text-neutral-950">
+        <Link
+          href="/#top"
+          onClick={handleLogoClick}
+          className="inline-flex items-center gap-3 text-xl font-semibold tracking-tight text-neutral-950"
+        >
           <Image
             src="/logo.png"
             alt="StartFlow logo"
@@ -71,7 +86,7 @@ export function SiteHeader() {
         </button>
         <Link
           href="/contact"
-          className="hidden rounded-full bg-[#8f6a2f] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-[#7a5b28] md:inline-flex"
+          className="button-primary interactive hidden rounded-full bg-[#8f6a2f] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#7a5b28] md:inline-flex"
         >
           Get Started
         </Link>
@@ -99,7 +114,7 @@ export function SiteHeader() {
           <Link
             href="/contact"
             onClick={closeMenu}
-            className="mt-2 flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-5 text-base font-medium text-white shadow-sm transition-all duration-300 hover:bg-[#7a5b28]"
+            className="button-primary interactive mt-2 flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-5 text-base font-medium text-white hover:bg-[#7a5b28]"
           >
             Get Started
           </Link>

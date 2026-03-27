@@ -176,6 +176,21 @@ body {
     0 14px 30px rgba(17, 24, 39, 0.06);
 }
 
+.workflow-pill span {
+  transition:
+    background-color 240ms var(--interactive-ease),
+    color 240ms var(--interactive-ease),
+    box-shadow 240ms var(--interactive-ease);
+}
+
+.workflow-pill:hover span {
+  background-color: #f3e7cb;
+  color: #8f6a2f;
+  box-shadow:
+    0 0 0 1px rgba(219, 191, 140, 0.6),
+    0 0 18px rgba(184, 150, 86, 0.18);
+}
+
 .button-primary:active,
 .button-secondary:active,
 .pricing-button:active,
@@ -193,4 +208,17 @@ body {
 .plan-title {
   font-family: var(--font-playfair-display), Georgia, serif;
   letter-spacing: -0.02em;
+}
+
+.footer-link {
+  width: fit-content;
+  transition:
+    color 220ms var(--interactive-ease),
+    text-underline-offset 220ms var(--interactive-ease);
+}
+
+.footer-link:hover {
+  color: #8f6a2f;
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
