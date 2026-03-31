@@ -130,6 +130,27 @@ const whoThisIsForItems = [
   "Anyone stuck on \"where do I start\""
 ];
 
+const founderTestimonials = [
+  {
+    name: "Sarah K.",
+    role: "First-time founder",
+    quote:
+      "I had no idea where to start. This gave me a clear structure and made everything feel manageable."
+  },
+  {
+    name: "Daniel R.",
+    role: "Small business owner",
+    quote:
+      "Everything finally made sense. I wasn't overwhelmed anymore - I actually had a plan."
+  },
+  {
+    name: "Aisha M.",
+    role: "Startup beginner",
+    quote:
+      "I just needed direction. This simplified everything and helped me move forward confidently."
+  }
+];
+
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden border-b border-neutral-200">
@@ -364,9 +385,8 @@ export function PricingSection() {
               <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Launch</p>
               <p className="mt-3 text-4xl font-semibold tracking-tight text-neutral-950">$299</p>
               <h3 className="plan-title mt-5 text-[2rem] font-semibold leading-none text-neutral-950 sm:text-[2.15rem]">Launch</h3>
-              <p className="mt-3 text-sm font-medium text-neutral-500">For getting your business off the ground</p>
               <p className="mt-5 text-base leading-7 text-neutral-600">
-                
+                  
               </p>
               <div className="mt-6 rounded-full border border-[#eadfcb] bg-[#f9f3e7] px-5 py-2 text-sm font-medium text-[#8f6a2f]">
                 Essential setup
@@ -432,8 +452,8 @@ export function PricingSection() {
               <h3 className="plan-title mt-5 text-[2rem] font-semibold leading-none text-neutral-950 sm:text-[2.15rem]">Build</h3>
               <p className="mt-3 text-sm font-medium text-neutral-500">For a stronger launch presence and support</p>
               <p className="mt-5 max-w-md text-base leading-7 text-neutral-600">
-          
-              </p>
+            
+                </p>
               <div className="mt-6 rounded-full bg-[#8f6a2f] px-5 py-2 text-sm font-medium text-white shadow-sm">
                 Premium package
               </div>
@@ -482,6 +502,51 @@ export function PricingSection() {
               Choose Build
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
+          </div>
+        </div>
+
+        <div className="mt-8 rounded-[2rem] border border-[#eadfcb] bg-white/85 p-5 sm:p-6">
+          <div className="max-w-2xl">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+              What to Expect
+            </p>
+            <h3 className="mt-3 text-[2rem] font-semibold tracking-tight text-neutral-950 sm:text-[2.2rem]">
+              What to Expect
+            </h3>
+          </div>
+
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            <div className="rounded-[1.5rem] border border-neutral-200 bg-[#fdfbf7] px-5 py-4.5">
+              <p className="text-base font-semibold tracking-tight text-neutral-950">
+                Delivery Timeline
+              </p>
+              <p className="mt-2.5 text-sm leading-6 text-neutral-500">
+                Launch: 3–5 business days
+              </p>
+              <p className="mt-1.5 text-sm leading-6 text-neutral-500">
+                Build: 5–10 business days
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-neutral-200 bg-[#fdfbf7] px-5 py-4.5">
+              <p className="text-base font-semibold tracking-tight text-neutral-950">
+                What&apos;s Included
+              </p>
+              <p className="mt-2.5 text-sm leading-6 text-neutral-500">
+                A structured setup process designed to give you clarity, direction,
+                and a strong starting point.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-neutral-200 bg-[#fdfbf7] px-5 py-4.5">
+              <p className="text-base font-semibold tracking-tight text-neutral-950">
+                Ongoing Support
+              </p>
+              <p className="mt-2.5 text-sm leading-6 text-neutral-500">
+                Optional monthly support or one-time updates are available after
+                completion.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -582,6 +647,50 @@ export function WhyStartFlow() {
             >
               <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.title}</h3>
               <p className="mt-4 text-sm leading-7 text-neutral-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function FounderTestimonials() {
+  return (
+    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f8f5ee_100%)]">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="max-w-2xl">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+            Placeholder Testimonials
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+            Built for people like you
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-neutral-600">
+            Placeholder feedback for layout and UI testing. These can be replaced with real testimonials later.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {founderTestimonials.map((testimonial) => (
+            <div
+              key={testimonial.name}
+              className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-white p-7"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#eadfcb] bg-[#f9f3e7] text-sm font-semibold text-[#8f6a2f]">
+                  {testimonial.name.slice(0, 1)}
+                </div>
+                <div>
+                  <p className="text-base font-semibold tracking-tight text-neutral-950">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-sm text-neutral-500">{testimonial.role}</p>
+                </div>
+              </div>
+              <p className="mt-6 text-lg leading-8 text-neutral-700">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
             </div>
           ))}
         </div>

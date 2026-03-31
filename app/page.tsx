@@ -1,5 +1,6 @@
 import {
   ContactSection,
+  FounderTestimonials,
   HomeHero,
   HomePageLinks,
   WhoThisIsForSection,
@@ -16,6 +17,7 @@ export default function HomePage() {
       <WhoThisIsForSection />
       <HomePageLinks />
       <WhyStartFlow />
+      <FounderTestimonials />
       <ContactSection />
       <AboutStartFlow />
     </main>
