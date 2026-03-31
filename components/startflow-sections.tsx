@@ -115,12 +115,12 @@ const whyStartFlowItems = [
     desc: "We walk you through every step - no guessing."
   },
   {
-    title: "Built for Beginners",
-    desc: "Simple, clear, and designed for real people."
+    title: "Built For Real People",
+    desc: "Simplicity and clarity, catered to all levels of business professionals."
   },
   {
     title: "Launch-Ready",
-    desc: "Everything is built to help you move forward fast."
+    desc: "Everything is built to help you excel forward."
   }
 ];
 
@@ -141,12 +141,12 @@ export function HomeHero() {
           </p>
           <ScrollReveal>
             <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
-              Build your business with clarity minus the confusion.
+              Build your business with clarity - not confusion.
             </h1>
           </ScrollReveal>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 sm:text-lg">
-            StartFlow helps beginners move from idea to structured execution with guided support, a professional setup, and a clear path forward.
+            StartFlow assists clients move from an idea to a structured execution with guided support, a professional setup, and a clear path forward.
           </p>
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
@@ -366,7 +366,7 @@ export function PricingSection() {
               <h3 className="plan-title mt-5 text-[2rem] font-semibold leading-none text-neutral-950 sm:text-[2.15rem]">Launch</h3>
               <p className="mt-3 text-sm font-medium text-neutral-500">For getting your business off the ground</p>
               <p className="mt-5 text-base leading-7 text-neutral-600">
-                For beginners who want clarity, structure, and a clean starting point.
+                
               </p>
               <div className="mt-6 rounded-full border border-[#eadfcb] bg-[#f9f3e7] px-5 py-2 text-sm font-medium text-[#8f6a2f]">
                 Essential setup
@@ -378,7 +378,7 @@ export function PricingSection() {
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
                 {[
                   "Business idea clarity & positioning",
-                  "Target audience definition",
+                  "Target audience",
                   "Brand direction",
                   "Simple landing page",
                   "Basic website structure",
@@ -432,10 +432,10 @@ export function PricingSection() {
               <h3 className="plan-title mt-5 text-[2rem] font-semibold leading-none text-neutral-950 sm:text-[2.15rem]">Build</h3>
               <p className="mt-3 text-sm font-medium text-neutral-500">For a stronger launch presence and support</p>
               <p className="mt-5 max-w-md text-base leading-7 text-neutral-600">
-                For people who want a more complete setup and stronger brand presence.
+          
               </p>
               <div className="mt-6 rounded-full bg-[#8f6a2f] px-5 py-2 text-sm font-medium text-white shadow-sm">
-                Featured package
+                Premium package
               </div>
             </div>
 
@@ -443,8 +443,8 @@ export function PricingSection() {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
                 {[
-                  "Everything in Launch",
-                  "Multi-page website",
+                  "Launch package +",
+                  "Premium Multi-page website",
                   "Social media setup",
                   "Content direction",
                   "Offer/pricing guidance",
@@ -464,8 +464,8 @@ export function PricingSection() {
               <ul className="space-y-2 text-sm leading-6 text-neutral-700">
                 {[
                   "A stronger online presence from day one",
-                  "More complete support for launch and growth",
-                  "Built for people ready to move faster"
+                  "Complete support for launch and growth",
+                  "Built for clients ready to move faster"
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
