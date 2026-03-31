@@ -376,24 +376,26 @@ export function PricingSection() {
       </div>
 
       <div className="mx-auto mt-12 max-w-5xl rounded-[2.4rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdf9_0%,#faf7f1_100%)] p-5 shadow-[0_22px_70px_rgba(80,61,28,0.08)] sm:p-8">
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid items-stretch gap-5 lg:grid-cols-2">
           <div className="interactive pricing-card flex h-full flex-col rounded-[2.1rem] border border-neutral-200 bg-white p-7 sm:p-8">
-            <div className="flex flex-col items-center text-center">
+            <div className="flex min-h-[17.5rem] flex-col items-center text-center">
               <div className={`flex h-14 w-14 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                 <BriefcaseBusiness size={28} />
               </div>
               <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Launch</p>
-              <p className="mt-3 text-4xl font-semibold tracking-tight text-neutral-950">$299</p>
-              <h3 className="plan-title mt-5 text-[2rem] font-semibold leading-none text-neutral-950 sm:text-[2.15rem]">Launch</h3>
-              <p className="mt-5 text-base leading-7 text-neutral-600">
-                  
+              <p className="mt-2 text-4xl font-semibold tracking-tight text-neutral-950">$299</p>
+              <p className="mt-3 min-h-5 text-sm font-medium text-transparent">
+                For a stronger launch presence and support
               </p>
-              <div className="mt-6 rounded-full border border-[#eadfcb] bg-[#f9f3e7] px-5 py-2 text-sm font-medium text-[#8f6a2f]">
+              <p className="mt-2 min-h-[4.5rem] max-w-xs text-base font-medium leading-6 text-neutral-500">
+                A clear starting point for turning your idea into action.
+              </p>
+              <div className="mt-5 rounded-full border border-[#eadfcb] bg-[#f9f3e7] px-5 py-2 text-sm font-medium text-[#8f6a2f]">
                 Essential setup
               </div>
             </div>
 
-            <div className="mt-8 rounded-[1.5rem] border border-neutral-200 bg-[#fcfaf6] px-5 py-5">
+            <div className="mt-8 flex min-h-[18.25rem] flex-col rounded-[1.5rem] border border-neutral-200 bg-[#fcfaf6] px-5 py-5">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
                 {[
@@ -413,7 +415,7 @@ export function PricingSection() {
               </ul>
             </div>
 
-            <div className="mt-4 rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-5">
+            <div className="mt-4 flex min-h-[10.75rem] flex-col rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-5">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">Best for</p>
               <ul className="space-y-2 text-sm leading-6 text-neutral-700">
                 {[
@@ -443,27 +445,28 @@ export function PricingSection() {
               Most Popular
             </div>
 
-            <div className="flex flex-col items-center text-center">
+            <div className="flex min-h-[17.5rem] flex-col items-center text-center">
               <div className={`flex h-14 w-14 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                 <Sparkles size={28} />
               </div>
               <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Build</p>
-              <p className="mt-3 text-4xl font-semibold tracking-tight text-neutral-950">$499</p>
-              <h3 className="plan-title mt-5 text-[2rem] font-semibold leading-none text-neutral-950 sm:text-[2.15rem]">Build</h3>
-              <p className="mt-3 text-sm font-medium text-neutral-500">For a stronger launch presence and support</p>
-              <p className="mt-5 max-w-md text-base leading-7 text-neutral-600">
-            
-                </p>
-              <div className="mt-6 rounded-full bg-[#8f6a2f] px-5 py-2 text-sm font-medium text-white shadow-sm">
+              <p className="mt-2 text-4xl font-semibold tracking-tight text-neutral-950">$499</p>
+              <p className="mt-3 min-h-5 text-sm font-medium text-transparent">
+                For a stronger launch presence and support
+              </p>
+              <p className="mt-2 min-h-[4.5rem] max-w-xs text-base font-medium leading-6 text-neutral-500">
+                A more complete setup for a stronger launch presence.
+              </p>
+              <div className="mt-5 rounded-full bg-[#8f6a2f] px-5 py-2 text-sm font-medium text-white shadow-sm">
                 Premium package
               </div>
             </div>
 
-            <div className="mt-8 rounded-[1.5rem] border border-[#eadfcb] bg-[#fffaf0] px-5 py-5">
+            <div className="mt-8 flex min-h-[18.25rem] flex-col rounded-[1.5rem] border border-[#eadfcb] bg-[#fffaf0] px-5 py-5">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
                 {[
-                  "Launch package +",
+                  "+Launch",
                   "Premium Multi-page website",
                   "Social media setup",
                   "Content direction",
@@ -479,7 +482,7 @@ export function PricingSection() {
               </ul>
             </div>
 
-            <div className="mt-4 rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-5">
+            <div className="mt-4 flex min-h-[10.75rem] flex-col rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-5">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">Best for</p>
               <ul className="space-y-2 text-sm leading-6 text-neutral-700">
                 {[
@@ -550,12 +553,26 @@ export function PricingSection() {
           </div>
         </div>
 
-        <p className="mt-8 text-center text-sm font-medium text-neutral-500">
-          No hidden fees. No subscriptions.
-        </p>
-        <p className="mt-3 text-center text-sm text-neutral-500">
-          Need something more custom? <Link href="/contact" className="text-[#8f6a2f] underline-offset-4 hover:underline">Contact us for a tailored solution.</Link>
-        </p>
+        <div className="mt-6 rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#faf6ee_100%)] px-6 py-8 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
+            Need something more tailored?
+          </h3>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-neutral-600 sm:text-base">
+            If you&apos;re looking for a more customized setup or have specific
+            requirements, we offer tailored solutions designed around your needs.
+          </p>
+          <div className="mt-6">
+            <Link
+              href="/contact"
+              className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
+            >
+              Request a Custom Setup
+            </Link>
+          </div>
+          <p className="mt-5 text-sm font-medium text-neutral-500">
+            No hidden fees. No subscriptions.
+          </p>
+        </div>
       </div>
     </section>
   );
