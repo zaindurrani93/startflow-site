@@ -261,6 +261,55 @@ export function WhoThisIsForSection() {
   );
 }
 
+export function HomeVisualFeature() {
+  return (
+    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12 lg:px-8">
+        <div className="overflow-hidden rounded-[2rem] border border-[#eadfcb] bg-white shadow-[0_24px_60px_rgba(80,61,28,0.08)]">
+          <img
+            src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Small business founder working at a laptop while planning a new business"
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div className="max-w-2xl">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+            Real work, real momentum
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+            A clearer path for the stage where most people feel stuck.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-neutral-600">
+            StartFlow supports people who are ready to move forward, but need the structure, setup, and direction to do it with confidence.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-[1.4rem] border border-neutral-200 bg-white px-5 py-4 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                Designed for
+              </p>
+              <p className="mt-2 text-base font-semibold tracking-tight text-neutral-950">
+                Real early-stage business needs
+              </p>
+            </div>
+
+            <div className="rounded-[1.4rem] border border-neutral-200 bg-white px-5 py-4 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                Focused on
+              </p>
+              <p className="mt-2 text-base font-semibold tracking-tight text-neutral-950">
+                Action over overwhelm
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function HomePageLinks() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">

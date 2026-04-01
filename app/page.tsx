@@ -3,6 +3,7 @@ import {
   FounderTestimonials,
   HomeHero,
   HomePageLinks,
+  HomeVisualFeature,
   WhoThisIsForSection,
   WorkflowStrip,
   WhyStartFlow,
@@ -17,6 +18,7 @@ export default function HomePage() {
       <WhoThisIsForSection />
       <HomePageLinks />
       <WhyStartFlow />
+      <HomeVisualFeature />
       <FounderTestimonials />
       <ContactSection />
       <AboutStartFlow />
