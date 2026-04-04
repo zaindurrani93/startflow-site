@@ -1,4 +1,5 @@
 import {
+  AboutStartFlow,
   ContactSection,
   FounderTestimonials,
   HomeHero,
@@ -6,8 +7,7 @@ import {
   HomeVisualFeature,
   WhoThisIsForSection,
   WorkflowStrip,
-  WhyStartFlow,
-  AboutStartFlow,
+  WhyStartFlow
 } from "@/components/startflow-sections";
 
 export default function HomePage() {
