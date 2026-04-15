@@ -1,7 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import startflowProcessGraph from "@/app/startflow-process-graph.png";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -169,7 +167,7 @@ export function HomeHero() {
           </ScrollReveal>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 sm:text-lg">
-            StartFlow assists clients move from an idea to a structured execution with guided support, a professional setup, and a clear path forward.
+            StartFlow assists clients move from an idea to a structured business with guided support, a professional setup, and a clear path forward.
           </p>
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
@@ -196,17 +194,52 @@ export function HomeHero() {
 export function HomeVisualFeature() {
   return (
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
-      <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 lg:px-8">
-        <div className="mx-auto w-full max-w-[42rem]">
-          <div className="overflow-hidden rounded-[1.85rem] bg-[linear-gradient(180deg,#fdfaf4_0%,#f7efe0_100%)] p-4 shadow-[0_24px_60px_rgba(80,61,28,0.08)] sm:p-5">
-            <Image
-              src={startflowProcessGraph}
-              alt="StartFlow business launch process visual"
-              className="h-auto w-full object-contain"
-              sizes="(min-width: 1024px) 42rem, (min-width: 640px) 80vw, 92vw"
-              quality={100}
-              priority={false}
-            />
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12 lg:px-8">
+        <div className="relative overflow-hidden rounded-[2rem] border border-[#eadfcb] bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.95),rgba(255,255,255,0.3)_30%,transparent_54%),radial-gradient(circle_at_82%_18%,rgba(241,228,202,0.72),transparent_28%),linear-gradient(145deg,#fdf9f2_0%,#f6ecdb_50%,#ead9bb_100%)] p-6 shadow-[0_24px_60px_rgba(80,61,28,0.08)] sm:p-7">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_24%,rgba(184,150,86,0.12),transparent_26%),radial-gradient(circle_at_22%_84%,rgba(255,255,255,0.82),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.16)_0%,rgba(255,255,255,0)_100%)]" />
+          <div className="relative aspect-[4/4.3]">
+            <div className="absolute left-[12%] top-[12%] h-[58%] w-[56%] rounded-[2rem] border border-white/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.88)_0%,rgba(250,245,236,0.92)_100%)] shadow-[0_24px_46px_rgba(80,61,28,0.08)] backdrop-blur-sm">
+              <div className="flex h-full flex-col justify-between p-6">
+                <div className="space-y-4">
+                  <div className="h-2 w-20 rounded-full bg-[#b89656]" />
+                  <div className="h-px bg-[#eee1c7]" />
+                  <div className="space-y-3">
+                    <div className="h-3 w-[86%] rounded-full bg-[#ead9bb]" />
+                    <div className="h-3 w-[68%] rounded-full bg-[#f0e4cb]" />
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="h-24 rounded-[1.4rem] bg-[linear-gradient(135deg,#f7efde_0%,#fffaf2_100%)] shadow-inner" />
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="h-8 rounded-xl bg-[#f3e8d3]" />
+                    <div className="h-8 rounded-xl bg-[#faf5eb]" />
+                    <div className="h-8 rounded-xl bg-[#faf5eb]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute right-[12%] top-[20%] h-[34%] w-[28%] rounded-[1.5rem] border border-white/75 bg-white/80 shadow-[0_18px_34px_rgba(80,61,28,0.06)] backdrop-blur-sm">
+              <div className="flex h-full flex-col justify-between p-4">
+                <div className="h-2 w-14 rounded-full bg-[#d6bd8c]" />
+                <div className="space-y-2">
+                  <div className="h-2 w-full rounded-full bg-[#efe3cb]" />
+                  <div className="h-2 w-[78%] rounded-full bg-[#f4ead8]" />
+                  <div className="h-2 w-[56%] rounded-full bg-[#f7f0e3]" />
+                </div>
+                <div className="h-9 rounded-full bg-[#f7efde]" />
+              </div>
+            </div>
+            <div className="absolute bottom-[16%] left-[20%] h-[16%] w-[24%] rounded-[1.35rem] border border-white/75 bg-[#fffdfa]/88 shadow-[0_16px_30px_rgba(80,61,28,0.05)] backdrop-blur-sm" />
+            <div className="absolute bottom-[12%] right-[14%] h-[24%] w-[40%] rounded-[1.75rem] border border-[#eadfcb] bg-[linear-gradient(180deg,rgba(255,255,255,0.92)_0%,rgba(249,243,231,0.98)_100%)] shadow-[0_20px_40px_rgba(80,61,28,0.07)]">
+              <div className="flex h-full flex-col justify-center gap-3 p-5">
+                <div className="h-2 w-[74%] rounded-full bg-[#b89656]" />
+                <div className="h-2 w-full rounded-full bg-[#ead9bb]" />
+                <div className="h-2 w-[82%] rounded-full bg-[#efe3cb]" />
+                <div className="h-px bg-[#eadfcb]" />
+                <div className="h-10 rounded-[1rem] bg-[#fbf6ec]" />
+              </div>
+            </div>
+            <div className="pointer-events-none absolute -bottom-3 left-[16%] h-24 w-56 rounded-full bg-[radial-gradient(circle,rgba(184,150,86,0.18)_0%,rgba(184,150,86,0)_72%)] blur-2xl" />
           </div>
         </div>
 
@@ -296,7 +329,7 @@ export function WhoThisIsForSection() {
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Who This Is For</p>
           <ScrollReveal>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-              Built for people who need a clearer place to begin.
+              Built for people who seek a clear path to the foundation of their business.
             </h2>
           </ScrollReveal>
         </div>
@@ -443,7 +476,7 @@ export function PricingSection() {
                 For a stronger launch presence and support
               </p>
               <p className="mt-2 min-h-[4.5rem] max-w-xs text-base font-medium leading-6 text-neutral-500">
-                A clear starting point for turning your idea into action.
+                A definitive roadmap for executing your vision.
               </p>
               <div className="mt-5 rounded-full border border-[#eadfcb] bg-[#f9f3e7] px-5 py-2 text-sm font-medium text-[#8f6a2f]">
                 Essential setup
@@ -510,7 +543,7 @@ export function PricingSection() {
                 For a stronger launch presence and support
               </p>
               <p className="mt-2 min-h-[4.5rem] max-w-xs text-base font-medium leading-6 text-neutral-500">
-                A more complete setup for a stronger launch presence.
+                An enhanced, comprehensive setup for a higher-impact launch.
               </p>
               <div className="mt-5 rounded-full bg-[#8f6a2f] px-5 py-2 text-sm font-medium text-white shadow-sm">
                 Premium package
@@ -707,7 +740,7 @@ export function WhyStartFlow() {
             </h2>
           </ScrollReveal>
           <p className="mt-5 max-w-xl text-lg leading-8 text-neutral-600">
-            Clear support, thoughtful structure, and a cleaner way to move from idea to action.
+            Clear support and structure with an easier way to transport from an idea to action.
           </p>
         </div>
 
@@ -733,7 +766,7 @@ export function FounderTestimonials() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-            Placeholder Testimonials
+            Testimonials
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
             Built for people like you
