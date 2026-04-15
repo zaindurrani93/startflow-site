@@ -137,10 +137,10 @@ const founderTestimonials = [
     name: "Sarah K.",
     role: "First-time founder",
     quote:
-      "I had no idea where to start. This gave me a clear structure and made everything feel manageable."
+      "Before i found StartFlow, I had no idea where to start. After onboarding, The team worked extensively to provide me with a clear structure that made everything feel manageable."
   },
   {
-    name: "Daniel R.",
+    name: "Javier S.",
     role: "Small business owner",
     quote:
       "Everything finally made sense. I wasn't overwhelmed anymore - I actually had a plan."
@@ -149,7 +149,7 @@ const founderTestimonials = [
     name: "Aisha M.",
     role: "Startup beginner",
     quote:
-      "I just needed direction. This simplified everything and helped me move forward confidently."
+      "I just needed direction. After working with the team at StartFlow, They simplified everything down for me and helped me move forward confidently."
   }
 ];
 
@@ -174,7 +174,7 @@ export function HomeHero() {
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
-              href="/contact"
+              href="/inquiry"
               className="button-primary interactive pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-sm font-medium text-white hover:bg-[#7a5b28]"
             >
               Start Now
@@ -624,7 +624,7 @@ export function PricingSection() {
           </p>
           <div className="mt-6">
             <Link
-              href="/contact"
+              href="/inquiry"
               className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
             >
               Request a Custom Setup
@@ -661,7 +661,7 @@ export function ContactSection() {
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/contact"
+              href="/inquiry"
               className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
             >
               Start My Business Setup
@@ -690,7 +690,7 @@ export function MinimalCtaSection() {
             </h2>
           </div>
           <Link
-            href="/contact"
+            href="/inquiry"
             className="button-primary interactive inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white hover:opacity-95"
           >
             Start My Business Setup

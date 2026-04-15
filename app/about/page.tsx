@@ -30,7 +30,7 @@ export default function AboutPage() {
             </h1>
             <div className="mt-6 space-y-5 text-lg leading-8 text-neutral-600">
               <p>
-                StartFlow was built to support individuals and small businesses who need
+                StartFlow is a US based company that was built to support individuals and small businesses who need
                 clarity, structure, and a clear path forward.
               </p>
               <p>
@@ -105,8 +105,7 @@ export default function AboutPage() {
             </p>
             <p className="mt-5 text-lg leading-8 text-neutral-600">
               Instead of overwhelming you with options, we break things down into a
-              process that makes sense - so you can spend less time figuring things out
-              and more time actually building your business.
+              process that makes sense - so you can spend less time figuring out the business semantics and more time actually building your business.
             </p>
           </div>
         </div>
@@ -127,7 +126,7 @@ export default function AboutPage() {
             </p>
             <div className="mt-8">
               <Link
-                href="/contact"
+                href="/inquiry"
                 className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
               >
                 Start My Business Setup

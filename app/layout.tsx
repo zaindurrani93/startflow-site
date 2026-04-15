@@ -42,6 +42,12 @@ export default function RootLayout({
               <p className="mt-4 text-base leading-7 text-neutral-600">
                 Simplifying the process of starting your business — from idea to execution.
               </p>
+              <Link
+                href="/contact#contact-form"
+                className="footer-link mt-4 inline-flex text-sm font-medium text-[#8f6a2f]"
+              >
+                contact@startflow.com
+              </Link>
             </div>
 
             <div>

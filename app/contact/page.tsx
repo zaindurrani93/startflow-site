@@ -13,7 +13,13 @@ import {
   validateContactFormStep
 } from "@/lib/contact-form";
 
-export default function ContactPage() {
+type ContactPageContentProps = {
+  isQuestionIntent?: boolean;
+};
+
+export function ContactPageContent({
+  isQuestionIntent = false
+}: ContactPageContentProps) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<ContactFormData>(initialContactFormData);
   const [errors, setErrors] = useState<ContactFormErrors>({});
@@ -21,6 +27,14 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formStartedAt] = useState(() => Date.now().toString());
+
+  const questionFlowItems = [
+    { id: 1, label: "About You", title: "Tell us who you are." },
+    { id: 2, label: "Question", title: "Share what you need help with." },
+    { id: 3, label: "Follow-Up", title: "We will respond directly." }
+  ] as const;
+
+  const sidebarItems = isQuestionIntent ? questionFlowItems : contactFormSteps;
 
   const progress = useMemo(
     () => Math.round((step / contactFormSteps.length) * 100),
@@ -62,7 +76,18 @@ export default function ContactPage() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!validateStep(3)) {
+    if (isQuestionIntent) {
+      const normalized = normalizeContactFormData(formData);
+      const nextErrors = {
+        ...validateContactFormStep(normalized, 1),
+        ...validateContactFormStep(normalized, 3)
+      };
+
+      if (Object.keys(nextErrors).length > 0) {
+        setErrors(nextErrors);
+        return;
+      }
+    } else if (!validateStep(3)) {
       return;
     }
 
@@ -117,44 +142,63 @@ export default function ContactPage() {
         <div className="mx-auto max-w-5xl">
           <div className="max-w-2xl">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-              Contact
+              {isQuestionIntent ? "CONTACT" : "INQUIRY"}
             </p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
-              Start your setup with a simple guided form.
+              {isQuestionIntent
+                ? "Get in touch directly."
+                : "Start your setup with a simple guided form."}
             </h1>
-            <p className="mt-5 text-lg leading-8 text-neutral-600">
-              Share a few details and we&apos;ll follow up with the right next steps for your business.
-            </p>
+            {isQuestionIntent ? null : (
+              <p className="mt-5 text-lg leading-8 text-neutral-600">
+                Share a few details and we&apos;ll follow up with the right next steps for your business.
+              </p>
+            )}
           </div>
 
-          <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div className="interactive card-hover rounded-[2rem] border border-neutral-200 bg-white p-8 sm:p-10">
-              <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-                What to expect
-              </p>
-              <div className="mt-6 space-y-6">
-                {contactFormSteps.map((item) => (
-                  <div key={item.id} className="flex items-start gap-4">
-                    <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
-                        step === item.id
-                          ? "bg-[#8f6a2f] text-white shadow-[0_10px_24px_rgba(143,106,47,0.22)]"
-                          : "bg-[#f6efe0] text-[#b89656]"
-                      }`}
-                    >
-                      {item.id}
+          <div
+            className={`mt-12 grid gap-8 lg:items-start ${
+              isQuestionIntent ? "max-w-2xl" : "lg:grid-cols-[0.9fr_1.1fr]"
+            }`}
+          >
+            {isQuestionIntent ? null : (
+              <div className="interactive card-hover rounded-[2rem] border border-neutral-200 bg-white p-8 sm:p-10">
+                <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                  What to expect
+                </p>
+                <div className="mt-6 space-y-6">
+                  {sidebarItems.map((item, index) => (
+                    <div key={item.id} className="flex items-start gap-4">
+                      <div
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
+                          isQuestionIntent
+                            ? index === 0
+                              ? "bg-[#8f6a2f] text-white shadow-[0_10px_24px_rgba(143,106,47,0.22)]"
+                              : "bg-[#f6efe0] text-[#b89656]"
+                            : step === item.id
+                            ? "bg-[#8f6a2f] text-white shadow-[0_10px_24px_rgba(143,106,47,0.22)]"
+                            : "bg-[#f6efe0] text-[#b89656]"
+                        }`}
+                      >
+                        {item.id}
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                          {item.label}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-                        {item.label}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="interactive cta-surface rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
+            <div
+              id="contact-form"
+              className={`interactive cta-surface rounded-[2rem] border border-neutral-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.05)] ${
+                isQuestionIntent ? "p-6 sm:p-8" : "p-8 sm:p-10"
+              }`}
+            >
               {isSubmitted ? (
                 <div className="flex min-h-[28rem] flex-col items-center justify-center text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-950 text-white">
@@ -179,28 +223,81 @@ export default function ContactPage() {
                     className="hidden"
                     aria-hidden="true"
                   />
-                  <div className="flex items-center justify-between gap-4">
+                  {isQuestionIntent ? (
                     <div>
-                      <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-                        Step {step} of {contactFormSteps.length}
-                      </p>
                       <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
-                        {contactFormSteps[step - 1].title}
+                        Send a message
                       </h2>
+                      <p className="mt-3 max-w-xl text-base leading-7 text-neutral-600">
+                        Use this form for general questions, concerns, or direct inquiries.
+                      </p>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500">{progress}%</p>
-                  </div>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-between gap-4">
+                        <div>
+                          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                            Step {step} of {contactFormSteps.length}
+                          </p>
+                          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
+                            {contactFormSteps[step - 1].title}
+                          </h2>
+                        </div>
+                        <p className="text-sm font-medium text-neutral-500">{progress}%</p>
+                      </div>
 
-                  <div className="mt-6 h-2 w-full rounded-full bg-neutral-100">
-                    <div
-                      className="h-full rounded-full bg-neutral-950 transition-all duration-300 ease-out"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
+                      <div className="mt-6 h-2 w-full rounded-full bg-neutral-100">
+                        <div
+                          className="h-full rounded-full bg-neutral-950 transition-all duration-300 ease-out"
+                          style={{ width: `${progress}%` }}
+                        />
+                      </div>
+                    </>
+                  )}
 
                   <div className="relative mt-8 overflow-hidden">
                     <div key={step} className="space-y-5 transition-opacity duration-300">
-                      {step === 1 ? (
+                      {isQuestionIntent ? (
+                        <>
+                          <Field
+                            label="Name"
+                            name="name"
+                            value={formData.name}
+                            onChange={(value) => updateField("name", value)}
+                            placeholder="Your name"
+                            error={errors.name}
+                            required
+                          />
+                          <Field
+                            label="Email"
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={(value) => updateField("email", value)}
+                            placeholder="you@example.com"
+                            error={errors.email}
+                            required
+                          />
+                          <Field
+                            label="Phone"
+                            name="phone"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(value) => updateField("phone", value)}
+                            placeholder="Optional"
+                            error={errors.phone}
+                          />
+                          <TextAreaField
+                            label="Message"
+                            name="goals"
+                            value={formData.goals}
+                            onChange={(value) => updateField("goals", value)}
+                            placeholder="Tell us what you need help with and we&apos;ll get back to you directly."
+                            error={errors.goals}
+                            required
+                          />
+                        </>
+                      ) : step === 1 ? (
                         <>
                           <Field
                             label="Name"
@@ -266,11 +363,19 @@ export default function ContactPage() {
 
                       {step === 3 ? (
                         <TextAreaField
-                          label="Goals / What You Need Help With"
+                          label={
+                            isQuestionIntent
+                              ? "Question / Concern"
+                              : "Goals / What You Need Help With"
+                          }
                           name="goals"
                           value={formData.goals}
                           onChange={(value) => updateField("goals", value)}
-                          placeholder="Tell us what you're building, where you're stuck, and what kind of support would help most."
+                          placeholder={
+                            isQuestionIntent
+                              ? "Tell us what you need help with, what question you have, or what concern you want us to review."
+                              : "Tell us what you're building, where you're stuck, and what kind of support would help most."
+                          }
                           error={errors.goals}
                           required
                         />
@@ -284,39 +389,51 @@ export default function ContactPage() {
                     </p>
                   ) : null}
 
-                  <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <button
-                      type="button"
-                      onClick={goToPreviousStep}
-                      className={`button-secondary interactive inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-medium ${
-                        step === 1
-                          ? "pointer-events-none opacity-0"
-                          : "border border-neutral-300 text-neutral-800 hover:border-neutral-950 hover:text-neutral-950"
-                      }`}
-                    >
-                      <ArrowLeft size={16} />
-                      Back
-                    </button>
-
-                    {step < contactFormSteps.length ? (
-                      <button
-                        type="button"
-                        onClick={goToNextStep}
-                        className="button-primary interactive inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95"
-                      >
-                        Next
-                        <ArrowRight size={16} />
-                      </button>
-                    ) : (
+                  {isQuestionIntent ? (
+                    <div className="mt-8">
                       <button
                         type="submit"
                         disabled={isSubmitting}
                         className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
                       >
-                        {isSubmitting ? "Sending..." : "Send Details"}
+                        {isSubmitting ? "Sending..." : "Send Message"}
                       </button>
-                    )}
-                  </div>
+                    </div>
+                  ) : (
+                    <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+                      <button
+                        type="button"
+                        onClick={goToPreviousStep}
+                        className={`button-secondary interactive inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-medium ${
+                          step === 1
+                            ? "pointer-events-none opacity-0"
+                            : "border border-neutral-300 text-neutral-800 hover:border-neutral-950 hover:text-neutral-950"
+                        }`}
+                      >
+                        <ArrowLeft size={16} />
+                        Back
+                      </button>
+
+                      {step < contactFormSteps.length ? (
+                        <button
+                          type="button"
+                          onClick={goToNextStep}
+                          className="button-primary interactive inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95"
+                        >
+                          Next
+                          <ArrowRight size={16} />
+                        </button>
+                      ) : (
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
+                        >
+                          {isSubmitting ? "Sending..." : "Send Details"}
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </form>
               )}
             </div>
@@ -325,6 +442,10 @@ export default function ContactPage() {
       </section>
     </main>
   );
+}
+
+export default function ContactPage() {
+  return <ContactPageContent isQuestionIntent />;
 }
 
 type FieldProps = {

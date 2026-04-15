@@ -85,7 +85,7 @@ export function SiteHeader() {
           </span>
         </button>
         <Link
-          href="/contact"
+          href="/inquiry"
           className="button-primary interactive hidden rounded-full bg-[#8f6a2f] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#7a5b28] md:inline-flex"
         >
           Get Started
@@ -112,7 +112,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href="/inquiry"
             onClick={closeMenu}
             className="button-primary interactive mt-2 flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-5 text-base font-medium text-white hover:bg-[#7a5b28]"
           >
