@@ -12,7 +12,7 @@ export default function CheckoutCancelPage() {
             No worries.
           </h1>
           <p className="mt-5 text-lg leading-8 text-neutral-600">
-            Your checkout was canceled before payment was completed. You can return to pricing anytime and continue when you're ready.
+            Your checkout was canceled before payment was completed. You can return to pricing anytime and continue when you&apos;re ready.
           </p>
           <Link
             href="/pricing"

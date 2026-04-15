@@ -15,6 +15,8 @@ export type OnboardingFormData = {
   anythingElse: string;
   packageType: StartFlowPackageKey | "";
   sessionId: string;
+  companyWebsite: string;
+  formStartedAt: string;
 };
 
 export type OnboardingFormErrors = Partial<Record<keyof OnboardingFormData, string>>;
@@ -33,7 +35,9 @@ export const initialOnboardingFormData: OnboardingFormData = {
   preferredCommunication: "",
   anythingElse: "",
   packageType: "",
-  sessionId: ""
+  sessionId: "",
+  companyWebsite: "",
+  formStartedAt: ""
 };
 
 export function normalizeOnboardingFormData(
@@ -53,7 +57,9 @@ export function normalizeOnboardingFormData(
     preferredCommunication: data.preferredCommunication?.trim() ?? "",
     anythingElse: data.anythingElse?.trim() ?? "",
     packageType: data.packageType ?? "",
-    sessionId: data.sessionId?.trim() ?? ""
+    sessionId: data.sessionId?.trim() ?? "",
+    companyWebsite: data.companyWebsite?.trim() ?? "",
+    formStartedAt: data.formStartedAt?.trim() ?? ""
   };
 }
 
@@ -98,6 +104,54 @@ export function validateOnboardingFormSubmission(
 
   if (!data.preferredCommunication) {
     errors.preferredCommunication = "Please choose a preferred communication method.";
+  }
+
+  if (data.fullName.length > 100) {
+    errors.fullName = "Please keep your name under 100 characters.";
+  }
+
+  if (data.email.length > 254) {
+    errors.email = "Please enter a shorter email address.";
+  }
+
+  if (data.phone.length > 30) {
+    errors.phone = "Please enter a shorter phone number.";
+  }
+
+  if (data.businessName.length > 120) {
+    errors.businessName = "Please keep the business name under 120 characters.";
+  }
+
+  if (data.websiteOrSocial.length > 300) {
+    errors.websiteOrSocial = "Please keep this under 300 characters.";
+  }
+
+  if (data.whatBuilding.length > 1200) {
+    errors.whatBuilding = "Please keep this under 1200 characters.";
+  }
+
+  if (data.currentStage.length > 600) {
+    errors.currentStage = "Please keep this under 600 characters.";
+  }
+
+  if (data.helpNeeded.length > 1200) {
+    errors.helpNeeded = "Please keep this under 1200 characters.";
+  }
+
+  if (data.mainGoal.length > 1200) {
+    errors.mainGoal = "Please keep this under 1200 characters.";
+  }
+
+  if (data.preferredCommunication.length > 80) {
+    errors.preferredCommunication = "Please keep this under 80 characters.";
+  }
+
+  if (data.anythingElse.length > 1200) {
+    errors.anythingElse = "Please keep this under 1200 characters.";
+  }
+
+  if (data.sessionId.length > 255) {
+    errors.sessionId = "Invalid session reference.";
   }
 
   return errors;

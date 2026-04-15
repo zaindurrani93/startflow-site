@@ -6,6 +6,8 @@ export type ContactFormData = {
   businessType: string;
   currentStage: string;
   goals: string;
+  companyWebsite: string;
+  formStartedAt: string;
 };
 
 export type ContactFormErrors = Partial<Record<keyof ContactFormData, string>>;
@@ -17,7 +19,9 @@ export const initialContactFormData: ContactFormData = {
   businessName: "",
   businessType: "",
   currentStage: "",
-  goals: ""
+  goals: "",
+  companyWebsite: "",
+  formStartedAt: ""
 };
 
 export const contactFormSteps = [
@@ -53,7 +57,9 @@ export function normalizeContactFormData(data: Partial<ContactFormData>): Contac
     businessName: data.businessName?.trim() ?? "",
     businessType: data.businessType?.trim() ?? "",
     currentStage: data.currentStage?.trim() ?? "",
-    goals: data.goals?.trim() ?? ""
+    goals: data.goals?.trim() ?? "",
+    companyWebsite: data.companyWebsite?.trim() ?? "",
+    formStartedAt: data.formStartedAt?.trim() ?? ""
   };
 }
 
@@ -77,6 +83,26 @@ export function validateContactFormStep(
 
   if (step === 3 && !data.goals) {
     errors.goals = "Please tell us what you need help with.";
+  }
+
+  if (data.name.length > 100) {
+    errors.name = "Please keep your name under 100 characters.";
+  }
+
+  if (data.email.length > 254) {
+    errors.email = "Please enter a shorter email address.";
+  }
+
+  if (data.phone.length > 30) {
+    errors.phone = "Please enter a shorter phone number.";
+  }
+
+  if (data.businessName.length > 120) {
+    errors.businessName = "Please keep the business name under 120 characters.";
+  }
+
+  if (data.goals.length > 1200) {
+    errors.goals = "Please keep this under 1200 characters.";
   }
 
   return errors;

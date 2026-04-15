@@ -1,102 +1,138 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { badRequest, serverError } from "@/lib/api-response";
+import {
+  normalizeOnboardingFormData,
+  type OnboardingFormData,
+  validateOnboardingFormSubmission
+} from "@/lib/onboarding-form";
+import type { StartFlowPackageKey } from "@/lib/startflow-packages";
+import { getCheckoutSession } from "@/lib/stripe";
+import {
+  checkRateLimit,
+  createRateLimitResponse,
+  isLikelyBot,
+  isValidEmail,
+  logServerError,
+  parseJsonBody,
+  parseStartedAt,
+  sanitizeEmail,
+  sanitizePhone,
+  sanitizePlainText,
+  validateAllowedKeys,
+  withTimeout
+} from "@/lib/server-security";
 
 export const runtime = "nodejs";
 
-type OnboardingBody = {
-  fullName?: string;
-  email?: string;
-  phone?: string;
-  businessName?: string;
-  businessType?: string;
-  websiteOrSocial?: string;
-  whatBuilding?: string;
-  currentStage?: string;
-  helpNeeded?: string;
-  mainGoal?: string;
-  preferredCommunication?: string;
-  anythingElse?: string;
-  packageType?: string;
-};
+const allowedOnboardingKeys = [
+  "fullName",
+  "email",
+  "phone",
+  "businessName",
+  "businessType",
+  "websiteOrSocial",
+  "whatBuilding",
+  "currentStage",
+  "helpNeeded",
+  "mainGoal",
+  "preferredCommunication",
+  "anythingElse",
+  "packageType",
+  "sessionId",
+  "companyWebsite",
+  "formStartedAt"
+] as const;
 
-function clean(value: unknown) {
-  return typeof value === "string" ? value.trim() : "";
-}
-
-function formatValue(value: unknown) {
-  const cleaned = clean(value);
-  return cleaned || "N/A";
-}
-
-function getErrorMessage(error: unknown) {
-  if (error instanceof Error) return error.message;
-
-  if (
-    error &&
-    typeof error === "object" &&
-    "message" in error &&
-    typeof (error as { message?: unknown }).message === "string"
-  ) {
-    return (error as { message: string }).message;
-  }
-
-  return "Unknown error";
+function formatValue(value: string) {
+  return value.trim() || "N/A";
 }
 
 export async function POST(request: Request) {
+  const rateLimit = checkRateLimit(request, "onboarding", 5, 10 * 60 * 1000);
+
+  if (!rateLimit.ok) {
+    return createRateLimitResponse(rateLimit.retryAfterSeconds);
+  }
+
   try {
-    const resendApiKey = clean(process.env.RESEND_API_KEY);
-    const toEmail = clean(process.env.CONTACT_TO_EMAIL);
+    const resendApiKey = process.env.RESEND_API_KEY?.trim();
+    const toEmail = process.env.CONTACT_TO_EMAIL?.trim();
 
     if (!resendApiKey || !toEmail) {
-      return NextResponse.json(
-        { error: "Missing email configuration on the server." },
-        { status: 500 }
-      );
+      logServerError("onboarding-config", "Missing onboarding email configuration.");
+      return serverError("Service temporarily unavailable. Please try again later.");
+    }
+
+    const parsed = await parseJsonBody(request, { maxBytes: 14_000 });
+
+    if (!parsed.ok) {
+      return badRequest("Invalid onboarding submission.");
+    }
+
+    const unexpectedKeys = validateAllowedKeys(parsed.data, allowedOnboardingKeys);
+
+    if (unexpectedKeys.length > 0) {
+      return badRequest("Invalid onboarding submission.");
+    }
+
+    const body = normalizeOnboardingFormData({
+      fullName: sanitizePlainText(parsed.data.fullName, { maxLength: 100 }),
+      email: sanitizeEmail(parsed.data.email),
+      phone: sanitizePhone(parsed.data.phone),
+      businessName: sanitizePlainText(parsed.data.businessName, { maxLength: 120 }),
+      businessType: sanitizePlainText(parsed.data.businessType, { maxLength: 120 }),
+      websiteOrSocial: sanitizePlainText(parsed.data.websiteOrSocial, { maxLength: 300 }),
+      whatBuilding: sanitizePlainText(parsed.data.whatBuilding, { maxLength: 1200, multiline: true }),
+      currentStage: sanitizePlainText(parsed.data.currentStage, { maxLength: 600, multiline: true }),
+      helpNeeded: sanitizePlainText(parsed.data.helpNeeded, { maxLength: 1200, multiline: true }),
+      mainGoal: sanitizePlainText(parsed.data.mainGoal, { maxLength: 1200, multiline: true }),
+      preferredCommunication: sanitizePlainText(parsed.data.preferredCommunication, { maxLength: 80 }),
+      anythingElse: sanitizePlainText(parsed.data.anythingElse, { maxLength: 1200, multiline: true }),
+      packageType: sanitizePlainText(parsed.data.packageType, { maxLength: 20 }) as StartFlowPackageKey | "",
+      sessionId: sanitizePlainText(parsed.data.sessionId, { maxLength: 255 }),
+      companyWebsite: sanitizePlainText(parsed.data.companyWebsite, { maxLength: 200 }),
+      formStartedAt: String(parsed.data.formStartedAt ?? "")
+    } satisfies Partial<OnboardingFormData>);
+
+    if (isLikelyBot(body.companyWebsite, parseStartedAt(parsed.data.formStartedAt))) {
+      return badRequest("Unable to process onboarding submission.");
+    }
+
+    if (!isValidEmail(body.email)) {
+      return badRequest("Please complete all required onboarding fields.", {
+        email: "Please enter a valid email address."
+      });
+    }
+
+    const fieldErrors = validateOnboardingFormSubmission(body);
+
+    if (Object.keys(fieldErrors).length > 0) {
+      return badRequest("Please complete all required onboarding fields.", fieldErrors);
+    }
+
+    if ((body.packageType !== "starter" && body.packageType !== "growth") || !body.sessionId) {
+      return badRequest("Invalid onboarding submission.");
+    }
+
+    if (!/^cs_[A-Za-z0-9_]+$/.test(body.sessionId)) {
+      return badRequest("Invalid onboarding submission.");
+    }
+
+    const session = await withTimeout(
+      getCheckoutSession(body.sessionId),
+      10_000,
+      "Checkout verification timed out."
+    );
+
+    if (
+      session.payment_status !== "paid" ||
+      session.metadata?.packageType !== body.packageType
+    ) {
+      return badRequest("Unable to verify this onboarding session.");
     }
 
     const resend = new Resend(resendApiKey);
-
-    const rawBody = (await request.json().catch(() => null)) as OnboardingBody | null;
-
-    if (!rawBody) {
-      return NextResponse.json(
-        { error: "Invalid onboarding submission." },
-        { status: 400 }
-      );
-    }
-
-    const body = {
-      fullName: clean(rawBody.fullName),
-      email: clean(rawBody.email),
-      phone: clean(rawBody.phone),
-      businessName: clean(rawBody.businessName),
-      businessType: clean(rawBody.businessType),
-      websiteOrSocial: clean(rawBody.websiteOrSocial),
-      whatBuilding: clean(rawBody.whatBuilding),
-      currentStage: clean(rawBody.currentStage),
-      helpNeeded: clean(rawBody.helpNeeded),
-      mainGoal: clean(rawBody.mainGoal),
-      preferredCommunication: clean(rawBody.preferredCommunication),
-      anythingElse: clean(rawBody.anythingElse),
-      packageType: clean(rawBody.packageType),
-    };
-
-    if (
-      !body.fullName ||
-      !body.email ||
-      !body.businessType ||
-      !body.whatBuilding ||
-      !body.currentStage ||
-      !body.helpNeeded ||
-      !body.mainGoal ||
-      !body.preferredCommunication
-    ) {
-      return NextResponse.json(
-        { error: "Please complete all required onboarding fields." },
-        { status: 400 }
-      );
-    }
 
     const html = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
@@ -119,7 +155,7 @@ export async function POST(request: Request) {
         <p><strong>What do they need the most help with right now?</strong></p>
         <p style="white-space: pre-wrap;">${formatValue(body.helpNeeded)}</p>
 
-        <p><strong>Main goal for the next 30–60 days:</strong></p>
+        <p><strong>Main goal for the next 30-60 days:</strong></p>
         <p style="white-space: pre-wrap;">${formatValue(body.mainGoal)}</p>
 
         <p><strong>Preferred communication method:</strong> ${formatValue(body.preferredCommunication)}</p>
@@ -129,46 +165,26 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    const { data, error } = await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: toEmail,
-      subject: `New StartFlow Onboarding - ${body.fullName}`,
-      html,
-      replyTo: body.email,
-    });
+    const { error } = await withTimeout(
+      resend.emails.send({
+        from: "onboarding@resend.dev",
+        to: [toEmail],
+        subject: `New StartFlow Onboarding - ${body.fullName}`,
+        html,
+        replyTo: body.email
+      }),
+      12_000,
+      "Onboarding email request timed out."
+    );
 
     if (error) {
-      const errorMessage = getErrorMessage(error);
-
-      console.error("Resend onboarding email error:", {
-        message: errorMessage,
-        error,
-        toEmail,
-        onboardingEmail: body.email,
-      });
-
-      return NextResponse.json(
-        { error: `Unable to send onboarding email: ${errorMessage}` },
-        { status: 500 }
-      );
+      logServerError("onboarding-resend", error);
+      return serverError("Unable to send onboarding details right now. Please try again.");
     }
 
-    return NextResponse.json({
-      ok: true,
-      message: "Onboarding details sent successfully.",
-      id: data?.id,
-    });
-  } catch (error: unknown) {
-    const errorMessage = getErrorMessage(error);
-
-    console.error("Onboarding route error:", {
-      message: errorMessage,
-      error,
-    });
-
-    return NextResponse.json(
-      { error: `Unable to process onboarding submission: ${errorMessage}` },
-      { status: 500 }
-    );
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    logServerError("onboarding-route", error);
+    return serverError("Unable to process onboarding submission. Please try again.");
   }
 }

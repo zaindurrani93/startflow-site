@@ -75,7 +75,9 @@ export default function RootLayout({
           <div className="border-t border-neutral-200">
             <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-sm text-neutral-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
               <p>© 2026 StartFlow. All rights reserved.</p>
-              <span className="text-neutral-400">Privacy Policy coming soon</span>
+              <Link href="/privacy-policy" className="footer-link text-neutral-400">
+                Privacy Policy
+              </Link>
             </div>
           </div>
         </footer>

@@ -20,6 +20,7 @@ export default function ContactPage() {
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formStartedAt] = useState(() => Date.now().toString());
 
   const progress = useMemo(
     () => Math.round((step / contactFormSteps.length) * 100),
@@ -70,13 +71,20 @@ export default function ContactPage() {
 
     try {
       const payload = normalizeContactFormData(formData);
+      const honeypotField = event.currentTarget.elements.namedItem("companyWebsite");
+      const honeypotValue =
+        honeypotField instanceof HTMLInputElement ? honeypotField.value : "";
 
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          ...payload,
+          companyWebsite: honeypotValue,
+          formStartedAt
+        })
       });
 
       if (!response.ok) {
@@ -161,6 +169,16 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate>
+                  <input
+                    type="text"
+                    name="companyWebsite"
+                    value=""
+                    onChange={() => undefined}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden="true"
+                  />
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">

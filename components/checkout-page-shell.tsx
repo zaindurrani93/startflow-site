@@ -46,7 +46,7 @@ export function CheckoutPageShell({ pkg }: { pkg: StartFlowPackage }) {
             <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
                 <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-                  What's included
+                  What&apos;s included
                 </h2>
                 <ul className="mt-6 space-y-3 text-sm leading-6 text-neutral-700">
                   {pkg.includes.map((item) => (

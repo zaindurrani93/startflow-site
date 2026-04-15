@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   initialOnboardingFormData,
   normalizeOnboardingFormData,
@@ -33,14 +33,7 @@ export function PaidOnboardingForm({
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const introText = useMemo(
-    () =>
-      packageName
-        ? `You have unlocked the ${packageName} onboarding flow. Share a few details so StartFlow can prepare your setup and next steps.`
-        : "Share a few details so StartFlow can prepare your setup and next steps.",
-    [packageName]
-  );
+  const [formStartedAt] = useState(() => Date.now().toString());
 
   function updateField<K extends keyof OnboardingFormData>(
     field: K,
@@ -66,12 +59,20 @@ export function PaidOnboardingForm({
     setSubmitError("");
 
     try {
+      const honeypotField = event.currentTarget.elements.namedItem("companyWebsite");
+      const honeypotValue =
+        honeypotField instanceof HTMLInputElement ? honeypotField.value : "";
+
       const response = await fetch("/api/onboarding", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          ...payload,
+          companyWebsite: honeypotValue,
+          formStartedAt
+        })
       });
 
       const data = (await response.json().catch(() => null)) as
@@ -108,7 +109,7 @@ export function PaidOnboardingForm({
           Complete your onboarding
         </h2>
         <p className="mt-4 text-lg leading-8 text-neutral-600">
-          Share a few details about your business, goals, and current stage so we can prepare your setup and guide you through the next steps clearly.
+          Share a few details about your business, goals, and current stage so we can prepare your {packageName || "setup"} and guide you through the next steps clearly.
         </p>
       </div>
 
@@ -123,6 +124,16 @@ export function PaidOnboardingForm({
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="mt-10 space-y-8" noValidate>
+          <input
+            type="text"
+            name="companyWebsite"
+            value=""
+            onChange={() => undefined}
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+            aria-hidden="true"
+          />
           <div className="grid gap-5 md:grid-cols-2">
             <Field
               label="Full Name"
