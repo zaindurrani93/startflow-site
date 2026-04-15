@@ -118,11 +118,11 @@ const whyStartFlowItems = [
   },
   {
     title: "Built For Real People",
-    desc: "Simplicity and clarity, catered to all levels of business professionals."
+    desc: "Simple, thoughtful support for people who need a clearer place to start."
   },
   {
     title: "Launch-Ready",
-    desc: "Everything is built to help you excel forward."
+    desc: "Everything is designed to help you move forward with confidence."
   }
 ];
 
@@ -169,7 +169,7 @@ export function HomeHero() {
           </ScrollReveal>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 sm:text-lg">
-            StartFlow assists clients move from an idea to a structured business with guided support, a professional setup, and a clear path forward.
+            StartFlow helps turn your idea into a structured business with guided support, a professional setup, and a clear path forward.
           </p>
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
@@ -235,7 +235,7 @@ export function HomeVisualFeature() {
                 Focused on
               </p>
               <p className="mt-2 text-base font-semibold tracking-tight text-neutral-950">
-                Action not overwhelm
+                Action, not overwhelm
               </p>
             </div>
           </div>
@@ -295,7 +295,7 @@ export function WhoThisIsForSection() {
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Who This Is For</p>
           <ScrollReveal>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-              Built for people who seek a clear path to the foundation of their business.
+              Built for people who need a clear path to get their business off the ground.
             </h2>
           </ScrollReveal>
         </div>
@@ -436,8 +436,8 @@ export function PricingSection() {
                 <BriefcaseBusiness size={28} />
               </div>
               <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Launch</p>
-              <p className="mt-3 flex items-start gap-0.5 text-[2.35rem] font-semibold tracking-tight text-neutral-950">
-                <span className="mt-1 text-[1.35rem] font-medium text-neutral-500">$</span>
+              <p className="pricing-amount mt-3 flex items-start gap-0.5 text-[2.35rem] text-neutral-950">
+                <span className="pricing-currency mt-1 text-[1.35rem] text-neutral-500">$</span>
                 <span>299</span>
               </p>
               <p className="mt-1 text-sm text-neutral-500">one-time</p>
@@ -507,8 +507,8 @@ export function PricingSection() {
                 <Sparkles size={28} />
               </div>
               <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Build</p>
-              <p className="mt-3 flex items-start gap-0.5 text-[2.35rem] font-semibold tracking-tight text-neutral-950">
-                <span className="mt-1 text-[1.35rem] font-medium text-neutral-500">$</span>
+              <p className="pricing-amount mt-3 flex items-start gap-0.5 text-[2.35rem] text-neutral-950">
+                <span className="pricing-currency mt-1 text-[1.35rem] text-neutral-500">$</span>
                 <span>499</span>
               </p>
               <p className="mt-1 text-sm text-neutral-500">one-time</p>
@@ -527,7 +527,7 @@ export function PricingSection() {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
                 {[
-                  "+Launch",
+                  "Everything included in Launch",
                   "Premium Multi-page website",
                   "Social media setup",
                   "Content direction",
@@ -713,7 +713,7 @@ export function WhyStartFlow() {
             </h2>
           </ScrollReveal>
           <p className="mt-5 max-w-xl text-lg leading-8 text-neutral-600">
-            Clear support and structure with an easier way to transport from an idea to action.
+            Clear support, thoughtful structure, and a simpler way to move from idea to action.
           </p>
         </div>
 
@@ -742,7 +742,7 @@ export function FounderTestimonials() {
             Testimonials
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            Built for creative people like you
+            Built for people like you
           </h2>
         </div>
 
@@ -781,8 +781,9 @@ export function AboutStartFlow() {
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
         <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
         <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
-          StartFlow was built to support the growth of individuals and small businesses who need clarity, structure, and a clear path to success.
-          We help turn early-stage uncertainty into a concise focused plan with a professional setup and a simpler way to move forward with confidence.
+          StartFlow was built for individuals and small businesses that need clarity,
+          structure, and a clear path forward. We turn early-stage uncertainty into a
+          focused plan with a professional setup and practical next steps.
         </p>
       </div>
     </section>

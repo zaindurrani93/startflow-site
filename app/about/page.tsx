@@ -25,19 +25,16 @@ export default function AboutPage() {
       <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-              About Us
-            </p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
               About StartFlow
             </h1>
             <div className="mt-6 space-y-5 text-lg leading-8 text-neutral-600">
               <p>
-                StartFlow was built to support individuals and small businesses
-                who need clarity, structure, and a clear path forward.
+                StartFlow was built to support individuals and small businesses who need
+                clarity, structure, and a clear path forward.
               </p>
               <p>
-                We turn early-stage uncertainty into a focused plan — with a
+                We turn early-stage uncertainty into a focused plan - with a
                 professional setup and a simpler way to move forward with confidence.
               </p>
             </div>
@@ -53,7 +50,7 @@ export default function AboutPage() {
             </p>
             <p className="mt-5 text-lg leading-8 text-neutral-600">
               We work with individuals and small businesses who are ready to take
-              their ideas seriously — but don&apos;t know exactly where to start.
+              their ideas seriously - but don&apos;t know exactly where to start.
             </p>
             <p className="mt-5 text-lg leading-8 text-neutral-600">
               Whether you&apos;re launching your first business or trying to bring
@@ -75,7 +72,7 @@ export default function AboutPage() {
               more structured way to move from idea to execution.
             </p>
             <p className="mt-5 text-lg leading-8 text-neutral-600">
-              StartFlow exists to simplify that process — giving you direction,
+              StartFlow exists to simplify that process - giving you direction,
               structure, and the confidence to move forward.
             </p>
           </div>
@@ -108,8 +105,8 @@ export default function AboutPage() {
             </p>
             <p className="mt-5 text-lg leading-8 text-neutral-600">
               Instead of overwhelming you with options, we break things down into a
-              process that makes sense — so you can spend less time figuring things out
-              and more time actually building on to your business.
+              process that makes sense - so you can spend less time figuring things out
+              and more time actually building your business.
             </p>
           </div>
         </div>
@@ -125,8 +122,8 @@ export default function AboutPage() {
               Ready to take your idea seriously?
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-neutral-600">
-              StartFlow gives you the structure and clarity to move forward —
-              without the hassle.
+              StartFlow gives you the structure and clarity to move forward without
+              the confusion.
             </p>
             <div className="mt-8">
               <Link
