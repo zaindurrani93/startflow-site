@@ -33,7 +33,7 @@ export const startFlowPackages: Record<StartFlowPackageKey, StartFlowPackage> = 
     priceCents: 49900,
     priceDisplay: "$499",
     summary:
-      "A fuller setup for businesses that want a stronger brand presence and more complete launch support.",
+      "A full setup for businesses that want a stronger brand presence with additional launch support.",
     includes: [
       "Everything in Starter",
       "Multi-page website",
