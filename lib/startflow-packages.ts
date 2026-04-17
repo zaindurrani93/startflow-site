@@ -12,7 +12,7 @@ export type StartFlowPackage = {
 export const startFlowPackages: Record<StartFlowPackageKey, StartFlowPackage> = {
   starter: {
     key: "starter",
-    name: "Starter",
+    name: "Launch",
     priceCents: 29900,
     priceDisplay: "$299",
     summary:
@@ -29,13 +29,13 @@ export const startFlowPackages: Record<StartFlowPackageKey, StartFlowPackage> = 
   },
   growth: {
     key: "growth",
-    name: "Growth",
+    name: "Build",
     priceCents: 49900,
     priceDisplay: "$499",
     summary:
       "A full setup for businesses that want a stronger brand presence with additional launch support.",
     includes: [
-      "Everything in Starter",
+      "Everything included in Launch",
       "Multi-page website",
       "Social media setup",
       "Content direction",

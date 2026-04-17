@@ -155,21 +155,21 @@ const founderTestimonials = [
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden border-b border-neutral-200">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 to-transparent" />
+    <section className="relative overflow-hidden border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fbfaf7_100%)]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.12),transparent_38%),linear-gradient(180deg,rgba(17,24,39,0.02)_0%,rgba(17,24,39,0)_100%)]" />
       <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+        <div className="interactive cta-surface mx-auto flex max-w-4xl flex-col items-center rounded-[2.25rem] border border-[#e7d8b8] bg-[linear-gradient(180deg,#f7f1e6_0%,#f6efe0_100%)] px-6 py-10 text-center shadow-[0_24px_70px_rgba(80,61,28,0.08)] sm:px-10 sm:py-12 lg:px-14 lg:py-16">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
             Beginner-friendly business setup
           </p>
           <ScrollReveal>
-            <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-[#3f2d14] sm:text-5xl lg:text-6xl">
               Build your business with clarity - not confusion.
             </h1>
           </ScrollReveal>
 
-          <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 sm:text-lg">
-            StartFlow helps turn your idea into a structured business with guided support, a professional setup, and a clear path forward.
+          <p className="mt-6 max-w-2xl text-base leading-8 text-[#6b5a45] sm:text-lg">
+            StartFlow helps you turn your idea into a structured, launch-ready business with clear direction, professional setup, and guided support.
           </p>
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
@@ -182,7 +182,7 @@ export function HomeHero() {
 
             <Link
               href="/services"
-              className="button-secondary interactive pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#f6efe0] px-7 py-3.5 text-sm font-medium text-[#8f6a2f] hover:bg-[#f2e8d5]"
+              className="button-secondary interactive pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#fbf6eb] px-7 py-3.5 text-sm font-medium text-[#8f6a2f] hover:bg-[#f3ead7]"
             >
               View Services
             </Link>
@@ -198,14 +198,16 @@ export function HomeVisualFeature() {
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
       <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 lg:px-8">
         <div className="mx-auto w-full max-w-[42rem]">
-          <div className="overflow-hidden rounded-[1.85rem] bg-[linear-gradient(180deg,#fdfaf4_0%,#f7efe0_100%)] p-4 shadow-[0_24px_60px_rgba(80,61,28,0.08)] sm:p-5">
-            <Image
-              src={startflowProcessGraph}
-              alt="StartFlow business launch process visual"
-              className="h-auto w-full object-contain"
-              sizes="(min-width: 1024px) 42rem, (min-width: 640px) 80vw, 92vw"
-              quality={100}
-            />
+          <div className="rounded-[2rem] border border-[#eee3cf] bg-white p-3 shadow-[0_24px_60px_rgba(80,61,28,0.06)] sm:p-4">
+            <div className="overflow-hidden rounded-[1.65rem] bg-[linear-gradient(180deg,#fdfaf4_0%,#f7efe0_100%)] p-4 sm:p-5">
+              <Image
+                src={startflowProcessGraph}
+                alt="StartFlow business launch process visual"
+                className="h-auto w-full object-contain"
+                sizes="(min-width: 1024px) 42rem, (min-width: 640px) 80vw, 92vw"
+                quality={100}
+              />
+            </div>
           </div>
         </div>
 
@@ -249,9 +251,10 @@ export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolea
   return (
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fbfaf7_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:px-8">
-        <div className="flex flex-col items-center text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="rounded-[2rem] border border-[#eee3cf] bg-white px-5 py-7 shadow-[0_18px_50px_rgba(80,61,28,0.04)] sm:px-8">
+          <div className="flex flex-col items-center text-center">
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
             {workflowItems.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -259,7 +262,7 @@ export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolea
                   {isInteractive ? (
                     <Link
                       href="/workflow"
-                      className={`workflow-pill interactive flex items-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
+                      className={`workflow-pill interactive flex min-w-[9.5rem] items-center justify-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
                     >
                       <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                         <Icon size={15} />
@@ -268,7 +271,7 @@ export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolea
                     </Link>
                   ) : (
                     <div
-                      className={`flex items-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
+                      className={`flex min-w-[9.5rem] items-center justify-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
                     >
                       <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                         <Icon size={15} />
@@ -280,6 +283,7 @@ export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolea
                 </div>
               );
             })}
+            </div>
           </div>
         </div>
       </div>
@@ -317,36 +321,38 @@ export function WhoThisIsForSection() {
 
 export function HomePageLinks() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-      <div className="max-w-2xl">
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Explore</p>
-        <ScrollReveal>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            Everything you need, organized clearly.
-          </h2>
-        </ScrollReveal>
-        <p className="mt-4 text-lg text-neutral-600">
-          Browse the core parts of StartFlow to understand the service, the process, and the support behind each package.
-        </p>
-      </div>
+    <section className="bg-[linear-gradient(180deg,#ffffff_0%,#fdfbf7_100%)]">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="max-w-2xl">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Explore</p>
+          <ScrollReveal>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+              Everything you need, organized clearly.
+            </h2>
+          </ScrollReveal>
+          <p className="mt-4 text-lg text-neutral-600">
+            Browse the core parts of StartFlow to understand the service, the process, and the support behind each package.
+          </p>
+        </div>
 
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-        {pageLinks.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="interactive card-hover group rounded-[1.85rem] border border-neutral-200 bg-white p-6"
-          >
-            <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
-              <item.icon size={20} />
-            </div>
-            <div className="flex items-start justify-between gap-4">
-              <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.label}</h3>
-              <ArrowRight size={18} className="mt-1 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-[#b89656]" />
-            </div>
-            <p className="mt-3 leading-7 text-neutral-600">{item.desc}</p>
-          </Link>
-        ))}
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {pageLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="interactive card-hover group rounded-[1.85rem] border border-neutral-200 bg-white p-6"
+            >
+              <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
+                <item.icon size={20} />
+              </div>
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.label}</h3>
+                <ArrowRight size={18} className="mt-1 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-[#b89656]" />
+              </div>
+              <p className="mt-3 leading-7 text-neutral-600">{item.desc}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -393,21 +399,23 @@ export function HowItWorksSection() {
         <div className="relative mt-12">
           <div className="absolute left-0 right-0 top-9 hidden h-px bg-[#dcc9a1] xl:block" />
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {steps.map((step, index) => (
-              <div
-                key={step.num}
-                className="interactive card-hover relative rounded-[1.9rem] border border-neutral-200 bg-white p-7"
-              >
-                <div className="relative z-10 flex items-center">
-                  <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-500">
-                    Step {index + 1}
-                  </span>
+              {steps.map((step, index) => (
+                <div
+                  key={step.num}
+                  className="interactive card-hover relative flex h-full flex-col rounded-[1.9rem] border border-neutral-200 bg-white p-7"
+                >
+                  <div className="relative z-10 flex items-center">
+                    <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-500">
+                      Step {index + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-6 min-h-[3.75rem] text-2xl font-semibold leading-[1.15] tracking-tight text-neutral-950">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-neutral-600">{step.desc}</p>
                 </div>
-                <h3 className="mt-6 text-2xl font-semibold tracking-tight text-neutral-950">{step.title}</h3>
-                <p className="mt-4 leading-7 text-neutral-600">{step.desc}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
         </div>
 
         <p className="mt-8 max-w-3xl text-sm leading-7 text-neutral-500">
@@ -422,7 +430,7 @@ export function PricingSection() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:pb-24">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-neutral-900">Pricing</p>
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-neutral-900">Package</p>
         <p className="mt-4 text-lg text-neutral-600">
           Choose the level of support that fits your stage
         </p>
@@ -489,7 +497,7 @@ export function PricingSection() {
             </div>
 
             <Link
-              href="/checkout/starter"
+              href="/checkout/launch"
               className="pricing-button button-secondary interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#eadfcb] bg-[#f9f3e7] px-5 py-3 text-center text-sm font-medium text-[#8f6a2f]"
             >
               Choose Launch
@@ -498,12 +506,12 @@ export function PricingSection() {
           </div>
 
           <div className={`interactive pricing-card pricing-featured relative flex h-full flex-col rounded-[2.1rem] border bg-white p-7 sm:p-8 ${accent.ring}`}>
-            <div className="absolute right-5 top-5 rounded-full bg-[#b89656] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white">
+            <div className="absolute right-5 top-5 rounded-full border border-[#ddd4f3] bg-[#f1edfb] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[#8e79be]">
               Most Popular
             </div>
 
             <div className="flex min-h-[17.5rem] flex-col items-center text-center">
-              <div className={`flex h-14 w-14 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f1edfb] text-[#8e79be]">
                 <Sparkles size={28} />
               </div>
               <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Build</p>
@@ -560,7 +568,7 @@ export function PricingSection() {
             </div>
 
             <Link
-              href="/checkout/growth"
+              href="/checkout/build"
               className="pricing-button button-primary interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#8f6a2f] px-5 py-3 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
             >
               Choose Build
@@ -574,9 +582,6 @@ export function PricingSection() {
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
               What to Expect
             </p>
-            <h3 className="mt-3 text-[2rem] font-semibold tracking-tight text-neutral-950 sm:text-[2.2rem]">
-              What to Expect
-            </h3>
           </div>
 
           <div className="mt-7 grid gap-4 md:grid-cols-3">
@@ -721,7 +726,7 @@ export function WhyStartFlow() {
           {whyStartFlowItems.map((item) => (
             <div
               key={item.title}
-              className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] p-7"
+              className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] p-7 shadow-[0_14px_36px_rgba(17,24,39,0.03)]"
             >
               <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.title}</h3>
               <p className="mt-4 text-sm leading-7 text-neutral-600">{item.desc}</p>
@@ -750,7 +755,7 @@ export function FounderTestimonials() {
           {founderTestimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-white p-7"
+              className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-white p-7 shadow-[0_14px_36px_rgba(17,24,39,0.03)]"
             >
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#eadfcb] bg-[#f9f3e7] text-sm font-semibold text-[#8f6a2f]">
@@ -778,13 +783,15 @@ export function AboutStartFlow() {
   return (
     <section id="about-startflow" className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f5f2eb_100%)]">
       <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
-        <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
-        <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
-          StartFlow was built for individuals and small businesses that need clarity,
-          structure, and a clear path forward. We turn early-stage uncertainty into a
-          focused plan with a professional setup and practical next steps.
-        </p>
+        <div className="rounded-[2rem] border border-[#eee3cf] bg-white/80 px-6 py-10 shadow-[0_18px_50px_rgba(80,61,28,0.05)] backdrop-blur sm:px-10">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
+          <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
+          <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
+            StartFlow was built for individuals and small businesses that need clarity,
+            structure, and a clear path forward. We turn early-stage uncertainty into a
+            focused plan with a professional setup and practical next steps.
+          </p>
+        </div>
       </div>
     </section>
   );

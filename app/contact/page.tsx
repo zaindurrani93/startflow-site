@@ -4,6 +4,7 @@ import { FormEvent, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import {
   businessTypes,
+  contactFieldMaxLengths,
   contactFormSteps,
   currentStages,
   initialContactFormData,
@@ -156,12 +157,72 @@ export function ContactPageContent({
             )}
           </div>
 
+          {isQuestionIntent ? (
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              <div className="rounded-[1.5rem] border border-neutral-200 bg-white px-5 py-5 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                  Best For
+                </p>
+                <p className="mt-2 text-base font-semibold tracking-tight text-neutral-950">
+                  General questions, concerns, and direct support requests
+                </p>
+              </div>
+              <div className="rounded-[1.5rem] border border-neutral-200 bg-white px-5 py-5 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                  What Happens Next
+                </p>
+                <p className="mt-2 text-base font-semibold tracking-tight text-neutral-950">
+                  We review your message and reply directly with the right next step
+                </p>
+              </div>
+            </div>
+          ) : null}
+
           <div
             className={`mt-12 grid gap-8 lg:items-start ${
-              isQuestionIntent ? "max-w-2xl" : "lg:grid-cols-[0.9fr_1.1fr]"
+              isQuestionIntent ? "lg:grid-cols-[0.78fr_1.22fr]" : "lg:grid-cols-[0.9fr_1.1fr]"
             }`}
           >
-            {isQuestionIntent ? null : (
+            {isQuestionIntent ? (
+              <div className="interactive card-hover rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] p-7 sm:p-8">
+                <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                  Direct Contact
+                </p>
+                <h2 className="mt-4 text-2xl font-semibold tracking-tight text-neutral-950">
+                  A simple way to reach us directly.
+                </h2>
+                <p className="mt-4 text-base leading-7 text-neutral-600">
+                  Use this form for questions about StartFlow, support requests, or anything you want us to review before you move forward.
+                </p>
+
+                <div className="mt-8 space-y-4">
+                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[#fcfaf6] px-4 py-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                      Send
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-neutral-700">
+                      Share your message with as much context as you need.
+                    </p>
+                  </div>
+                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[#fcfaf6] px-4 py-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                      Review
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-neutral-700">
+                      We look through your note and decide the clearest next step.
+                    </p>
+                  </div>
+                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[#fcfaf6] px-4 py-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                      Reply
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-neutral-700">
+                      You hear back directly with guidance, clarification, or follow-up.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : (
               <div className="interactive card-hover rounded-[2rem] border border-neutral-200 bg-white p-8 sm:p-10">
                 <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
                   What to expect
@@ -229,7 +290,7 @@ export function ContactPageContent({
                         Send a message
                       </h2>
                       <p className="mt-3 max-w-xl text-base leading-7 text-neutral-600">
-                        Use this form for general questions, concerns, or direct inquiries.
+                        Send your question here and we&apos;ll reply directly with the clearest next step.
                       </p>
                     </div>
                   ) : (
@@ -265,6 +326,7 @@ export function ContactPageContent({
                             value={formData.name}
                             onChange={(value) => updateField("name", value)}
                             placeholder="Your name"
+                            maxLength={contactFieldMaxLengths.name}
                             error={errors.name}
                             required
                           />
@@ -275,6 +337,7 @@ export function ContactPageContent({
                             value={formData.email}
                             onChange={(value) => updateField("email", value)}
                             placeholder="you@example.com"
+                            maxLength={contactFieldMaxLengths.email}
                             error={errors.email}
                             required
                           />
@@ -285,6 +348,7 @@ export function ContactPageContent({
                             value={formData.phone}
                             onChange={(value) => updateField("phone", value)}
                             placeholder="Optional"
+                            maxLength={contactFieldMaxLengths.phone}
                             error={errors.phone}
                           />
                           <TextAreaField
@@ -293,6 +357,7 @@ export function ContactPageContent({
                             value={formData.goals}
                             onChange={(value) => updateField("goals", value)}
                             placeholder="Tell us what you need help with and we&apos;ll get back to you directly."
+                            maxLength={contactFieldMaxLengths.goals}
                             error={errors.goals}
                             required
                           />
@@ -305,6 +370,7 @@ export function ContactPageContent({
                             value={formData.name}
                             onChange={(value) => updateField("name", value)}
                             placeholder="Your name"
+                            maxLength={contactFieldMaxLengths.name}
                             error={errors.name}
                             required
                           />
@@ -315,6 +381,7 @@ export function ContactPageContent({
                             value={formData.email}
                             onChange={(value) => updateField("email", value)}
                             placeholder="you@example.com"
+                            maxLength={contactFieldMaxLengths.email}
                             error={errors.email}
                             required
                           />
@@ -325,6 +392,7 @@ export function ContactPageContent({
                             value={formData.phone}
                             onChange={(value) => updateField("phone", value)}
                             placeholder="Optional"
+                            maxLength={contactFieldMaxLengths.phone}
                             error={errors.phone}
                           />
                         </>
@@ -338,6 +406,7 @@ export function ContactPageContent({
                             value={formData.businessName}
                             onChange={(value) => updateField("businessName", value)}
                             placeholder="Optional"
+                            maxLength={contactFieldMaxLengths.businessName}
                             error={errors.businessName}
                           />
                           <SelectField
@@ -376,6 +445,7 @@ export function ContactPageContent({
                               ? "Tell us what you need help with, what question you have, or what concern you want us to review."
                               : "Tell us what you're building, where you're stuck, and what kind of support would help most."
                           }
+                          maxLength={contactFieldMaxLengths.goals}
                           error={errors.goals}
                           required
                         />
@@ -457,6 +527,7 @@ type FieldProps = {
   error?: string;
   type?: string;
   required?: boolean;
+  maxLength?: number;
 };
 
 function Field({
@@ -467,7 +538,8 @@ function Field({
   placeholder,
   error,
   type = "text",
-  required = false
+  required = false,
+  maxLength
 }: FieldProps) {
   return (
     <label className="block">
@@ -481,6 +553,7 @@ function Field({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
+        maxLength={maxLength}
         autoComplete={name}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${name}-error` : undefined}
@@ -553,6 +626,7 @@ type TextAreaFieldProps = {
   placeholder: string;
   error?: string;
   required?: boolean;
+  maxLength?: number;
 };
 
 function TextAreaField({
@@ -562,7 +636,8 @@ function TextAreaField({
   onChange,
   placeholder,
   error,
-  required = false
+  required = false,
+  maxLength
 }: TextAreaFieldProps) {
   return (
     <label className="block">
@@ -575,6 +650,7 @@ function TextAreaField({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
+        maxLength={maxLength}
         rows={7}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${name}-error` : undefined}
@@ -582,6 +658,11 @@ function TextAreaField({
           error ? "border-red-300" : "border-neutral-200"
         }`}
       />
+      {maxLength ? (
+        <span className="mt-2 block text-right text-xs text-neutral-400">
+          {value.length} / {maxLength}
+        </span>
+      ) : null}
       {error ? (
         <span id={`${name}-error`} className="mt-2 block text-sm text-red-600">
           {error}

@@ -46,8 +46,8 @@ export default function RootLayout({
                 href="/contact#contact-form"
                 className="footer-link mt-4 inline-flex text-sm font-medium text-[#8f6a2f]"
               >
-                contact@startflow.com
-              </Link>
+                  contact@startflowhq.com
+                </Link>
             </div>
 
             <div>

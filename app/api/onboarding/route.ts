@@ -6,7 +6,10 @@ import {
   type OnboardingFormData,
   validateOnboardingFormSubmission
 } from "@/lib/onboarding-form";
-import type { StartFlowPackageKey } from "@/lib/startflow-packages";
+import {
+  startFlowPackages,
+  type StartFlowPackageKey
+} from "@/lib/startflow-packages";
 import { getCheckoutSession } from "@/lib/stripe";
 import {
   checkRateLimit,
@@ -132,13 +135,15 @@ export async function POST(request: Request) {
       return badRequest("Unable to verify this onboarding session.");
     }
 
+    const packageName = startFlowPackages[body.packageType].name;
+
     const resend = new Resend(resendApiKey);
 
     const html = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
         <h2>New StartFlow Onboarding Submission</h2>
 
-        <p><strong>Package:</strong> ${formatValue(body.packageType)}</p>
+        <p><strong>Package:</strong> ${formatValue(packageName)}</p>
         <p><strong>Full Name:</strong> ${formatValue(body.fullName)}</p>
         <p><strong>Email:</strong> ${formatValue(body.email)}</p>
         <p><strong>Phone:</strong> ${formatValue(body.phone)}</p>

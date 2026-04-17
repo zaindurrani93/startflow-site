@@ -49,6 +49,14 @@ export const currentStages = [
   "Ready to grow"
 ] as const;
 
+export const contactFieldMaxLengths = {
+  name: 100,
+  email: 254,
+  phone: 30,
+  businessName: 120,
+  goals: 1200
+} as const;
+
 export function normalizeContactFormData(data: Partial<ContactFormData>): ContactFormData {
   return {
     name: data.name?.trim() ?? "",
@@ -85,23 +93,23 @@ export function validateContactFormStep(
     errors.goals = "Please tell us what you need help with.";
   }
 
-  if (data.name.length > 100) {
+  if (data.name.length > contactFieldMaxLengths.name) {
     errors.name = "Please keep your name under 100 characters.";
   }
 
-  if (data.email.length > 254) {
+  if (data.email.length > contactFieldMaxLengths.email) {
     errors.email = "Please enter a shorter email address.";
   }
 
-  if (data.phone.length > 30) {
+  if (data.phone.length > contactFieldMaxLengths.phone) {
     errors.phone = "Please enter a shorter phone number.";
   }
 
-  if (data.businessName.length > 120) {
+  if (data.businessName.length > contactFieldMaxLengths.businessName) {
     errors.businessName = "Please keep the business name under 120 characters.";
   }
 
-  if (data.goals.length > 1200) {
+  if (data.goals.length > contactFieldMaxLengths.goals) {
     errors.goals = "Please keep this under 1200 characters.";
   }
 

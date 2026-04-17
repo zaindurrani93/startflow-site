@@ -40,6 +40,21 @@ export const initialOnboardingFormData: OnboardingFormData = {
   formStartedAt: ""
 };
 
+export const onboardingFieldMaxLengths = {
+  fullName: 100,
+  email: 254,
+  phone: 30,
+  businessName: 120,
+  businessType: 120,
+  websiteOrSocial: 300,
+  whatBuilding: 1200,
+  currentStage: 600,
+  helpNeeded: 1200,
+  mainGoal: 1200,
+  preferredCommunication: 80,
+  anythingElse: 1200
+} as const;
+
 export function normalizeOnboardingFormData(
   data: Partial<OnboardingFormData>
 ): OnboardingFormData {
@@ -106,47 +121,47 @@ export function validateOnboardingFormSubmission(
     errors.preferredCommunication = "Please choose a preferred communication method.";
   }
 
-  if (data.fullName.length > 100) {
+  if (data.fullName.length > onboardingFieldMaxLengths.fullName) {
     errors.fullName = "Please keep your name under 100 characters.";
   }
 
-  if (data.email.length > 254) {
+  if (data.email.length > onboardingFieldMaxLengths.email) {
     errors.email = "Please enter a shorter email address.";
   }
 
-  if (data.phone.length > 30) {
+  if (data.phone.length > onboardingFieldMaxLengths.phone) {
     errors.phone = "Please enter a shorter phone number.";
   }
 
-  if (data.businessName.length > 120) {
+  if (data.businessName.length > onboardingFieldMaxLengths.businessName) {
     errors.businessName = "Please keep the business name under 120 characters.";
   }
 
-  if (data.websiteOrSocial.length > 300) {
+  if (data.websiteOrSocial.length > onboardingFieldMaxLengths.websiteOrSocial) {
     errors.websiteOrSocial = "Please keep this under 300 characters.";
   }
 
-  if (data.whatBuilding.length > 1200) {
+  if (data.whatBuilding.length > onboardingFieldMaxLengths.whatBuilding) {
     errors.whatBuilding = "Please keep this under 1200 characters.";
   }
 
-  if (data.currentStage.length > 600) {
+  if (data.currentStage.length > onboardingFieldMaxLengths.currentStage) {
     errors.currentStage = "Please keep this under 600 characters.";
   }
 
-  if (data.helpNeeded.length > 1200) {
+  if (data.helpNeeded.length > onboardingFieldMaxLengths.helpNeeded) {
     errors.helpNeeded = "Please keep this under 1200 characters.";
   }
 
-  if (data.mainGoal.length > 1200) {
+  if (data.mainGoal.length > onboardingFieldMaxLengths.mainGoal) {
     errors.mainGoal = "Please keep this under 1200 characters.";
   }
 
-  if (data.preferredCommunication.length > 80) {
+  if (data.preferredCommunication.length > onboardingFieldMaxLengths.preferredCommunication) {
     errors.preferredCommunication = "Please keep this under 80 characters.";
   }
 
-  if (data.anythingElse.length > 1200) {
+  if (data.anythingElse.length > onboardingFieldMaxLengths.anythingElse) {
     errors.anythingElse = "Please keep this under 1200 characters.";
   }
 

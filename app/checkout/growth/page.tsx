@@ -1,6 +1,5 @@
-import { CheckoutPageShell } from "@/components/checkout-page-shell";
-import { startFlowPackages } from "@/lib/startflow-packages";
+import { redirect } from "next/navigation";
 
 export default function GrowthCheckoutPage() {
-  return <CheckoutPageShell pkg={startFlowPackages.growth} />;
+  redirect("/checkout/build");
 }

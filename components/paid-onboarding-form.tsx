@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import {
   initialOnboardingFormData,
   normalizeOnboardingFormData,
+  onboardingFieldMaxLengths,
   type OnboardingFormData,
   type OnboardingFormErrors,
   validateOnboardingFormSubmission
@@ -141,6 +142,7 @@ export function PaidOnboardingForm({
               value={formData.fullName}
               onChange={(value) => updateField("fullName", value)}
               placeholder="Your full name"
+              maxLength={onboardingFieldMaxLengths.fullName}
               error={errors.fullName}
               required
             />
@@ -151,6 +153,7 @@ export function PaidOnboardingForm({
               value={formData.email}
               onChange={(value) => updateField("email", value)}
               placeholder="you@example.com"
+              maxLength={onboardingFieldMaxLengths.email}
               error={errors.email}
               required
             />
@@ -161,6 +164,7 @@ export function PaidOnboardingForm({
               value={formData.phone}
               onChange={(value) => updateField("phone", value)}
               placeholder="Optional"
+              maxLength={onboardingFieldMaxLengths.phone}
               error={errors.phone}
             />
             <Field
@@ -169,6 +173,7 @@ export function PaidOnboardingForm({
               value={formData.businessName}
               onChange={(value) => updateField("businessName", value)}
               placeholder="Your business name"
+              maxLength={onboardingFieldMaxLengths.businessName}
               error={errors.businessName}
               required
             />
@@ -178,6 +183,7 @@ export function PaidOnboardingForm({
               value={formData.businessType}
               onChange={(value) => updateField("businessType", value)}
               placeholder="Service business, ecommerce, local business, etc."
+              maxLength={onboardingFieldMaxLengths.businessType}
               error={errors.businessType}
               required
             />
@@ -187,6 +193,7 @@ export function PaidOnboardingForm({
               value={formData.websiteOrSocial}
               onChange={(value) => updateField("websiteOrSocial", value)}
               placeholder="Optional"
+              maxLength={onboardingFieldMaxLengths.websiteOrSocial}
               error={errors.websiteOrSocial}
             />
           </div>
@@ -198,6 +205,7 @@ export function PaidOnboardingForm({
               value={formData.whatBuilding}
               onChange={(value) => updateField("whatBuilding", value)}
               placeholder="Tell us what business or offer you are building."
+              maxLength={onboardingFieldMaxLengths.whatBuilding}
               error={errors.whatBuilding}
               required
             />
@@ -207,6 +215,7 @@ export function PaidOnboardingForm({
               value={formData.currentStage}
               onChange={(value) => updateField("currentStage", value)}
               placeholder="Idea stage, early setup, relaunching, already live, etc."
+              maxLength={onboardingFieldMaxLengths.currentStage}
               error={errors.currentStage}
               required
             />
@@ -216,6 +225,7 @@ export function PaidOnboardingForm({
               value={formData.helpNeeded}
               onChange={(value) => updateField("helpNeeded", value)}
               placeholder="Brand direction, website setup, offer clarity, launch planning, or something else."
+              maxLength={onboardingFieldMaxLengths.helpNeeded}
               error={errors.helpNeeded}
               required
             />
@@ -225,6 +235,7 @@ export function PaidOnboardingForm({
               value={formData.mainGoal}
               onChange={(value) => updateField("mainGoal", value)}
               placeholder="Tell us the result you want to be working toward next."
+              maxLength={onboardingFieldMaxLengths.mainGoal}
               error={errors.mainGoal}
               required
             />
@@ -237,6 +248,7 @@ export function PaidOnboardingForm({
               value={formData.preferredCommunication}
               onChange={(value) => updateField("preferredCommunication", value)}
               placeholder="Email, phone, text, etc."
+              maxLength={onboardingFieldMaxLengths.preferredCommunication}
               error={errors.preferredCommunication}
               required
             />
@@ -246,6 +258,7 @@ export function PaidOnboardingForm({
               value={formData.anythingElse}
               onChange={(value) => updateField("anythingElse", value)}
               placeholder="Optional"
+              maxLength={onboardingFieldMaxLengths.anythingElse}
               error={errors.anythingElse}
             />
           </div>
@@ -282,6 +295,7 @@ type FieldProps = {
   error?: string;
   type?: string;
   required?: boolean;
+  maxLength?: number;
 };
 
 function Field({
@@ -292,7 +306,8 @@ function Field({
   placeholder,
   error,
   type = "text",
-  required = false
+  required = false,
+  maxLength
 }: FieldProps) {
   return (
     <label className="block">
@@ -306,6 +321,7 @@ function Field({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
+        maxLength={maxLength}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${name}-error` : undefined}
         className={`min-h-12 w-full rounded-2xl border bg-white px-4 text-base text-neutral-950 outline-none transition placeholder:text-neutral-400 focus:border-neutral-950 ${
@@ -329,6 +345,7 @@ type TextAreaFieldProps = {
   placeholder: string;
   error?: string;
   required?: boolean;
+  maxLength?: number;
 };
 
 function TextAreaField({
@@ -338,7 +355,8 @@ function TextAreaField({
   onChange,
   placeholder,
   error,
-  required = false
+  required = false,
+  maxLength
 }: TextAreaFieldProps) {
   return (
     <label className="block">
@@ -351,6 +369,7 @@ function TextAreaField({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
+        maxLength={maxLength}
         rows={5}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${name}-error` : undefined}
@@ -358,6 +377,11 @@ function TextAreaField({
           error ? "border-red-300" : "border-neutral-200"
         }`}
       />
+      {maxLength ? (
+        <span className="mt-2 block text-right text-xs text-neutral-400">
+          {value.length} / {maxLength}
+        </span>
+      ) : null}
       {error ? (
         <span id={`${name}-error`} className="mt-2 block text-sm text-red-600">
           {error}

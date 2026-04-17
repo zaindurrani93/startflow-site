@@ -24,7 +24,7 @@ export default function AboutPage() {
     <main className="bg-[linear-gradient(180deg,#ffffff_0%,#faf8f4_100%)]">
       <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl rounded-[2rem] border border-neutral-200 bg-white px-6 py-8 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-10">
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
               About StartFlow
             </h1>
@@ -43,41 +43,62 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-18 lg:px-8">
-        <div className="grid gap-12 lg:gap-16">
-          <div className="max-w-3xl">
+        <div className="grid gap-6 lg:gap-8">
+          <div className="rounded-[2rem] border border-neutral-200 bg-white px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
               Who We Help
             </p>
-            <p className="mt-5 text-lg leading-8 text-neutral-600">
-              We work with individuals and small businesses who are ready to take
-              their ideas seriously - but don&apos;t know exactly where to start.
-            </p>
-            <p className="mt-5 text-lg leading-8 text-neutral-600">
-              Whether you&apos;re launching your first business or trying to bring
-              structure to something you&apos;ve already started, StartFlow is designed
-              to guide you through the process without confusion or overwhelm.
-            </p>
+            <div className="mt-5 max-w-3xl space-y-5 text-lg leading-8 text-neutral-600">
+              <p>
+                We work with individuals and small businesses who are ready to take
+                their ideas seriously - but don&apos;t know exactly where to start.
+              </p>
+              <p>
+                Whether you&apos;re launching your first business or trying to bring
+                structure to something you&apos;ve already started, StartFlow is designed
+                to guide you through the process without confusion or overwhelm.
+              </p>
+            </div>
           </div>
 
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-              What We Believe
-            </p>
-            <p className="mt-5 text-lg leading-8 text-neutral-600">
-              Starting a business shouldn&apos;t feel complicated.
-            </p>
-            <p className="mt-5 text-lg leading-8 text-neutral-600">
-              Too many people get stuck researching, second-guessing, and trying to
-              figure everything out on their own. We believe there should be a clearer,
-              more structured way to move from idea to execution.
-            </p>
-            <p className="mt-5 text-lg leading-8 text-neutral-600">
-              StartFlow exists to simplify that process - giving you direction,
-              structure, and the confidence to move forward.
-            </p>
+          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-[2rem] border border-neutral-200 bg-white px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
+              <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                What We Believe
+              </p>
+              <div className="mt-5 max-w-3xl space-y-5 text-lg leading-8 text-neutral-600">
+                <p>
+                  Starting a business shouldn&apos;t feel complicated.
+                </p>
+                <p>
+                  Too many people get stuck researching, second-guessing, and trying to
+                  figure everything out on their own. We believe there should be a clearer,
+                  more structured way to move from idea to execution.
+                </p>
+                <p>
+                  StartFlow exists to simplify that process - giving you direction,
+                  structure, and the confidence to move forward.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
+              <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                Our Approach
+              </p>
+              <div className="mt-5 space-y-5 text-lg leading-8 text-neutral-600">
+                <p>
+                  We focus on making things clear and actionable.
+                </p>
+                <p>
+                  Instead of overwhelming you with options, we break things down into a
+                  process that makes sense - so you can spend less time figuring out the business semantics and more time actually building your business.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div>
+          <div className="rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
               What Makes StartFlow Different
             </p>
@@ -94,19 +115,6 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-              Our Approach
-            </p>
-            <p className="mt-5 text-lg leading-8 text-neutral-600">
-              We focus on making things clear and actionable.
-            </p>
-            <p className="mt-5 text-lg leading-8 text-neutral-600">
-              Instead of overwhelming you with options, we break things down into a
-              process that makes sense - so you can spend less time figuring out the business semantics and more time actually building your business.
-            </p>
           </div>
         </div>
       </section>
