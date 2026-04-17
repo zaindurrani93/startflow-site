@@ -222,8 +222,8 @@ export function HomeVisualFeature() {
             StartFlow supports people who are ready to move forward, but need the structure, setup, and direction to do it with confidence.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[1.4rem] border border-neutral-200 bg-white px-5 py-4 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-[1.4rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                 Designed for
               </p>
@@ -232,7 +232,7 @@ export function HomeVisualFeature() {
               </p>
             </div>
 
-            <div className="rounded-[1.4rem] border border-neutral-200 bg-white px-5 py-4 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
+            <div className="rounded-[1.4rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                 Focused on
               </p>
@@ -262,7 +262,7 @@ export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolea
                   {isInteractive ? (
                     <Link
                       href="/workflow"
-                      className={`workflow-pill interactive flex min-w-[9.5rem] items-center justify-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
+                      className={`workflow-pill interactive flex min-w-[9.5rem] items-center justify-center gap-2 rounded-full border bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
                     >
                       <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                         <Icon size={15} />
@@ -271,7 +271,7 @@ export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolea
                     </Link>
                   ) : (
                     <div
-                      className={`flex min-w-[9.5rem] items-center justify-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
+                      className={`flex min-w-[9.5rem] items-center justify-center gap-2 rounded-full border bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
                     >
                       <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
                         <Icon size={15} />
@@ -293,7 +293,7 @@ export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolea
 
 export function WhoThisIsForSection() {
   return (
-    <section className="border-b border-neutral-200 bg-white">
+    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Who This Is For</p>
@@ -308,7 +308,7 @@ export function WhoThisIsForSection() {
           {whoThisIsForItems.map((item) => (
             <div
               key={item}
-              className="interactive card-hover rounded-[1.5rem] border border-neutral-200 bg-white px-5 py-5"
+              className="interactive card-hover flex items-center justify-center rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 text-center"
             >
               <p className="text-base font-semibold tracking-tight text-neutral-950">{item}</p>
             </div>
@@ -340,7 +340,7 @@ export function HomePageLinks() {
             <Link
               key={item.href}
               href={item.href}
-              className="interactive card-hover group rounded-[1.85rem] border border-neutral-200 bg-white p-6"
+              className="interactive card-hover group rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-6"
             >
               <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
                 <item.icon size={20} />
@@ -360,7 +360,8 @@ export function HomePageLinks() {
 
 export function ServicesSection() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <section className="bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Services</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">What StartFlow helps you with.</h2>
@@ -373,7 +374,7 @@ export function ServicesSection() {
         {services.map((service) => (
           <div
             key={service.title}
-            className="interactive card-hover group rounded-[1.85rem] border border-neutral-200 bg-white p-6"
+            className="interactive card-hover group rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-6"
           >
             <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
               <service.icon size={20} />
@@ -383,13 +384,14 @@ export function ServicesSection() {
           </div>
         ))}
       </div>
+      </div>
     </section>
   );
 }
 
 export function HowItWorksSection() {
   return (
-    <section className="border-y border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f8f6f1_100%)]">
+    <section className="border-y border-neutral-200 bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.08),transparent_30%),linear-gradient(180deg,#fcfbf8_0%,#f6f2ea_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
@@ -402,7 +404,7 @@ export function HowItWorksSection() {
               {steps.map((step, index) => (
                 <div
                   key={step.num}
-                  className="interactive card-hover relative flex h-full flex-col rounded-[1.9rem] border border-neutral-200 bg-white p-7"
+                  className="interactive card-hover relative flex h-full flex-col rounded-[1.9rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-7"
                 >
                   <div className="relative z-10 flex items-center">
                     <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-500">
@@ -428,19 +430,20 @@ export function HowItWorksSection() {
 
 export function PricingSection() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:pb-24">
+    <section className="bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.08),transparent_28%),linear-gradient(180deg,#fffefe_0%,#f8f4ec_100%)]">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:pb-24">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-neutral-900">Package</p>
-        <p className="mt-4 text-lg text-neutral-600">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-neutral-500">Package</p>
+        <p className="mt-4 text-lg leading-8 text-neutral-600">
           Choose the level of support that fits your stage
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-5xl rounded-[2.4rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdf9_0%,#faf7f1_100%)] p-5 shadow-[0_22px_70px_rgba(80,61,28,0.08)] sm:p-8">
-        <div className="grid items-stretch gap-5 lg:grid-cols-2">
-          <div className="interactive pricing-card flex h-full flex-col rounded-[2.1rem] border border-neutral-200 bg-white p-7 sm:p-8">
+      <div className="mx-auto mt-12 max-w-5xl rounded-[2.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdf9_0%,#faf7f1_100%)] p-4 shadow-[0_28px_90px_rgba(80,61,28,0.08)] sm:p-6 lg:p-7">
+        <div className="grid items-stretch gap-4 lg:grid-cols-2">
+          <div className="interactive pricing-card flex h-full flex-col rounded-[2.2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf5ea_100%)] p-7 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-8">
             <div className="flex min-h-[17.5rem] flex-col items-center text-center">
-              <div className={`flex h-14 w-14 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#eadfcb] bg-[linear-gradient(180deg,#fbf5e8_0%,#f2e6cf_100%)] text-[#8f6a2f]">
                 <BriefcaseBusiness size={28} />
               </div>
               <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Launch</p>
@@ -455,15 +458,15 @@ export function PricingSection() {
               <p className="mt-2 min-h-[4.5rem] max-w-xs text-base font-semibold leading-6 text-neutral-500">
                 A definitive roadmap for executing your vision.
               </p>
-              <div className="mt-5 rounded-full border border-[#eadfcb] bg-[#f9f3e7] px-5 py-2 text-sm font-medium text-[#8f6a2f]">
+              <div className="mt-5 rounded-full border border-[#eadfcb] bg-[linear-gradient(180deg,#fcf6ea_0%,#f4e8cf_100%)] px-5 py-2 text-sm font-medium text-[#8f6a2f] shadow-[0_8px_20px_rgba(80,61,28,0.04)]">
                 Essential setup
               </div>
             </div>
 
-            <div className="mt-8 flex min-h-[18.25rem] flex-col rounded-[1.5rem] border border-neutral-200 bg-[#fcfaf6] px-5 py-5">
+            <div className="mt-8 flex min-h-[18.25rem] flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
-                {[
+                {[ 
                   "Business idea clarity & positioning",
                   "Target audience",
                   "Brand direction",
@@ -472,25 +475,24 @@ export function PricingSection() {
                   "Launch plan",
                   "1:1 guidance"
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
+                  <li key={item} className="flex items-center gap-3">
+                    <span className="inline-block h-[1.5px] w-2 shrink-0 rounded-full bg-[#b89656]" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mt-4 flex min-h-[10.75rem] flex-col rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-5">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">Best for</p>
-              <ul className="space-y-2 text-sm leading-6 text-neutral-700">
+            <div className="mt-4 flex flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f9f3e8_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]">
+              <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-400">Best for</p>
+              <ul className="mt-3 space-y-2 text-[13px] leading-6 text-neutral-500">
                 {[
                   "Clear business direction from the start",
                   "A simple professional setup you can build on",
                   "Guided next steps without the overwhelm"
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
-                    <span>{item}</span>
+                  <li key={item} className="leading-6">
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -505,7 +507,8 @@ export function PricingSection() {
             </Link>
           </div>
 
-          <div className={`interactive pricing-card pricing-featured relative flex h-full flex-col rounded-[2.1rem] border bg-white p-7 sm:p-8 ${accent.ring}`}>
+          <div className={`interactive pricing-card pricing-featured relative flex h-full flex-col rounded-[2.2rem] border bg-[linear-gradient(180deg,#fffefd_0%,#f7f1ff_100%)] p-7 shadow-[0_18px_44px_rgba(95,74,140,0.07)] sm:p-8 ${accent.ring}`}>
+            <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-[linear-gradient(90deg,rgba(142,121,190,0)_0%,rgba(142,121,190,0.5)_50%,rgba(142,121,190,0)_100%)]" />
             <div className="absolute right-5 top-5 rounded-full border border-[#ddd4f3] bg-[#f1edfb] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[#8e79be]">
               Most Popular
             </div>
@@ -526,15 +529,15 @@ export function PricingSection() {
               <p className="mt-2 min-h-[4.5rem] max-w-xs text-base font-semibold leading-6 text-neutral-500">
                 An enhanced, comprehensive setup for a higher-impact launch.
               </p>
-              <div className="mt-5 rounded-full bg-[#8f6a2f] px-5 py-2 text-sm font-medium text-white shadow-sm">
+              <div className="mt-5 rounded-full border border-[#7844c6]/10 bg-[linear-gradient(180deg,#8e79be_0%,#7f68b4_100%)] px-5 py-2 text-sm font-medium text-white shadow-[0_10px_24px_rgba(142,121,190,0.18)]">
                 Premium package
               </div>
             </div>
 
-            <div className="mt-8 flex min-h-[18.25rem] flex-col rounded-[1.5rem] border border-[#eadfcb] bg-[#fffaf0] px-5 py-5">
+            <div className="mt-8 flex min-h-[18.25rem] flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfb_0%,#f8f2ff_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
-                {[
+                {[ 
                   "Everything included in Launch",
                   "Premium Multi-page website",
                   "Social media setup",
@@ -543,25 +546,24 @@ export function PricingSection() {
                   "Launch strategy",
                   "Priority support"
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
+                  <li key={item} className="flex items-center gap-3">
+                    <span className="inline-block h-[1.5px] w-2 shrink-0 rounded-full bg-[#8e79be]" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mt-4 flex min-h-[10.75rem] flex-col rounded-[1.5rem] border border-neutral-200 bg-neutral-50 px-5 py-5">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">Best for</p>
-              <ul className="space-y-2 text-sm leading-6 text-neutral-700">
+            <div className="mt-4 flex flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfb_0%,#f6f0ff_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+              <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-400">Best for</p>
+              <ul className="mt-3 space-y-2 text-[13px] leading-6 text-neutral-500">
                 {[
                   "A stronger online presence from day one",
                   "Complete support for launch and growth",
                   "Built for clients ready to move faster"
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#b89656]" />
-                    <span>{item}</span>
+                  <li key={item} className="leading-6">
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -569,7 +571,7 @@ export function PricingSection() {
 
             <Link
               href="/checkout/build"
-              className="pricing-button button-primary interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#8f6a2f] px-5 py-3 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
+              className="pricing-button interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#ddd4f3] bg-[#8e79be] px-5 py-3 text-center text-sm font-medium text-white hover:bg-[#7f68b4]"
             >
               Choose Build
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
@@ -577,7 +579,7 @@ export function PricingSection() {
           </div>
         </div>
 
-        <div className="mt-8 rounded-[2rem] border border-[#eadfcb] bg-white/85 p-5 sm:p-6">
+        <div className="mt-8 rounded-[2rem] border border-[#eadfcb] bg-white/85 p-5 shadow-[0_18px_44px_rgba(80,61,28,0.04)] sm:p-6">
           <div className="max-w-2xl">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
               What to Expect
@@ -585,7 +587,7 @@ export function PricingSection() {
           </div>
 
           <div className="mt-7 grid gap-4 md:grid-cols-3">
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-[#fdfbf7] px-5 py-4.5">
+            <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4.5">
               <p className="text-base font-semibold tracking-tight text-neutral-950">
                 Delivery Timeline
               </p>
@@ -597,7 +599,7 @@ export function PricingSection() {
               </p>
             </div>
 
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-[#fdfbf7] px-5 py-4.5">
+            <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4.5">
               <p className="text-base font-semibold tracking-tight text-neutral-950">
                 What&apos;s Included
               </p>
@@ -607,7 +609,7 @@ export function PricingSection() {
               </p>
             </div>
 
-            <div className="rounded-[1.5rem] border border-neutral-200 bg-[#fdfbf7] px-5 py-4.5">
+            <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4.5">
               <p className="text-base font-semibold tracking-tight text-neutral-950">
                 Ongoing Support
               </p>
@@ -619,7 +621,7 @@ export function PricingSection() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#faf6ee_100%)] px-6 py-8 text-center sm:px-8">
+        <div className="mt-6 rounded-[1.95rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#faf6ee_100%)] px-6 py-8 text-center shadow-[0_18px_44px_rgba(80,61,28,0.04)] sm:px-8">
           <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
             Need something more tailored?
           </h3>
@@ -639,6 +641,7 @@ export function PricingSection() {
             No hidden fees. No subscriptions.
           </p>
         </div>
+      </div>
       </div>
     </section>
   );
@@ -708,7 +711,7 @@ export function MinimalCtaSection() {
 
 export function WhyStartFlow() {
   return (
-    <section className="border-b border-neutral-200 bg-white">
+    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-18 sm:px-6 sm:py-22 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Why StartFlow</p>
@@ -724,10 +727,10 @@ export function WhyStartFlow() {
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {whyStartFlowItems.map((item) => (
-            <div
-              key={item.title}
-              className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] p-7 shadow-[0_14px_36px_rgba(17,24,39,0.03)]"
-            >
+              <div
+                key={item.title}
+                className="interactive card-hover rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-7 shadow-[0_14px_36px_rgba(17,24,39,0.03)]"
+              >
               <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.title}</h3>
               <p className="mt-4 text-sm leading-7 text-neutral-600">{item.desc}</p>
             </div>
@@ -740,7 +743,7 @@ export function WhyStartFlow() {
 
 export function FounderTestimonials() {
   return (
-    <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f8f5ee_100%)]">
+    <section className="border-b border-neutral-200 bg-[radial-gradient(circle_at_top_left,rgba(184,150,86,0.08),transparent_26%),linear-gradient(180deg,#fcfbf8_0%,#f5efe3_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
@@ -755,10 +758,10 @@ export function FounderTestimonials() {
           {founderTestimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-white p-7 shadow-[0_14px_36px_rgba(17,24,39,0.03)]"
+              className="interactive card-hover rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f8f1e3_100%)] p-7 shadow-[0_18px_42px_rgba(80,61,28,0.05)]"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#eadfcb] bg-[#f9f3e7] text-sm font-semibold text-[#8f6a2f]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e2cfaa] bg-[linear-gradient(180deg,#fcf6ea_0%,#f1e3c7_100%)] text-sm font-semibold text-[#8f6a2f] shadow-[0_10px_20px_rgba(80,61,28,0.05)]">
                   {testimonial.name.slice(0, 1)}
                 </div>
                 <div>
@@ -781,11 +784,12 @@ export function FounderTestimonials() {
 
 export function AboutStartFlow() {
   return (
-    <section id="about-startflow" className="border-b border-neutral-200 bg-[linear-gradient(180deg,#fcfbf8_0%,#f5f2eb_100%)]">
+    <section id="about-startflow" className="border-b border-neutral-200 bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.07),transparent_30%),linear-gradient(180deg,#fcfbf8_0%,#f3ede1_100%)]">
       <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
-        <div className="rounded-[2rem] border border-[#eee3cf] bg-white/80 px-6 py-10 shadow-[0_18px_50px_rgba(80,61,28,0.05)] backdrop-blur sm:px-10">
+        <div className="relative overflow-hidden rounded-[2.15rem] border border-[#e8dcc4] bg-[linear-gradient(180deg,#fffdfa_0%,#f7f0e2_100%)] px-6 py-10 shadow-[0_22px_60px_rgba(80,61,28,0.06)] sm:px-10 sm:py-12">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.7),transparent_70%)]" />
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About StartFlow</p>
-          <div className="mx-auto mt-5 h-px w-16 bg-[#dcc9a1]" />
+          <div className="mx-auto mt-5 h-px w-16 bg-[#d9c291]" />
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
             StartFlow was built for individuals and small businesses that need clarity,
             structure, and a clear path forward. We turn early-stage uncertainty into a

@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function CheckoutCancelPage() {
   return (
-    <main className="bg-[linear-gradient(180deg,#ffffff_0%,#faf8f4_100%)]">
+    <main className="bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.08),transparent_28%),linear-gradient(180deg,#ffffff_0%,#faf8f4_100%)]">
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-neutral-200 bg-white p-8 text-center shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
+        <div className="mx-auto max-w-3xl rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf6ee_100%)] p-8 text-center shadow-[0_22px_65px_rgba(80,61,28,0.06)] sm:p-10">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
             Checkout Canceled
           </p>

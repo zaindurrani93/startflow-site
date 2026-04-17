@@ -24,6 +24,7 @@ export function PaidOnboardingForm({
   sessionId,
   customerEmail
 }: PaidOnboardingFormProps) {
+  const isBuild = packageType === "growth";
   const [formData, setFormData] = useState<OnboardingFormData>({
     ...initialOnboardingFormData,
     packageType,
@@ -101,7 +102,7 @@ export function PaidOnboardingForm({
   }
 
   return (
-    <div className="mt-10 rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
+    <div className="mt-10 rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf6ee_100%)] p-8 shadow-[0_22px_65px_rgba(80,61,28,0.06)] sm:p-10">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
           Next Step
@@ -114,8 +115,30 @@ export function PaidOnboardingForm({
         </p>
       </div>
 
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <div className={`rounded-[1.5rem] border px-5 py-4 ${isBuild ? "border-[#ddd4f3] bg-[linear-gradient(180deg,#fffdfb_0%,#f7f1ff_100%)]" : "border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f9f3e8_100%)]"}`}>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+            Selected Package
+          </p>
+          <div className="mt-3 inline-flex items-center rounded-full border border-neutral-200 bg-white/70 px-3 py-1.5 text-sm font-semibold text-neutral-950">
+            {packageName || "Confirmed"}
+          </div>
+        </div>
+        <div className={`rounded-[1.5rem] border px-5 py-4 ${isBuild ? "border-[#ddd4f3] bg-[linear-gradient(180deg,#fffdfb_0%,#f6f0ff_100%)]" : "border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f9f3e8_100%)]"}`}>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+            Next Step
+          </p>
+          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.08em] text-neutral-950">
+            Complete onboarding
+          </p>
+          <p className="mt-2 text-sm leading-6 text-neutral-500">
+            Once submitted, we&apos;ll review everything and follow up with your setup path.
+          </p>
+        </div>
+      </div>
+
       {isSubmitted ? (
-        <div className="mt-10 rounded-[1.75rem] border border-neutral-200 bg-neutral-50 px-6 py-8">
+        <div className="mt-10 rounded-[1.75rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f9f3e8_100%)] px-6 py-8">
           <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
             Intake submitted.
           </h3>

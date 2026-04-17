@@ -5,12 +5,24 @@ import type { StartFlowPackage } from "@/lib/startflow-packages";
 
 export function CheckoutPageShell({ pkg }: { pkg: StartFlowPackage }) {
   const isGrowth = pkg.key === "growth";
+  const shellGradient = isGrowth
+    ? "bg-[radial-gradient(circle_at_top,rgba(142,121,190,0.12),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f8f4ff_100%)]"
+    : "bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.12),transparent_28%),linear-gradient(180deg,#ffffff_0%,#faf7f0_100%)]";
+  const iconBubbleClass = isGrowth
+    ? "border border-[#ddd4f3] bg-[linear-gradient(180deg,#f5f1ff_0%,#ece4ff_100%)] text-[#8e79be]"
+    : "border border-[#eadfcb] bg-[linear-gradient(180deg,#fbf5e8_0%,#f2e6cf_100%)] text-[#b89656]";
+  const includedPanelClass = isGrowth
+    ? "border-[#ddd4f3] bg-[linear-gradient(180deg,#fffdfb_0%,#f7f1ff_100%)]"
+    : "border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)]";
+  const summaryPanelClass = isGrowth
+    ? "border-[#ddd4f3] bg-[linear-gradient(180deg,#fffdfb_0%,#f6f0ff_100%)]"
+    : "border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f9f3e8_100%)]";
 
   return (
-    <main className="bg-[linear-gradient(180deg,#ffffff_0%,#faf8f4_100%)]">
+    <main className={shellGradient}>
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-[2rem] border border-neutral-200 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)] sm:p-10">
+          <div className="rounded-[2.15rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf6ee_100%)] p-8 shadow-[0_24px_70px_rgba(80,61,28,0.06)] sm:p-10">
             <Link
               href="/pricing"
               className="inline-flex items-center gap-2 text-sm font-medium text-neutral-500 transition hover:text-neutral-950"
@@ -28,13 +40,7 @@ export function CheckoutPageShell({ pkg }: { pkg: StartFlowPackage }) {
                   {pkg.name} - {pkg.priceDisplay}
                 </h1>
               </div>
-              <div
-                className={`flex h-14 w-14 items-center justify-center rounded-full ${
-                  isGrowth
-                    ? "bg-[#f1edfb] text-[#8e79be]"
-                    : "bg-[#f6efe0] text-[#b89656]"
-                }`}
-              >
+              <div className={`flex h-14 w-14 items-center justify-center rounded-full ${iconBubbleClass}`}>
                 {isGrowth ? <Sparkles size={28} /> : <BriefcaseBusiness size={28} />}
               </div>
             </div>
@@ -44,21 +50,21 @@ export function CheckoutPageShell({ pkg }: { pkg: StartFlowPackage }) {
             </p>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="rounded-[1.75rem] border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
+              <div className={`rounded-[1.75rem] border p-6 shadow-[0_12px_30px_rgba(80,61,28,0.04)] sm:p-8 ${includedPanelClass}`}>
                 <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
                   What&apos;s included
                 </h2>
                 <ul className="mt-6 space-y-3 text-sm leading-6 text-neutral-700">
                   {pkg.includes.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span className="mt-[0.45rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-950" />
+                      <span className={`mt-[0.6rem] inline-block h-[1.5px] w-2 shrink-0 rounded-full ${isGrowth ? "bg-[#8e79be]" : "bg-[#b89656]"}`} />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="rounded-[1.75rem] border border-dashed border-neutral-300 bg-white p-6 sm:p-8">
+              <div className={`rounded-[1.75rem] border border-dashed p-6 shadow-[0_12px_30px_rgba(80,61,28,0.04)] sm:p-8 ${summaryPanelClass}`}>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-950 text-white">
                   <ShieldCheck size={22} />
                 </div>
@@ -68,7 +74,7 @@ export function CheckoutPageShell({ pkg }: { pkg: StartFlowPackage }) {
                 <p className="mt-4 text-base leading-7 text-neutral-600">
                   You are one step away from locking in your package. Continue to secure checkout to complete your payment.
                 </p>
-                <div className="mt-8 rounded-2xl border border-neutral-200 bg-neutral-50 px-5 py-4">
+                <div className={`mt-8 rounded-2xl border px-5 py-4 ${includedPanelClass}`}>
                   <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                     Selected Package
                   </p>

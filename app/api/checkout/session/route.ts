@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import { badRequest, serverError } from "@/lib/api-response";
 import { getCheckoutSession } from "@/lib/stripe";
-import { startFlowPackages, type StartFlowPackageKey } from "@/lib/startflow-packages";
+import {
+  getStartFlowPackageName,
+  startFlowPackages,
+  type StartFlowPackageKey
+} from "@/lib/startflow-packages";
 import {
   checkRateLimit,
   createRateLimitResponse,
@@ -33,13 +37,14 @@ export async function GET(request: Request) {
     );
     const packageType = session.metadata?.packageType as StartFlowPackageKey | undefined;
     const pkg = packageType ? startFlowPackages[packageType] : null;
+    const packageName = getStartFlowPackageName(packageType) || pkg?.name || "";
 
     return NextResponse.json({
       sessionId: session.id,
       paymentStatus: session.payment_status,
       customerEmail: session.customer_details?.email ?? "",
       packageType: packageType ?? "",
-      packageName: pkg?.name ?? "",
+      packageName,
       amountTotal: session.amount_total ?? null
     });
   } catch (error) {

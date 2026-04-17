@@ -45,3 +45,21 @@ export const startFlowPackages: Record<StartFlowPackageKey, StartFlowPackage> = 
     ]
   }
 };
+
+export function getStartFlowPackageName(packageValue?: string | null) {
+  if (!packageValue) {
+    return "";
+  }
+
+  const normalized = packageValue.trim().toLowerCase();
+
+  if (normalized === "starter" || normalized === "launch") {
+    return "Launch";
+  }
+
+  if (normalized === "growth" || normalized === "build") {
+    return "Build";
+  }
+
+  return "";
+}

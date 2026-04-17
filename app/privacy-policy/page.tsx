@@ -2,7 +2,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
       <div className="mx-auto max-w-4xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="rounded-[2rem] border border-neutral-200 bg-white px-6 py-8 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-10 sm:py-10">
+        <div className="rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf6ee_100%)] px-6 py-8 shadow-[0_18px_40px_rgba(80,61,28,0.05)] sm:px-10 sm:py-10">
           <h1 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
             Privacy Policy
           </h1>

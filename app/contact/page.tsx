@@ -159,7 +159,7 @@ export function ContactPageContent({
 
           {isQuestionIntent ? (
             <div className="mt-10 grid gap-4 md:grid-cols-2">
-              <div className="rounded-[1.5rem] border border-neutral-200 bg-white px-5 py-5 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
+              <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                   Best For
                 </p>
@@ -167,7 +167,7 @@ export function ContactPageContent({
                   General questions, concerns, and direct support requests
                 </p>
               </div>
-              <div className="rounded-[1.5rem] border border-neutral-200 bg-white px-5 py-5 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
+              <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                   What Happens Next
                 </p>
@@ -184,7 +184,7 @@ export function ContactPageContent({
             }`}
           >
             {isQuestionIntent ? (
-              <div className="interactive card-hover rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] p-7 sm:p-8">
+              <div className="interactive card-hover rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] p-7 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-8">
                 <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
                   Direct Contact
                 </p>
@@ -196,7 +196,7 @@ export function ContactPageContent({
                 </p>
 
                 <div className="mt-8 space-y-4">
-                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[#fcfaf6] px-4 py-4">
+                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-4">
                     <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                       Send
                     </p>
@@ -204,7 +204,7 @@ export function ContactPageContent({
                       Share your message with as much context as you need.
                     </p>
                   </div>
-                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[#fcfaf6] px-4 py-4">
+                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-4">
                     <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                       Review
                     </p>
@@ -212,7 +212,7 @@ export function ContactPageContent({
                       We look through your note and decide the clearest next step.
                     </p>
                   </div>
-                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[#fcfaf6] px-4 py-4">
+                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-4">
                     <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                       Reply
                     </p>
@@ -223,7 +223,7 @@ export function ContactPageContent({
                 </div>
               </div>
             ) : (
-              <div className="interactive card-hover rounded-[2rem] border border-neutral-200 bg-white p-8 sm:p-10">
+              <div className="interactive card-hover rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-8 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-10">
                 <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
                   What to expect
                 </p>
@@ -256,7 +256,7 @@ export function ContactPageContent({
 
             <div
               id="contact-form"
-              className={`interactive cta-surface rounded-[2rem] border border-neutral-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.05)] ${
+              className={`interactive cta-surface rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf6ee_100%)] shadow-[0_22px_65px_rgba(80,61,28,0.06)] ${
                 isQuestionIntent ? "p-6 sm:p-8" : "p-8 sm:p-10"
               }`}
             >

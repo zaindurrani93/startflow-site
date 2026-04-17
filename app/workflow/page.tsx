@@ -2,7 +2,7 @@ import { HowItWorksSection, WorkflowStrip } from "@/components/startflow-section
 
 export default function WorkflowPage() {
   return (
-    <main>
+    <main className="bg-[linear-gradient(180deg,#ffffff_0%,#fbfaf7_100%)]">
       <WorkflowStrip isInteractive={false} />
       <HowItWorksSection />
     </main>
