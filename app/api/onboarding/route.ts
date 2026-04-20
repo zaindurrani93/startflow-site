@@ -61,8 +61,9 @@ export async function POST(request: Request) {
   try {
     const resendApiKey = process.env.RESEND_API_KEY?.trim();
     const toEmail = process.env.CONTACT_TO_EMAIL?.trim();
+    const fromEmail = process.env.CONTACT_FROM_EMAIL?.trim();
 
-    if (!resendApiKey || !toEmail) {
+    if (!resendApiKey || !toEmail || !fromEmail) {
       logServerError("onboarding-config", "Missing onboarding email configuration.");
       return serverError("Service temporarily unavailable. Please try again later.");
     }
@@ -172,7 +173,7 @@ export async function POST(request: Request) {
 
     const { error } = await withTimeout(
       resend.emails.send({
-        from: "onboarding@resend.dev",
+        from: fromEmail,
         to: [toEmail],
         subject: `New StartFlow Onboarding - ${body.fullName}`,
         html,

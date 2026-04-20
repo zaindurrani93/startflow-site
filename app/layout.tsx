@@ -43,7 +43,7 @@ export default function RootLayout({
                 Simplifying the process of starting your business — from idea to execution.
               </p>
               <Link
-                href="/contact#contact-form"
+                href="/contact"
                 className="footer-link mt-4 inline-flex text-sm font-medium text-[#8f6a2f]"
               >
                   contact@startflowhq.com
