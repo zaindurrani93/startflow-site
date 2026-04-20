@@ -509,7 +509,7 @@ export function PricingSection() {
 
           <div className={`interactive pricing-card pricing-featured relative flex h-full flex-col rounded-[2.2rem] border bg-[linear-gradient(180deg,#fffefd_0%,#f7f1ff_100%)] p-7 shadow-[0_18px_44px_rgba(95,74,140,0.07)] sm:p-8 ${accent.ring}`}>
             <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-[linear-gradient(90deg,rgba(142,121,190,0)_0%,rgba(142,121,190,0.5)_50%,rgba(142,121,190,0)_100%)]" />
-            <div className="absolute right-5 top-5 rounded-full border border-[#ddd4f3] bg-[#f1edfb] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[#8e79be]">
+            <div className="mb-5 inline-flex self-start rounded-full border border-[#ddd4f3] bg-[#f1edfb] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[#8e79be] sm:absolute sm:right-5 sm:top-5 sm:mb-0 sm:self-auto">
               Most Popular
             </div>
 

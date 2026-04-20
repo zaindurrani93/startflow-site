@@ -209,7 +209,7 @@ export function ContactPageContent({
                       Review
                     </p>
                     <p className="mt-2 text-sm leading-6 text-neutral-700">
-                      We look through your note and decide the clearest next step.
+                      We look through your note and decide the next step.
                     </p>
                   </div>
                   <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-4">
@@ -289,9 +289,6 @@ export function ContactPageContent({
                       <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
                         Send a message
                       </h2>
-                      <p className="mt-3 max-w-xl text-base leading-7 text-neutral-600">
-                        Send your question here and we&apos;ll reply directly with the clearest next step.
-                      </p>
                     </div>
                   ) : (
                     <>
