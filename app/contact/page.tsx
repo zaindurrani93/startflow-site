@@ -145,11 +145,11 @@ export function ContactPageContent({
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
               {isQuestionIntent ? "CONTACT" : "INQUIRY"}
             </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
-              {isQuestionIntent
-                ? "Get in touch directly."
-                : "Start your setup with a simple guided form."}
-            </h1>
+            {isQuestionIntent ? null : (
+              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
+                Start your setup with a simple guided form.
+              </h1>
+            )}
             {isQuestionIntent ? null : (
               <p className="mt-5 text-lg leading-8 text-neutral-600">
                 Share a few details and we&apos;ll follow up with the right next steps for your business.
@@ -157,72 +157,12 @@ export function ContactPageContent({
             )}
           </div>
 
-          {isQuestionIntent ? (
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
-                <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                  Best For
-                </p>
-                <p className="mt-2 text-base font-semibold tracking-tight text-neutral-950">
-                  General questions, concerns, and direct support requests
-                </p>
-              </div>
-              <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
-                <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                  What Happens Next
-                </p>
-                <p className="mt-2 text-base font-semibold tracking-tight text-neutral-950">
-                  We review your message and reply directly with the right next step
-                </p>
-              </div>
-            </div>
-          ) : null}
-
           <div
             className={`mt-12 grid gap-8 lg:items-start ${
-              isQuestionIntent ? "lg:grid-cols-[0.78fr_1.22fr]" : "lg:grid-cols-[0.9fr_1.1fr]"
+              isQuestionIntent ? "mx-auto max-w-3xl" : "lg:grid-cols-[0.9fr_1.1fr]"
             }`}
           >
-            {isQuestionIntent ? (
-              <div className="interactive card-hover rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] p-7 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-8">
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-                  Direct Contact
-                </p>
-                <h2 className="mt-4 text-2xl font-semibold tracking-tight text-neutral-950">
-                  A simple way to reach us directly.
-                </h2>
-                <p className="mt-4 text-base leading-7 text-neutral-600">
-                  Use this form for questions about StartFlow, support requests, or anything you want us to review before you move forward.
-                </p>
-
-                <div className="mt-8 space-y-4">
-                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-4">
-                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                      Send
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-neutral-700">
-                      Share your message with as much context as you need.
-                    </p>
-                  </div>
-                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-4">
-                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                      Review
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-neutral-700">
-                      We look through your note and decide the next step.
-                    </p>
-                  </div>
-                  <div className="rounded-[1.35rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-4">
-                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
-                      Reply
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-neutral-700">
-                      You hear back directly with guidance, clarification, or follow-up.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ) : (
+            {isQuestionIntent ? null : (
               <div className="interactive card-hover rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-8 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-10">
                 <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
                   What to expect
