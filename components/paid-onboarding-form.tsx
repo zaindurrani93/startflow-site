@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { BriefcaseBusiness, Sparkles } from "lucide-react";
 import {
   initialOnboardingFormData,
   normalizeOnboardingFormData,
@@ -25,6 +26,12 @@ export function PaidOnboardingForm({
   customerEmail
 }: PaidOnboardingFormProps) {
   const isBuild = packageType === "growth";
+  const packageIconBubbleClass = isBuild
+    ? "border border-[#ddd4f3] bg-[linear-gradient(180deg,#f5f1ff_0%,#ece4ff_100%)] text-[#8e79be]"
+    : "border border-[#eadfcb] bg-[linear-gradient(180deg,#fbf5e8_0%,#f2e6cf_100%)] text-[#b89656]";
+  const packageBadgeClass = isBuild
+    ? "border-[#ddd4f3] bg-white/80"
+    : "border-[#eadfcb] bg-white/80";
   const [formData, setFormData] = useState<OnboardingFormData>({
     ...initialOnboardingFormData,
     packageType,
@@ -118,14 +125,14 @@ export function PaidOnboardingForm({
     <div className="mt-10 rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf6ee_100%)] p-8 shadow-[0_22px_65px_rgba(80,61,28,0.06)] sm:p-10">
       <div className="max-w-2xl">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-          Next Step
+          Business Intake
         </p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-          Complete your onboarding
+          Tell us about your business
         </h2>
         <p className="mt-4 text-lg leading-8 text-neutral-600">
-          Share a few details about your business, goals, and current stage so we can prepare your{" "}
-          {packageName || "setup"} and guide you through the next steps clearly.
+          This short form gives us the context we need to prepare your {packageName || "setup"}{" "}
+          and follow up with a clear plan.
         </p>
       </div>
 
@@ -140,8 +147,17 @@ export function PaidOnboardingForm({
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
             Selected Package
           </p>
-          <div className="mt-3 inline-flex items-center rounded-full border border-neutral-200 bg-white/70 px-3 py-1.5 text-sm font-semibold text-neutral-950">
-            {packageName || "Confirmed"}
+          <div
+            className={`mt-3 inline-flex items-center gap-3 rounded-full border px-3 py-2 shadow-[0_10px_24px_rgba(80,61,28,0.04)] ${packageBadgeClass}`}
+          >
+            <span
+              className={`flex h-8 w-8 items-center justify-center rounded-full ${packageIconBubbleClass}`}
+            >
+              {isBuild ? <Sparkles size={16} /> : <BriefcaseBusiness size={16} />}
+            </span>
+            <span className="text-sm font-semibold text-neutral-950">
+              {packageName || "Confirmed"}
+            </span>
           </div>
         </div>
         <div
@@ -155,10 +171,10 @@ export function PaidOnboardingForm({
             Next Step
           </p>
           <p className="mt-3 text-sm font-semibold uppercase tracking-[0.08em] text-neutral-950">
-            Complete onboarding
+            Submit intake
           </p>
           <p className="mt-2 text-sm leading-6 text-neutral-500">
-            Once submitted, we&apos;ll review everything and follow up with your setup path.
+            We&apos;ll review your responses and follow up with your setup path.
           </p>
         </div>
       </div>
@@ -309,7 +325,7 @@ export function PaidOnboardingForm({
         ) : null}
 
         <p className="text-sm leading-7 text-neutral-500">
-          Once submitted, we&apos;ll review your details and follow up with your next-step guidance.
+          Once submitted, we&apos;ll review your responses and follow up with your next-step guidance.
         </p>
 
         <button
@@ -317,7 +333,7 @@ export function PaidOnboardingForm({
           disabled={isSubmitting}
           className="inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {isSubmitting ? "Submitting..." : "Submit Onboarding Details"}
+          {isSubmitting ? "Submitting..." : "Submit Intake"}
         </button>
       </form>
     </div>

@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { BriefcaseBusiness, CheckCircle2, Sparkles } from "lucide-react";
 import { PaidOnboardingForm } from "@/components/paid-onboarding-form";
 import { getCheckoutSession } from "@/lib/stripe";
 import {
@@ -45,6 +45,12 @@ export default async function CheckoutSuccessPage({
   const statusBadgeClass = isBuild
     ? "border-[#ddd4f3] bg-[#f1edfb] text-[#7f68b4]"
     : "border-[#eadfcb] bg-[#f9f3e7] text-[#8f6a2f]";
+  const packageIconBubbleClass = isBuild
+    ? "border border-[#ddd4f3] bg-[linear-gradient(180deg,#f5f1ff_0%,#ece4ff_100%)] text-[#8e79be]"
+    : "border border-[#eadfcb] bg-[linear-gradient(180deg,#fbf5e8_0%,#f2e6cf_100%)] text-[#b89656]";
+  const packageBadgeClass = isBuild
+    ? "border-[#ddd4f3] bg-white/80"
+    : "border-[#eadfcb] bg-white/80";
 
   return (
     <main className={successGradient}>
@@ -58,10 +64,11 @@ export default async function CheckoutSuccessPage({
               Payment Confirmed
             </p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
-              Welcome to StartFlow — your setup starts now
+              Welcome to StartFlow - your setup starts now
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-neutral-600">
-              Your package has been confirmed. Complete the short onboarding form below so we can review your business, prepare your setup, and map out the right next steps.
+              Your package has been confirmed. Use the short intake form below so we can
+              review your business and prepare the right setup.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -69,15 +76,26 @@ export default async function CheckoutSuccessPage({
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                   Selected Package
                 </p>
-                <div className="mt-3 inline-flex items-center rounded-full border border-neutral-200 bg-white/70 px-3 py-1.5 text-sm font-semibold text-neutral-950">
-                  {packageName || "Confirmed"}
+                <div
+                  className={`mt-3 inline-flex items-center gap-3 rounded-full border px-3 py-2 shadow-[0_10px_24px_rgba(80,61,28,0.04)] ${packageBadgeClass}`}
+                >
+                  <span
+                    className={`flex h-8 w-8 items-center justify-center rounded-full ${packageIconBubbleClass}`}
+                  >
+                    {isBuild ? <Sparkles size={16} /> : <BriefcaseBusiness size={16} />}
+                  </span>
+                  <span className="text-sm font-semibold text-neutral-950">
+                    {packageName || "Confirmed"}
+                  </span>
                 </div>
               </div>
               <div className={`rounded-[1.5rem] border px-5 py-4 ${summaryCardClass}`}>
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                   Status
                 </p>
-                <div className={`mt-3 inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] ${statusBadgeClass}`}>
+                <div
+                  className={`mt-3 inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] ${statusBadgeClass}`}
+                >
                   {paymentStatus}
                 </div>
               </div>
@@ -94,15 +112,17 @@ export default async function CheckoutSuccessPage({
                   Payment confirmed
                 </p>
               </div>
-              <div className={`rounded-[1.5rem] border px-4 py-4 shadow-[0_10px_28px_rgba(80,61,28,0.05)] ${summaryCardClass}`}>
+              <div
+                className={`rounded-[1.5rem] border px-4 py-4 shadow-[0_10px_28px_rgba(80,61,28,0.05)] ${summaryCardClass}`}
+              >
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
                   Step 2
                 </p>
                 <p className="mt-2 text-sm font-semibold uppercase tracking-[0.08em] text-neutral-950">
-                  Complete onboarding
+                  Business intake
                 </p>
                 <p className="mt-2 text-sm leading-6 text-neutral-500">
-                  Share your details so we can move into setup.
+                  Answer a few short questions so we can get started.
                 </p>
               </div>
               <div className={`rounded-[1.5rem] border px-4 py-4 ${summaryCardClass}`}>
