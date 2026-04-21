@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
@@ -24,6 +25,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfairDisplay.variable} bg-white text-neutral-900`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18109674831"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18109674831');
+          `}
+        </Script>
         <SiteHeader />
         {children}
         <footer className="border-t border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
