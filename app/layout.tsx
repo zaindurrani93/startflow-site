@@ -24,12 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfairDisplay.variable} bg-white text-neutral-900`}>
+      <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18109674831"
           strategy="afterInteractive"
         />
-        <Script id="google-ads-gtag" strategy="afterInteractive">
+        <Script id="google-ads-tag" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -37,6 +37,8 @@ export default function RootLayout({
             gtag('config', 'AW-18109674831');
           `}
         </Script>
+      </head>
+      <body className={`${playfairDisplay.variable} bg-white text-neutral-900`}>
         <SiteHeader />
         {children}
         <footer className="border-t border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
