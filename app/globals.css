@@ -228,6 +228,44 @@ body {
   letter-spacing: -0.02em;
 }
 
+.brand-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.brand-wordmark-start {
+  color: #2f2b27;
+}
+
+.brand-wordmark-flow {
+  display: inline-block;
+  padding-right: 0.05em;
+  color: #c9a765;
+  background-image: linear-gradient(135deg, #e5d0ab 0%, #c9a765 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-logo-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.95rem;
+  background-color: #ffffff;
+}
+
+.brand-logo {
+  filter:
+    sepia(1)
+    saturate(1.4)
+    hue-rotate(342deg)
+    brightness(0.9)
+    contrast(1.05);
+}
+
 .footer-link {
   width: fit-content;
   transition:

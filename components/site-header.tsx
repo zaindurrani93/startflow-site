@@ -40,15 +40,20 @@ export function SiteHeader() {
           onClick={handleLogoClick}
           className="inline-flex items-center gap-3 text-xl font-semibold tracking-tight text-neutral-950"
         >
-          <Image
-            src="/logo.png"
-            alt="StartFlow logo"
-            width={40}
-            height={40}
-            priority
-            className="h-8 w-auto shrink-0 sm:h-9"
-          />
-          <span>StartFlow</span>
+          <span className="brand-logo-box shrink-0">
+            <Image
+              src="/startflow-logo-mark.png"
+              alt="StartFlow logo"
+              width={40}
+              height={40}
+              priority
+              className="brand-logo h-8 w-auto sm:h-9"
+            />
+          </span>
+          <span className="brand-wordmark">
+            <span className="brand-wordmark-start">Start</span>
+            <span className="brand-wordmark-flow">Flow</span>
+          </span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm text-neutral-600 md:flex">
           {navItems.map((item) => (

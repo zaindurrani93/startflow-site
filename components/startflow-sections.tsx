@@ -136,18 +136,21 @@ const founderTestimonials = [
   {
     name: "Sarah K.",
     role: "First-time founder",
+    location: "Florida",
     quote:
       "Before i found StartFlow, I had no idea where to start. After onboarding, The team worked extensively to provide me with a clear structure that made everything feel manageable."
   },
   {
     name: "Javier S.",
     role: "Small business owner",
+    location: "Mexico",
     quote:
       "Everything finally made sense. I wasn't overwhelmed anymore - I actually had a plan."
   },
   {
     name: "Aisha M.",
     role: "Startup beginner",
+    location: "Illinois",
     quote:
       "I just needed direction. After working with the team at StartFlow, They simplified everything down for me and helped me move forward confidently."
   }
@@ -591,12 +594,24 @@ export function PricingSection() {
               <p className="text-base font-semibold tracking-tight text-neutral-950">
                 Delivery Timeline
               </p>
-              <p className="mt-2.5 text-sm leading-6 text-neutral-500">
-                Launch: 3–5 business days
-              </p>
-              <p className="mt-1.5 text-sm leading-6 text-neutral-500">
-                Build: 5–10 business days
-              </p>
+              <div className="mt-3 space-y-2.5">
+                <div className="flex items-center gap-2 text-[13px] leading-5 text-neutral-500">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-[#f9f3e7] text-[#b89656]">
+                    <BriefcaseBusiness size={12} />
+                  </span>
+                  <p>
+                    <span className="whitespace-nowrap font-medium text-neutral-700">Launch package</span>: 3-5 business days
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 text-[13px] leading-5 text-neutral-500">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#ddd4f3] bg-[#f1edfb] text-[#8e79be]">
+                    <Sparkles size={12} />
+                  </span>
+                  <p>
+                    <span className="whitespace-nowrap font-medium text-neutral-700">Build package</span>: 5-10 business days
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4.5">
@@ -768,7 +783,9 @@ export function FounderTestimonials() {
                   <p className="text-base font-semibold tracking-tight text-neutral-950">
                     {testimonial.name}
                   </p>
-                  <p className="text-sm text-neutral-500">{testimonial.role}</p>
+                  <p className="text-sm text-neutral-500">
+                    {testimonial.role} • {testimonial.location}
+                  </p>
                 </div>
               </div>
               <p className="mt-6 text-lg leading-8 text-neutral-700">
@@ -800,3 +817,4 @@ export function AboutStartFlow() {
     </section>
   );
 }
+

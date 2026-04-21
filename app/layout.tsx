@@ -30,14 +30,19 @@ export default function RootLayout({
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 sm:px-6 lg:grid-cols-[1.3fr_0.8fr_0.8fr] lg:px-8 lg:py-18">
             <div className="max-w-sm">
               <div className="inline-flex items-center gap-3 text-xl font-semibold tracking-tight text-neutral-950">
-                <Image
-                  src="/logo.png"
-                  alt="StartFlow logo"
-                  width={40}
-                  height={40}
-                  className="h-9 w-auto shrink-0"
-                />
-                <h2>StartFlow</h2>
+                <span className="brand-logo-box shrink-0">
+                  <Image
+                    src="/startflow-logo-mark.png"
+                    alt="StartFlow logo"
+                    width={40}
+                    height={40}
+                    className="brand-logo h-9 w-auto"
+                  />
+                </span>
+                <h2 className="brand-wordmark">
+                  <span className="brand-wordmark-start">Start</span>
+                  <span className="brand-wordmark-flow">Flow</span>
+                </h2>
               </div>
               <p className="mt-4 text-base leading-7 text-neutral-600">
                 Simplifying the process of starting your business — from idea to execution.
