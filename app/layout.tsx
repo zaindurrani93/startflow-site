@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "StartFlow",
     images: [
       {
-        url: "/startflow-share-card.png",
+        url: "/startflow-share-card-v2.png",
         width: 1200,
         height: 630,
         alt: "StartFlow business setup preview"
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "StartFlow",
     description: "Build your business with clarity - not confusion.",
-    images: ["/startflow-share-card.png"]
+    images: ["/startflow-share-card-v2.png"]
   }
 };
 
