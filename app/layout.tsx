@@ -13,8 +13,38 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://startflowhq.com"),
   title: "StartFlow",
   description: "StartFlow business setup website",
+  icons: {
+    icon: [
+      { url: "/startflow-favicon-512.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico" }
+    ],
+    apple: [{ url: "/startflow-favicon-512.png", sizes: "512x512", type: "image/png" }],
+    shortcut: ["/favicon.ico"]
+  },
+  openGraph: {
+    title: "StartFlow",
+    description: "Build your business with clarity - not confusion.",
+    url: "https://startflowhq.com",
+    siteName: "StartFlow",
+    images: [
+      {
+        url: "/startflow-share-card.png",
+        width: 1200,
+        height: 630,
+        alt: "StartFlow business setup preview"
+      }
+    ],
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StartFlow",
+    description: "Build your business with clarity - not confusion.",
+    images: ["/startflow-share-card.png"]
+  }
 };
 
 export default function RootLayout({
