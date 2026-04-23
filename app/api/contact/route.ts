@@ -120,7 +120,7 @@ export async function POST(request: Request) {
         subject: `StartFlow Lead - ${normalizedBody.name} - ${submittedAt}`,
         html: `
           <div style="font-family: Arial, Helvetica, sans-serif; color: #171717; line-height: 1.6;">
-            <h2 style="margin-bottom: 20px;">New StartFlow Lead</h2>
+            <h2 style="margin-bottom: 20px;">New Contact Inquiry - ${formatValue(normalizedBody.name)}</h2>
             <p><strong>Name:</strong> ${formatValue(normalizedBody.name)}</p>
             <p><strong>Email:</strong> ${formatValue(normalizedBody.email)}</p>
             <p><strong>Phone:</strong> ${formatValue(normalizedBody.phone)}</p>
