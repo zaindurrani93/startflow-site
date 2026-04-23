@@ -71,6 +71,7 @@ export async function POST(request: Request) {
         mode: "payment",
         success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&package=${pkg.key}`,
         cancel_url: `${siteUrl}/checkout/cancel?package=${pkg.key}`,
+        allow_promotion_codes: true,
         payment_method_types: ["card"],
         line_items: [
           {

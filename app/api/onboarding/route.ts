@@ -28,6 +28,9 @@ import {
 
 export const runtime = "nodejs";
 
+const onboardingSenderEmail = "StartFlow <contact@startflowhq.com>";
+const onboardingReplyToEmail = "contact@startflowhq.com";
+
 const allowedOnboardingKeys = [
   "fullName",
   "email",
@@ -61,9 +64,8 @@ export async function POST(request: Request) {
   try {
     const resendApiKey = process.env.RESEND_API_KEY?.trim();
     const toEmail = process.env.CONTACT_TO_EMAIL?.trim();
-    const fromEmail = process.env.CONTACT_FROM_EMAIL?.trim();
 
-    if (!resendApiKey || !toEmail || !fromEmail) {
+    if (!resendApiKey || !toEmail) {
       logServerError("onboarding-config", "Missing onboarding email configuration.");
       return serverError("Service temporarily unavailable. Please try again later.");
     }
@@ -173,11 +175,11 @@ export async function POST(request: Request) {
 
     const { error } = await withTimeout(
       resend.emails.send({
-        from: fromEmail,
+        from: onboardingSenderEmail,
         to: [toEmail],
         subject: `New StartFlow Onboarding - ${body.fullName}`,
         html,
-        replyTo: body.email
+        replyTo: onboardingReplyToEmail
       }),
       12_000,
       "Onboarding email request timed out."
