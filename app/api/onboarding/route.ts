@@ -30,7 +30,7 @@ export const runtime = "nodejs";
 
 const onboardingSenderEmail = "StartFlow <contact@startflowhq.com>";
 const onboardingReplyToEmail = "contact@startflowhq.com";
-const onboardingLogoUrl = "https://startflowhq.com/startflow-logo-mark.png";
+const onboardingLogoUrl = "https://startflowhq.com/startflow-logo-email.png";
 
 const allowedOnboardingKeys = [
   "fullName",
@@ -152,53 +152,53 @@ export async function POST(request: Request) {
     const resend = new Resend(resendApiKey);
 
     const html = `
-      <div style="margin: 0; background-color: #f8f4ec; padding: 32px 18px; font-family: Arial, Helvetica, sans-serif; color: #171717;">
+      <div style="margin: 0; background-color: #f8f4ec; padding: 32px 18px; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #171717;">
         <div style="margin: 0 auto; max-width: 680px; overflow: hidden; border: 1px solid #eadfcb; border-radius: 28px; background: linear-gradient(180deg, #fffefd 0%, #faf6ee 100%); box-shadow: 0 18px 50px rgba(80, 61, 28, 0.08);">
           <div style="padding: 32px 32px 22px; text-align: center;">
             <img src="${onboardingLogoUrl}" alt="StartFlow logo" width="72" height="57" style="display: block; margin: 0 auto 18px; width: 72px; height: auto;" />
             <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8f6a2f;">StartFlow</p>
-            <h2 style="margin: 12px 0 0; font-size: 28px; line-height: 1.2; color: #171717;">New Onboarding Submission</h2>
+            <h2 style="margin: 12px 0 0; font-family: Georgia, 'Times New Roman', serif; font-size: 30px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #171717;">New Onboarding Submission</h2>
           </div>
 
           <div style="padding: 0 32px 32px;">
             <div style="padding-top: 22px; border-top: 1px solid #eadfcb;">
               <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Client Details</p>
-              <p style="margin: 0 0 10px;"><strong>Package:</strong> ${formatValue(packageName)}</p>
-              <p style="margin: 0 0 10px;"><strong>Full Name:</strong> ${formatValue(body.fullName)}</p>
-              <p style="margin: 0 0 10px;"><strong>Email:</strong> ${formatValue(body.email)}</p>
-              <p style="margin: 0;"><strong>Phone:</strong> ${formatValue(body.phone)}</p>
+              <p style="margin: 0 0 10px; font-size: 15px; line-height: 1.65;"><strong>Package:</strong> ${formatValue(packageName)}</p>
+              <p style="margin: 0 0 10px; font-size: 15px; line-height: 1.65;"><strong>Full Name:</strong> ${formatValue(body.fullName)}</p>
+              <p style="margin: 0 0 10px; font-size: 15px; line-height: 1.65;"><strong>Email:</strong> ${formatValue(body.email)}</p>
+              <p style="margin: 0; font-size: 15px; line-height: 1.65;"><strong>Phone:</strong> ${formatValue(body.phone)}</p>
             </div>
 
             <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #eadfcb;">
               <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Business Overview</p>
-              <p style="margin: 0 0 10px;"><strong>Business Name:</strong> ${formatValue(body.businessName)}</p>
-              <p style="margin: 0 0 10px;"><strong>Business Type:</strong> ${formatValue(body.businessType)}</p>
-              <p style="margin: 0 0 10px;"><strong>Website or Social Link:</strong> ${formatValue(body.websiteOrSocial)}</p>
-              <p style="margin: 0 0 8px;"><strong>What are they building?</strong></p>
-              <p style="margin: 0 0 14px; white-space: pre-wrap;">${formatValue(body.whatBuilding)}</p>
-              <p style="margin: 0 0 8px;"><strong>Current Stage:</strong></p>
-              <p style="margin: 0; white-space: pre-wrap;">${formatValue(body.currentStage)}</p>
+              <p style="margin: 0 0 10px; font-size: 15px; line-height: 1.65;"><strong>Business Name:</strong> ${formatValue(body.businessName)}</p>
+              <p style="margin: 0 0 10px; font-size: 15px; line-height: 1.65;"><strong>Business Type:</strong> ${formatValue(body.businessType)}</p>
+              <p style="margin: 0 0 10px; font-size: 15px; line-height: 1.65;"><strong>Website or Social Link:</strong> ${formatValue(body.websiteOrSocial)}</p>
+              <p style="margin: 0 0 8px; font-size: 15px; line-height: 1.65;"><strong>What are they building?</strong></p>
+              <p style="margin: 0 0 14px; font-size: 15px; line-height: 1.75; white-space: pre-wrap;">${formatValue(body.whatBuilding)}</p>
+              <p style="margin: 0 0 8px; font-size: 15px; line-height: 1.65;"><strong>Current Stage:</strong></p>
+              <p style="margin: 0; font-size: 15px; line-height: 1.75; white-space: pre-wrap;">${formatValue(body.currentStage)}</p>
             </div>
 
             <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #eadfcb;">
               <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Goals &amp; Needs</p>
-              <p style="margin: 0 0 8px;"><strong>What do they need the most help with right now?</strong></p>
-              <p style="margin: 0 0 14px; white-space: pre-wrap;">${formatValue(body.helpNeeded)}</p>
-              <p style="margin: 0 0 8px;"><strong>Main goal for the next 30-60 days:</strong></p>
-              <p style="margin: 0 0 14px; white-space: pre-wrap;">${formatValue(body.mainGoal)}</p>
-              <p style="margin: 0 0 8px;"><strong>Anything else we should know?</strong></p>
-              <p style="margin: 0; white-space: pre-wrap;">${formatValue(body.anythingElse)}</p>
+              <p style="margin: 0 0 8px; font-size: 15px; line-height: 1.65;"><strong>What do they need the most help with right now?</strong></p>
+              <p style="margin: 0 0 14px; font-size: 15px; line-height: 1.75; white-space: pre-wrap;">${formatValue(body.helpNeeded)}</p>
+              <p style="margin: 0 0 8px; font-size: 15px; line-height: 1.65;"><strong>Main goal for the next 30-60 days:</strong></p>
+              <p style="margin: 0 0 14px; font-size: 15px; line-height: 1.75; white-space: pre-wrap;">${formatValue(body.mainGoal)}</p>
+              <p style="margin: 0 0 8px; font-size: 15px; line-height: 1.65;"><strong>Anything else we should know?</strong></p>
+              <p style="margin: 0; font-size: 15px; line-height: 1.75; white-space: pre-wrap;">${formatValue(body.anythingElse)}</p>
             </div>
 
             <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #eadfcb;">
               <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Action</p>
-              <p style="margin: 0 0 10px;"><strong>Preferred communication method:</strong> ${formatValue(body.preferredCommunication)}</p>
-              <p style="margin: 0; color: #5f564a;">Review this intake and follow up with the client using their preferred contact method.</p>
+              <p style="margin: 0 0 10px; font-size: 15px; line-height: 1.65;"><strong>Preferred communication method:</strong> ${formatValue(body.preferredCommunication)}</p>
+              <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #5f564a;">Review this intake and follow up with the client using their preferred contact method.</p>
             </div>
           </div>
 
           <div style="border-top: 1px solid #eadfcb; background: #fffaf1; padding: 18px 32px; text-align: center;">
-            <p style="margin: 0; font-size: 13px; color: #6d6255;">StartFlow - Simplifying the process of starting your business</p>
+            <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6d6255;">StartFlow - Simplifying the process of starting your business</p>
           </div>
         </div>
       </div>

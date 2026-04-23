@@ -258,12 +258,7 @@ body {
 }
 
 .brand-logo {
-  filter:
-    sepia(1)
-    saturate(1.4)
-    hue-rotate(342deg)
-    brightness(0.9)
-    contrast(1.05);
+  display: block;
 }
 
 .footer-link {
