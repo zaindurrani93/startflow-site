@@ -139,6 +139,10 @@ export async function POST(request: Request) {
     }
 
     const packageName = startFlowPackages[body.packageType].name;
+    const submittedAt = new Date()
+      .toISOString()
+      .replace("T", " ")
+      .replace(/\.\d{3}Z$/, " UTC");
 
     const resend = new Resend(resendApiKey);
 
@@ -177,7 +181,7 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: onboardingSenderEmail,
         to: [toEmail],
-        subject: `New StartFlow Onboarding - ${body.fullName}`,
+        subject: `New Onboarding - ${body.fullName} - ${submittedAt}`,
         html,
         replyTo: onboardingReplyToEmail
       }),

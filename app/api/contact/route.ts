@@ -104,6 +104,11 @@ export async function POST(request: Request) {
     return badRequest("Please complete the required fields.", fieldErrors);
   }
 
+  const submittedAt = new Date()
+    .toISOString()
+    .replace("T", " ")
+    .replace(/\.\d{3}Z$/, " UTC");
+
   const resend = new Resend(resendApiKey);
 
   try {
@@ -112,7 +117,7 @@ export async function POST(request: Request) {
         from: fromEmail,
         to: [toEmail],
         replyTo: normalizedBody.email,
-        subject: `New StartFlow lead from ${normalizedBody.name}`,
+        subject: `StartFlow Lead - ${normalizedBody.name} - ${submittedAt}`,
         html: `
           <div style="font-family: Arial, Helvetica, sans-serif; color: #171717; line-height: 1.6;">
             <h2 style="margin-bottom: 20px;">New StartFlow Lead</h2>
