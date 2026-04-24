@@ -90,8 +90,8 @@ export function wrapEmailTemplate(contentHtml: string) {
       </head>
       <body style="margin: 0; padding: 0; background-color: #f8f4ec;">
         <div class="body email-shell" style="background-color: #f8f4ec;">
-          <div class="gmail-blend-screen">
-            <div class="gmail-blend-difference">
+          <div class="gmail-blend-screen" style="background: #000; background-image: linear-gradient(#000, #000); mix-blend-mode: screen;">
+            <div class="gmail-blend-difference" style="background: #000; background-image: linear-gradient(#000, #000); mix-blend-mode: difference;">
               ${contentHtml}
             </div>
           </div>
