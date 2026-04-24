@@ -20,6 +20,7 @@ import {
   validateAllowedKeys,
   withTimeout
 } from "@/lib/server-security";
+import { wrapEmailTemplate } from "@/lib/email-template";
 
 export const runtime = "nodejs";
 
@@ -115,12 +116,12 @@ export async function POST(request: Request) {
         to: [toEmail],
         replyTo: normalizedBody.email,
         subject: `StartFlow Inquiry - ${normalizedBody.name}`,
-        html: `
+        html: wrapEmailTemplate(`
           <div style="margin: 0; background-color: #f8f4ec; padding: 32px 18px; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #171717;">
             <div style="margin: 0 auto; max-width: 680px; overflow: hidden; border: 1px solid #eadfcb; border-radius: 28px; background: linear-gradient(180deg, #fffefd 0%, #faf6ee 100%); box-shadow: 0 18px 50px rgba(80, 61, 28, 0.08);">
               <div style="padding: 32px 32px 22px; text-align: center;">
                 <img src="${contactLogoUrl}" alt="StartFlow logo" width="72" height="57" style="display: block; margin: 0 auto 18px; width: 72px; height: auto;" />
-                <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8f6a2f;">StartFlow</p>
+                <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; color: #8f6a2f;">StartFlow</p>
                 <h2 style="margin: 12px 0 0; font-family: Georgia, 'Times New Roman', serif; font-size: 30px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #171717;">New Contact Inquiry - ${formatValue(normalizedBody.name)}</h2>
               </div>
 
@@ -151,7 +152,7 @@ export async function POST(request: Request) {
               </div>
             </div>
           </div>
-        `
+        `)
       }),
       12_000,
       "Email request timed out."
