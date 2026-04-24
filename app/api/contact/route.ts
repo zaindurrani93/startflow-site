@@ -117,11 +117,6 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(resendApiKey);
-  const submittedAt = new Date()
-    .toISOString()
-    .replace("T", " ")
-    .replace(/\.\d{3}Z$/, " UTC");
-
   const html = wrapEmailTemplate(
     buildEmailShell(`
       ${buildEmailHeader("New Contact Inquiry", contactLogoUrl)}
@@ -162,7 +157,7 @@ export async function POST(request: Request) {
         from: contactSenderEmail,
         to: [toEmail],
         replyTo: contactReplyToEmail,
-        subject: `StartFlow Lead — ${normalizedBody.name} — ${submittedAt}`,
+        subject: `StartFlow Inquiry (${normalizedBody.name})`,
         html
       }),
       12_000,

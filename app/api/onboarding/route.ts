@@ -159,11 +159,6 @@ export async function POST(request: Request) {
 
     const packageName = startFlowPackages[body.packageType].name;
     const resend = new Resend(resendApiKey);
-    const submittedAt = new Date()
-      .toISOString()
-      .replace("T", " ")
-      .replace(/\.\d{3}Z$/, " UTC");
-
     const html = wrapEmailTemplate(
       buildEmailShell(`
         ${buildEmailHeader("New Onboarding Submission", onboardingLogoUrl)}
@@ -209,7 +204,7 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: onboardingSenderEmail,
         to: [toEmail],
-        subject: `StartFlow Lead — ${body.fullName} — ${submittedAt}`,
+        subject: `New StartFlow Onboarding (${body.fullName})`,
         html,
         replyTo: onboardingReplyToEmail
       }),
