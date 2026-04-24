@@ -42,12 +42,15 @@ export function buildEmailShell(contentHtml: string) {
 
 export function buildEmailHeader(title: string, logoUrl?: string) {
   const logoHtml = logoUrl
-    ? `<img src="${logoUrl}" alt="StartFlow logo" style="display:block; margin:0 auto 14px; width:120px; height:auto; border:0; background-color:#ffffff !important;" />`
+    ? `<img src="${logoUrl}" alt="StartFlow logo" style="display:block; margin:0 auto 12px; width:88px; height:auto; border:0; background-color:#ffffff !important;" />`
     : "";
 
   return `
     <div style="padding: 0 0 22px; text-align: center; background-color: #ffffff !important;">
       ${logoHtml}
+      <div style="margin-bottom: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: ${LABEL_COLOR} !important; background-color: #ffffff !important;">
+        StartFlow
+      </div>
       <div style="font-size: 24px; font-weight: 700; line-height: 1.25; color: ${TEXT_COLOR} !important; background-color: #ffffff !important;">
         ${title}
       </div>
