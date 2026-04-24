@@ -122,7 +122,7 @@ export async function POST(request: Request) {
               <div style="padding: 32px 32px 22px; text-align: center;">
                 <img src="${contactLogoUrl}" alt="StartFlow logo" width="72" height="57" style="display: block; margin: 0 auto 18px; width: 72px; height: auto;" />
                 <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; color: #8f6a2f;">StartFlow</p>
-                <h2 style="margin: 12px 0 0; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 28px; font-weight: 800; line-height: 1.25; letter-spacing: 0; color: #21160c; -webkit-text-fill-color: #21160c; text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased; mso-line-height-rule: exactly;">New Contact Inquiry - ${formatValue(normalizedBody.name)}</h2>
+                <h2 style="margin: 12px 0 0; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.25; letter-spacing: 0; color: #3b2d1f; -webkit-text-fill-color: #3b2d1f; text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased; mso-line-height-rule: exactly;">New Contact Inquiry - ${formatValue(normalizedBody.name)}</h2>
               </div>
 
               <div style="padding: 0 32px 32px;">
