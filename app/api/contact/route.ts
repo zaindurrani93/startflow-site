@@ -20,11 +20,21 @@ import {
   validateAllowedKeys,
   withTimeout
 } from "@/lib/server-security";
-import { wrapEmailTemplate } from "@/lib/email-template";
+import {
+  buildEmailField,
+  buildEmailFooter,
+  buildEmailHeader,
+  buildEmailLongField,
+  buildEmailSection,
+  buildEmailShell,
+  wrapEmailTemplate
+} from "@/lib/email-template";
 
 export const runtime = "nodejs";
 
-const contactLogoUrl = "https://startflowhq.com/startflow-logo-mark.png";
+const contactLogoUrl = "https://startflowhq.com/logo.png";
+const contactSenderEmail = "StartFlow <contact@startflowhq.com>";
+const contactReplyToEmail = "contact@startflowhq.com";
 
 const allowedContactKeys = [
   "name",
@@ -60,9 +70,8 @@ export async function POST(request: Request) {
 
   const resendApiKey = process.env.RESEND_API_KEY?.trim();
   const toEmail = process.env.CONTACT_TO_EMAIL?.trim();
-  const fromEmail = process.env.CONTACT_FROM_EMAIL?.trim();
 
-  if (!resendApiKey || !toEmail || !fromEmail) {
+  if (!resendApiKey || !toEmail) {
     logServerError("contact-config", "Missing contact email configuration.");
     return serverError("Service temporarily unavailable. Please try again later.");
   }
@@ -108,51 +117,53 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(resendApiKey);
+  const submittedAt = new Date()
+    .toISOString()
+    .replace("T", " ")
+    .replace(/\.\d{3}Z$/, " UTC");
+
+  const html = wrapEmailTemplate(
+    buildEmailShell(`
+      ${buildEmailHeader("New Contact Inquiry", contactLogoUrl)}
+      ${buildEmailSection(
+        "CLIENT DETAILS",
+        [
+          buildEmailField("Name", formatValue(normalizedBody.name)),
+          buildEmailField("Email", formatValue(normalizedBody.email)),
+          buildEmailField("Phone", formatValue(normalizedBody.phone))
+        ].join("")
+      )}
+      ${buildEmailSection(
+        "BUSINESS OVERVIEW",
+        [
+          buildEmailField("Business Name", formatValue(normalizedBody.businessName)),
+          buildEmailField("Business Type", formatValue(normalizedBody.businessType)),
+          buildEmailField("Current Stage", formatValue(normalizedBody.currentStage))
+        ].join("")
+      )}
+      ${buildEmailSection(
+        "GOALS & NEEDS",
+        buildEmailLongField("Goals / What They Need Help With", formatValue(normalizedBody.goals))
+      )}
+      ${buildEmailSection(
+        "ACTION",
+        [
+          buildEmailField("Submitted By", formatValue(normalizedBody.name)),
+          buildEmailField("Reply To", contactReplyToEmail)
+        ].join("")
+      )}
+      ${buildEmailFooter()}
+    `)
+  );
 
   try {
     const { error } = await withTimeout(
       resend.emails.send({
-        from: fromEmail,
+        from: contactSenderEmail,
         to: [toEmail],
-        replyTo: normalizedBody.email,
-        subject: `StartFlow Inquiry - ${normalizedBody.name}`,
-        html: wrapEmailTemplate(`
-          <div style="margin: 0; background-color: #f8f4ec; padding: 32px 18px; font-family: Arial, Helvetica, sans-serif; color: #171717; line-height: 1.6;">
-            <div style="margin: 0 auto; max-width: 680px; overflow: hidden; border: 1px solid #eadfcb; border-radius: 28px; background: linear-gradient(180deg, #fffefd 0%, #faf6ee 100%); box-shadow: 0 18px 50px rgba(80, 61, 28, 0.08);">
-              <div style="padding: 32px 32px 22px; text-align: center;">
-                <img src="${contactLogoUrl}" alt="StartFlow logo" width="72" height="57" style="display: block; margin: 0 auto 18px; width: 72px; height: auto;" />
-                <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; color: #8f6a2f;">StartFlow</p>
-                <h2 style="margin: 12px 0 0; font-size: 28px; font-weight: 700; line-height: 1.25; color: #171717;">New Contact Inquiry - ${formatValue(normalizedBody.name)}</h2>
-              </div>
-
-              <div style="padding: 0 32px 32px;">
-                <div style="padding-top: 22px; border-top: 1px solid #eadfcb;">
-                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Client Details</p>
-                  <p style="margin: 0 0 10px;"><strong>Name:</strong> ${formatValue(normalizedBody.name)}</p>
-                  <p style="margin: 0 0 10px;"><strong>Email:</strong> ${formatValue(normalizedBody.email)}</p>
-                  <p style="margin: 0;"><strong>Phone:</strong> ${formatValue(normalizedBody.phone)}</p>
-                </div>
-
-                <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #eadfcb;">
-                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Business Overview</p>
-                  <p style="margin: 0 0 10px;"><strong>Business Name:</strong> ${formatValue(normalizedBody.businessName)}</p>
-                  <p style="margin: 0 0 10px;"><strong>Business Type:</strong> ${formatValue(normalizedBody.businessType)}</p>
-                  <p style="margin: 0;"><strong>Current Stage:</strong> ${formatValue(normalizedBody.currentStage)}</p>
-                </div>
-
-                <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #eadfcb;">
-                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Goals &amp; Needs</p>
-                  <p style="margin: 0 0 8px;"><strong>Goals / What They Need Help With:</strong></p>
-                  <p style="margin: 0; white-space: pre-wrap;">${formatValue(normalizedBody.goals)}</p>
-                </div>
-              </div>
-
-              <div style="border-top: 1px solid #eadfcb; background: #fffaf1; padding: 18px 32px; text-align: center;">
-                <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6d6255;">StartFlow - Simplifying the process of starting your business</p>
-              </div>
-            </div>
-          </div>
-        `)
+        replyTo: contactReplyToEmail,
+        subject: `StartFlow Lead — ${normalizedBody.name} — ${submittedAt}`,
+        html
       }),
       12_000,
       "Email request timed out."
