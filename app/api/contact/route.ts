@@ -117,38 +117,38 @@ export async function POST(request: Request) {
         replyTo: normalizedBody.email,
         subject: `StartFlow Inquiry - ${normalizedBody.name}`,
         html: wrapEmailTemplate(`
-          <div style="margin: 0; background-color: #f8f4ec; padding: 32px 18px; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #2d2014; -webkit-text-fill-color: #2d2014;">
+          <div style="margin: 0; background-color: #f8f4ec; padding: 32px 18px; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #24160c; -webkit-text-fill-color: #24160c;">
             <div style="margin: 0 auto; max-width: 680px; overflow: hidden; border: 1px solid #eadfcb; border-radius: 28px; background: linear-gradient(180deg, #fffefd 0%, #faf6ee 100%); box-shadow: 0 18px 50px rgba(80, 61, 28, 0.08);">
               <div style="padding: 32px 32px 22px; text-align: center;">
                 <img src="${contactLogoUrl}" alt="StartFlow logo" width="72" height="57" style="display: block; margin: 0 auto 18px; width: 72px; height: auto;" />
                 <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; color: #8f6a2f;">StartFlow</p>
-                <h2 style="margin: 12px 0 0; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.25; letter-spacing: 0; color: #3b2d1f; -webkit-text-fill-color: #3b2d1f; text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased; mso-line-height-rule: exactly;">New Contact Inquiry - ${formatValue(normalizedBody.name)}</h2>
+                <h2 style="margin: 12px 0 0; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.25; letter-spacing: 0; color: #24160c; -webkit-text-fill-color: #24160c; -webkit-font-smoothing: antialiased; mso-line-height-rule: exactly;">New Contact Inquiry - ${formatValue(normalizedBody.name)}</h2>
               </div>
 
               <div style="padding: 0 32px 32px;">
                 <div style="padding-top: 22px; border-top: 1px solid #eadfcb;">
-                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Client Details</p>
-                  <p style="margin: 0 0 10px; font-size: 16px; font-weight: 500; line-height: 1.65; color: #2d2014; -webkit-text-fill-color: #2d2014;"><strong style="font-weight: 700; color: #21160c; -webkit-text-fill-color: #21160c;">Name:</strong> ${formatValue(normalizedBody.name)}</p>
-                  <p style="margin: 0 0 10px; font-size: 16px; font-weight: 500; line-height: 1.65; color: #2d2014; -webkit-text-fill-color: #2d2014;"><strong style="font-weight: 700; color: #21160c; -webkit-text-fill-color: #21160c;">Email:</strong> ${formatValue(normalizedBody.email)}</p>
-                  <p style="margin: 0; font-size: 16px; font-weight: 500; line-height: 1.65; color: #2d2014; -webkit-text-fill-color: #2d2014;"><strong style="font-weight: 700; color: #21160c; -webkit-text-fill-color: #21160c;">Phone:</strong> ${formatValue(normalizedBody.phone)}</p>
+                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6f5224; -webkit-text-fill-color: #6f5224;">Client Details</p>
+                  <p style="margin: 0 0 10px; font-size: 16px; font-weight: 600; line-height: 1.65; color: #24160c; -webkit-text-fill-color: #24160c;"><strong style="font-weight: 700; color: #24160c; -webkit-text-fill-color: #24160c;">Name:</strong> ${formatValue(normalizedBody.name)}</p>
+                  <p style="margin: 0 0 10px; font-size: 16px; font-weight: 600; line-height: 1.65; color: #24160c; -webkit-text-fill-color: #24160c;"><strong style="font-weight: 700; color: #24160c; -webkit-text-fill-color: #24160c;">Email:</strong> ${formatValue(normalizedBody.email)}</p>
+                  <p style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.65; color: #24160c; -webkit-text-fill-color: #24160c;"><strong style="font-weight: 700; color: #24160c; -webkit-text-fill-color: #24160c;">Phone:</strong> ${formatValue(normalizedBody.phone)}</p>
                 </div>
 
                 <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #eadfcb;">
-                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Business Overview</p>
-                  <p style="margin: 0 0 10px; font-size: 16px; font-weight: 500; line-height: 1.65; color: #2d2014; -webkit-text-fill-color: #2d2014;"><strong style="font-weight: 700; color: #21160c; -webkit-text-fill-color: #21160c;">Business Name:</strong> ${formatValue(normalizedBody.businessName)}</p>
-                  <p style="margin: 0 0 10px; font-size: 16px; font-weight: 500; line-height: 1.65; color: #2d2014; -webkit-text-fill-color: #2d2014;"><strong style="font-weight: 700; color: #21160c; -webkit-text-fill-color: #21160c;">Business Type:</strong> ${formatValue(normalizedBody.businessType)}</p>
-                  <p style="margin: 0; font-size: 16px; font-weight: 500; line-height: 1.65; color: #2d2014; -webkit-text-fill-color: #2d2014;"><strong style="font-weight: 700; color: #21160c; -webkit-text-fill-color: #21160c;">Current Stage:</strong> ${formatValue(normalizedBody.currentStage)}</p>
+                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6f5224; -webkit-text-fill-color: #6f5224;">Business Overview</p>
+                  <p style="margin: 0 0 10px; font-size: 16px; font-weight: 600; line-height: 1.65; color: #24160c; -webkit-text-fill-color: #24160c;"><strong style="font-weight: 700; color: #24160c; -webkit-text-fill-color: #24160c;">Business Name:</strong> ${formatValue(normalizedBody.businessName)}</p>
+                  <p style="margin: 0 0 10px; font-size: 16px; font-weight: 600; line-height: 1.65; color: #24160c; -webkit-text-fill-color: #24160c;"><strong style="font-weight: 700; color: #24160c; -webkit-text-fill-color: #24160c;">Business Type:</strong> ${formatValue(normalizedBody.businessType)}</p>
+                  <p style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.65; color: #24160c; -webkit-text-fill-color: #24160c;"><strong style="font-weight: 700; color: #24160c; -webkit-text-fill-color: #24160c;">Current Stage:</strong> ${formatValue(normalizedBody.currentStage)}</p>
                 </div>
 
                 <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid #eadfcb;">
-                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8f6a2f;">Goals &amp; Needs</p>
-                  <p style="margin: 0 0 8px; font-size: 16px; font-weight: 500; line-height: 1.65; color: #2d2014; -webkit-text-fill-color: #2d2014;"><strong style="font-weight: 700; color: #21160c; -webkit-text-fill-color: #21160c;">Goals / What They Need Help With:</strong></p>
-                  <p style="margin: 0; font-size: 16px; font-weight: 500; line-height: 1.75; white-space: pre-wrap; color: #2d2014; -webkit-text-fill-color: #2d2014;">${formatValue(normalizedBody.goals)}</p>
+                  <p style="margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #6f5224; -webkit-text-fill-color: #6f5224;">Goals &amp; Needs</p>
+                  <p style="margin: 0 0 8px; font-size: 16px; font-weight: 600; line-height: 1.65; color: #24160c; -webkit-text-fill-color: #24160c;"><strong style="font-weight: 700; color: #24160c; -webkit-text-fill-color: #24160c;">Goals / What They Need Help With:</strong></p>
+                  <p style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.75; white-space: pre-wrap; color: #24160c; -webkit-text-fill-color: #24160c;">${formatValue(normalizedBody.goals)}</p>
                 </div>
               </div>
 
               <div style="border-top: 1px solid #eadfcb; background: #fffaf1; padding: 18px 32px; text-align: center;">
-                <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6d6255;">StartFlow - Simplifying the process of starting your business</p>
+                <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5f4d39; -webkit-text-fill-color: #5f4d39;">StartFlow - Simplifying the process of starting your business</p>
               </div>
             </div>
           </div>

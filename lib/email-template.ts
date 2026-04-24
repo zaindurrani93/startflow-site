@@ -5,6 +5,7 @@ export function wrapEmailTemplate(contentHtml: string) {
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="x-apple-disable-message-reformatting" />
         <meta name="color-scheme" content="light" />
         <meta name="supported-color-schemes" content="light" />
         <style>
@@ -19,8 +20,14 @@ export function wrapEmailTemplate(contentHtml: string) {
           div,
           p,
           a,
-          span {
+          span,
+          strong,
+          h1,
+          h2,
+          h3 {
             font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+            color: #24160c !important;
+            -webkit-text-fill-color: #24160c !important;
           }
 
           .email-shell {
@@ -36,15 +43,18 @@ export function wrapEmailTemplate(contentHtml: string) {
           }
 
           .email-text-primary {
-            color: #171717 !important;
+            color: #24160c !important;
+            -webkit-text-fill-color: #24160c !important;
           }
 
           .email-text-muted {
-            color: #5f564a !important;
+            color: #5f4d39 !important;
+            -webkit-text-fill-color: #5f4d39 !important;
           }
 
           .email-text-brand {
             color: #8f6a2f !important;
+            -webkit-text-fill-color: #8f6a2f !important;
           }
 
           .email-border {
@@ -65,15 +75,18 @@ export function wrapEmailTemplate(contentHtml: string) {
             }
 
             .email-text-primary {
-              color: #171717 !important;
+              color: #24160c !important;
+              -webkit-text-fill-color: #24160c !important;
             }
 
             .email-text-muted {
-              color: #5f564a !important;
+              color: #5f4d39 !important;
+              -webkit-text-fill-color: #5f4d39 !important;
             }
 
             .email-text-brand {
               color: #8f6a2f !important;
+              -webkit-text-fill-color: #8f6a2f !important;
             }
           }
         </style>
