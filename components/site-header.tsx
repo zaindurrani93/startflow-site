@@ -91,7 +91,7 @@ export function SiteHeader() {
         </button>
         <Link
           href="/inquiry"
-          className="button-primary interactive hidden rounded-full bg-[#8f6a2f] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#7a5b28] md:inline-flex"
+          className="button-primary interactive hidden rounded-full bg-[linear-gradient(180deg,#c9934a_0%,#9f6f2c_100%)] px-5 py-2.5 text-sm font-medium text-white shadow-[0_12px_24px_rgba(148,101,38,0.18)] md:inline-flex"
         >
           Get Started
         </Link>
@@ -119,7 +119,7 @@ export function SiteHeader() {
           <Link
             href="/inquiry"
             onClick={closeMenu}
-            className="button-primary interactive mt-2 flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-5 text-base font-medium text-white hover:bg-[#7a5b28]"
+            className="button-primary interactive mt-2 flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#c9934a_0%,#9f6f2c_100%)] px-5 text-base font-medium text-white shadow-[0_12px_24px_rgba(148,101,38,0.18)]"
           >
             Get Started
           </Link>

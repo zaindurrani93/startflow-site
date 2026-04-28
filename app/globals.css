@@ -228,6 +228,60 @@ body {
   letter-spacing: -0.02em;
 }
 
+.stats-progress-fill {
+  transform-origin: left center;
+  animation: stat-fill 950ms var(--interactive-ease) both;
+  will-change: transform, opacity;
+}
+
+.stats-priority-pulse {
+  animation: stat-pulse 1.8s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(184, 150, 86, 0.34);
+}
+
+@keyframes stat-fill {
+  0% {
+    opacity: 0.55;
+    transform: scaleX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes stat-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(184, 150, 86, 0.34);
+    transform: scale(1);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(184, 150, 86, 0);
+    transform: scale(1.02);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(184, 150, 86, 0);
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stats-progress-fill {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .stats-priority-pulse {
+    animation: none;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
 .brand-wordmark {
   display: inline-flex;
   align-items: baseline;

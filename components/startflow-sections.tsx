@@ -1,19 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Manrope, Oswald } from "next/font/google";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import heroImage from "@/new-hero.png";
 import startflowProcessGraph from "@/app/process-graph.png";
 import {
   ArrowRight,
+  BarChart3,
   BriefcaseBusiness,
   CheckCircle2,
   Lightbulb,
   Mail,
   Palette,
+  PieChart,
   Rocket,
   Settings,
+  ShieldCheck,
   Sparkles,
-  Target
+  Target,
+  Trophy
 } from "lucide-react";
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"]
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"]
+});
 
 const accent = {
   bg: "bg-[#f6efe0]",
@@ -86,6 +102,39 @@ const workflowItems = [
   { label: "Launch", icon: Rocket }
 ];
 
+const heroTrustPoints = [
+  { label: "Built for Beginners", icon: CheckCircle2 },
+  { label: "Handled For You", icon: BriefcaseBusiness },
+  { label: "Structured & Simple", icon: Sparkles }
+];
+
+const structureStats = [
+  {
+    kind: "percentage",
+    icon: BarChart3,
+    value: 20,
+    label: "Fail within year one",
+    description: "Roughly 1 in 5 new businesses do not survive their first year.",
+    source: "Source: U.S. Bureau of Labor Statistics"
+  },
+  {
+    kind: "percentage",
+    icon: PieChart,
+    value: 50,
+    label: "Do not pass five years",
+    description: "About half of new businesses do not survive beyond five years.",
+    source: "Source: U.S. Bureau of Labor Statistics"
+  },
+  {
+    kind: "priority",
+    icon: Trophy,
+    value: "#1",
+    label: "Getting customers is the challenge",
+    description: "Customer acquisition is one of the most common challenges for small businesses.",
+    source: "Source: Small business research"
+  }
+];
+
 const pageLinks = [
   {
     href: "/services",
@@ -135,62 +184,184 @@ const whoThisIsForItems = [
 const founderTestimonials = [
   {
     name: "Sarah K.",
-    role: "First-time founder",
-    location: "Florida",
-    quote:
-      "Before i found StartFlow, I had no idea where to start. After onboarding, The team worked extensively to provide me with a clear structure that made everything feel manageable."
+    meta: "First-time founder • Florida",
+    headline: "I finally understood what to do.",
+    body:
+      "Before StartFlow, I had no idea where to start. After onboarding, everything became clear and structured. It actually felt manageable for the first time."
   },
   {
     name: "Javier S.",
-    role: "Small business owner",
-    location: "Mexico",
-    quote:
-      "Everything finally made sense. I wasn't overwhelmed anymore - I actually had a plan."
+    meta: "Small business owner • Mexico",
+    headline: "Everything finally made sense.",
+    body:
+      "I wasn’t overwhelmed anymore — I actually had a clear plan and direction. That alone changed everything for me."
   },
   {
     name: "Aisha M.",
-    role: "Startup beginner",
-    location: "Illinois",
-    quote:
-      "I just needed direction. After working with the team at StartFlow, They simplified everything down for me and helped me move forward confidently."
+    meta: "Startup beginner • Illinois",
+    headline: "I moved forward with confidence.",
+    body:
+      "I just needed direction. StartFlow simplified everything and gave me the clarity to finally take action."
   }
 ];
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fbfaf7_100%)]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.12),transparent_38%),linear-gradient(180deg,rgba(17,24,39,0.02)_0%,rgba(17,24,39,0)_100%)]" />
-      <div className="relative z-10 mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-        <div className="interactive cta-surface mx-auto flex max-w-4xl flex-col items-center rounded-[2.25rem] border border-[#e7d8b8] bg-[linear-gradient(180deg,#f7f1e6_0%,#f6efe0_100%)] px-6 py-10 text-center shadow-[0_24px_70px_rgba(80,61,28,0.08)] sm:px-10 sm:py-12 lg:px-14 lg:py-16">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
-            Beginner-friendly business setup
-          </p>
-          <ScrollReveal>
-            <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-[#3f2d14] sm:text-5xl lg:text-6xl">
-              Build your business with clarity - not confusion.
-            </h1>
-          </ScrollReveal>
+    <section className={`${manrope.className} relative overflow-hidden bg-[linear-gradient(180deg,#fffdf9_0%,#fbf8f1_100%)]`}>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(184,150,86,0.14),transparent_34%),linear-gradient(180deg,rgba(17,24,39,0.02)_0%,rgba(17,24,39,0)_100%)]" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-9 pt-6 sm:px-6 sm:pb-12 sm:pt-12 lg:px-8 lg:pb-14 lg:pt-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(28rem,1.15fr)] lg:gap-16">
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+              <div className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-[#eadfcb] bg-[#fffaf1] px-3.5 py-2 text-center text-[11px] font-medium leading-5 text-[#8f6a2f] shadow-[0_10px_22px_rgba(80,61,28,0.04)] sm:px-4 sm:text-[12px]">
+                <Sparkles size={14} />
+                Done-for-you Business Setup for Beginners
+              </div>
 
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[#6b5a45] sm:text-lg">
-            StartFlow helps you turn your idea into a structured, launch-ready business with clear direction, professional setup, and guided support.
-          </p>
+              <ScrollReveal>
+                <h1 className={`${oswald.className} mt-5 max-w-[9ch] text-[2.85rem] font-semibold uppercase leading-[0.88] tracking-[-0.05em] text-[#171717] sm:max-w-[8ch] sm:text-[5rem] lg:max-w-[7ch] lg:text-[5.9rem]`}>
+                  <span className="block">Start your</span>
+                  <span className="block text-[1.06em] bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent">
+                    business
+                  </span>
+                </h1>
+              </ScrollReveal>
 
-          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/inquiry"
-              className="button-primary interactive pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-sm font-medium text-white hover:bg-[#7a5b28]"
-            >
-              Start Now
-            </Link>
+              <p className="mt-5 max-w-[30rem] text-[1.15rem] font-semibold leading-[1.32] tracking-tight text-[#2b231c] sm:text-[1.55rem]">
+                Everything you need to launch — handled with clarity, structure, and support.
+              </p>
 
-            <Link
-              href="/services"
-              className="button-secondary interactive pointer-events-auto inline-flex min-h-12 items-center justify-center rounded-full border border-[#e7d8b8] bg-[#fbf6eb] px-7 py-3.5 text-sm font-medium text-[#8f6a2f] hover:bg-[#f3ead7]"
-            >
-              View Services
-            </Link>
+              <p className="mt-4 max-w-[28rem] text-[15px] leading-7 text-[#6c5945] sm:text-base sm:leading-8">
+                No confusion. No guesswork. Just a simple path from idea to launch.
+              </p>
+
+              <div className="mt-8 flex w-full max-w-sm flex-col gap-3 sm:mt-9 sm:max-w-none sm:flex-row lg:justify-start">
+                <Link
+                  href="/inquiry"
+                  className="button-primary interactive pointer-events-auto inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(180deg,#c9934a_0%,#9f6f2c_100%)] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(148,101,38,0.22)] hover:bg-[#a87633] sm:w-auto"
+                >
+                  Start My Setup
+                  <ArrowRight size={16} />
+                </Link>
+
+                <Link
+                  href="/workflow"
+                  className="button-secondary interactive pointer-events-auto inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-[#e1cfb0] bg-[linear-gradient(180deg,#fffaf2_0%,#f6eddc_100%)] px-7 py-3.5 text-sm font-semibold text-[#4a3927] shadow-[0_10px_22px_rgba(80,61,28,0.04)] hover:bg-[#f8f3ea] sm:w-auto"
+                >
+                  See How It Works
+                </Link>
+              </div>
+
+              <div className="mt-8 grid w-full max-w-[35rem] grid-cols-3 gap-x-2 sm:max-w-[36rem] sm:gap-x-3 lg:max-w-[33rem]">
+                {heroTrustPoints.map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex min-w-0 items-center justify-center gap-1.5 text-center text-[10px] font-medium leading-4 tracking-[-0.01em] text-[#4e3d2c] sm:gap-2 sm:text-[11px] sm:leading-5 lg:justify-start lg:text-left"
+                  >
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-[#fffaf1] text-[#b98743] sm:h-6.5 sm:w-6.5">
+                      <item.icon size={12} strokeWidth={1.75} />
+                    </span>
+                    <span className="min-w-0">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <ScrollReveal className="lg:delay-150">
+              <div className="relative mx-auto mt-1 w-full max-w-[38rem] lg:ml-auto lg:mt-0">
+                <div className="pointer-events-none absolute inset-x-12 -bottom-5 h-20 rounded-full bg-[radial-gradient(circle,rgba(184,150,86,0.12),transparent_72%)] blur-2xl" />
+                <div className="interactive relative overflow-hidden rounded-[2rem] border border-[#eadfcb] bg-white shadow-[0_20px_48px_rgba(80,61,28,0.1)] hover:-translate-y-1 hover:shadow-[0_24px_54px_rgba(80,61,28,0.12)]">
+                  <Image
+                    src={heroImage}
+                    alt="StartFlow business setup banner preview"
+                    className="block h-auto w-full"
+                    sizes="(min-width: 1024px) 38rem, (min-width: 640px) 84vw, 94vw"
+                    priority
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function WhyStructureMattersSection() {
+  return (
+    <section className={`${manrope.className} border-b border-neutral-200 bg-[linear-gradient(180deg,#fbf8f1_0%,#fffdf9_100%)]`}>
+      <div className="mx-auto max-w-7xl px-4 pb-12 pt-3 sm:px-6 sm:pb-16 sm:pt-5 lg:px-8 lg:pb-18">
+        <div className="relative mx-auto max-w-6xl">
+          <div className="pointer-events-none absolute bottom-0 left-5 top-7 w-px bg-[linear-gradient(180deg,rgba(216,192,154,0.22)_0%,rgba(185,135,67,0.52)_45%,rgba(216,192,154,0.1)_100%)] md:hidden" />
+          <div className="pointer-events-none absolute left-[15%] right-[15%] top-8 hidden h-px bg-[linear-gradient(90deg,rgba(216,192,154,0.08)_0%,rgba(185,135,67,0.62)_50%,rgba(216,192,154,0.08)_100%)] md:block" />
+          <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+            {structureStats.map((stat, index) => {
+              const Icon = stat.icon;
+
+              return (
+                <ScrollReveal key={stat.label} className={index === 1 ? "delay-100" : index === 2 ? "delay-200" : ""}>
+                  <div className="relative flex gap-3 md:flex-col md:items-center md:text-center">
+                    <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-white text-[#ae8347] shadow-[0_10px_24px_rgba(80,61,28,0.06)]">
+                      <Icon size={17} strokeWidth={1.75} />
+                    </div>
+
+                    <div className="min-w-0 pt-1 pr-1 md:max-w-[18rem] md:pt-5 md:pr-0">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#9a866d]">
+                        {stat.kind === "percentage" ? "Business survival" : "Growth barrier"}
+                      </p>
+
+                      <p className="mt-3 text-[2.1rem] font-semibold tracking-tight text-[#201a16] sm:text-[2.55rem]">
+                        {stat.kind === "percentage" ? `${stat.value}%` : stat.value}
+                      </p>
+
+                      <h3 className="mt-2 text-[1.05rem] font-semibold leading-[1.28] tracking-tight text-[#201a16] sm:text-[1.16rem]">
+                        {stat.label}
+                      </h3>
+
+                      {stat.kind === "percentage" ? (
+                        <div className="mt-4">
+                          <div className="h-1.5 overflow-hidden rounded-full bg-[#eee5d7]">
+                            <div
+                              className="stats-progress-fill h-full rounded-full bg-[linear-gradient(90deg,#b98743_0%,#d6bd8e_100%)]"
+                              style={{ width: `${stat.value}%`, animationDelay: `${index * 140}ms` }}
+                            />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="mt-4 flex items-center gap-2 md:justify-center">
+                          <span className="stats-priority-pulse inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#8f6a2f]" />
+                          <div className="h-[2px] flex-1 rounded-full bg-[linear-gradient(90deg,#b98743_0%,#eadfc8_100%)] md:max-w-[7rem]" />
+                        </div>
+                      )}
+
+                      <p className="mt-4 text-sm leading-6 text-[#695949] sm:text-[15px] sm:leading-7">
+                        {stat.description}
+                      </p>
+
+                      <p className="mt-4 text-[11px] leading-5 text-[#8b7861]">
+                        {stat.source}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+
+        <ScrollReveal className="delay-200">
+          <p className="mx-auto mt-8 flex max-w-3xl items-start justify-center gap-3 text-center text-[15px] font-medium leading-7 text-[#3f2d14] sm:mt-10 sm:text-[1.1rem] sm:leading-8">
+            <span className="mt-1.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#f6efe0] text-[#8f6a2f]">
+              <ShieldCheck size={14} />
+            </span>
+            <span>
+              StartFlow helps you build with structure, clarity, and a path forward -
+              <br className="hidden sm:block" />
+              so you&apos;re not just launched, you&apos;re positioned to grow.
+            </span>
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -445,7 +616,7 @@ export function PricingSection() {
       <div className="mx-auto mt-12 max-w-5xl rounded-[2.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdf9_0%,#faf7f1_100%)] p-4 shadow-[0_28px_90px_rgba(80,61,28,0.08)] sm:p-6 lg:p-7">
         <div className="grid items-stretch gap-4 lg:grid-cols-2">
           <div className="interactive pricing-card flex h-full flex-col rounded-[2.2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf5ea_100%)] p-7 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-8">
-            <div className="flex min-h-[17.5rem] flex-col items-center text-center">
+              <div className="flex flex-col items-center text-center sm:min-h-[17.5rem]">
               <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#eadfcb] bg-[linear-gradient(180deg,#fbf5e8_0%,#f2e6cf_100%)] text-[#8f6a2f]">
                 <BriefcaseBusiness size={28} />
               </div>
@@ -455,10 +626,10 @@ export function PricingSection() {
                 <span>299</span>
               </p>
               <p className="mt-1 text-sm text-neutral-500">one-time</p>
-              <p className="mt-3 min-h-5 text-sm font-medium text-transparent">
+              <p className="mt-3 text-sm font-medium text-transparent sm:min-h-5">
                 For a stronger launch presence and support
               </p>
-              <p className="mt-2 min-h-[4.5rem] max-w-xs text-base font-semibold leading-6 text-neutral-500">
+              <p className="mt-2 max-w-xs text-base font-semibold leading-6 text-neutral-500 sm:min-h-[4.5rem]">
                 A definitive roadmap for executing your vision.
               </p>
               <div className="mt-5 rounded-full border border-[#eadfcb] bg-[linear-gradient(180deg,#fcf6ea_0%,#f4e8cf_100%)] px-5 py-2 text-sm font-medium text-[#8f6a2f] shadow-[0_8px_20px_rgba(80,61,28,0.04)]">
@@ -466,7 +637,7 @@ export function PricingSection() {
               </div>
             </div>
 
-            <div className="mt-8 flex min-h-[18.25rem] flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]">
+            <div className="mt-8 flex flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] sm:min-h-[18.25rem]">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
                 {[ 
@@ -516,7 +687,7 @@ export function PricingSection() {
               Most Popular
             </div>
 
-            <div className="flex min-h-[17.5rem] flex-col items-center text-center">
+              <div className="flex flex-col items-center text-center sm:min-h-[17.5rem]">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f1edfb] text-[#8e79be]">
                 <Sparkles size={28} />
               </div>
@@ -526,10 +697,10 @@ export function PricingSection() {
                 <span>499</span>
               </p>
               <p className="mt-1 text-sm text-neutral-500">one-time</p>
-              <p className="mt-3 min-h-5 text-sm font-medium text-transparent">
+              <p className="mt-3 text-sm font-medium text-transparent sm:min-h-5">
                 For a stronger launch presence and support
               </p>
-              <p className="mt-2 min-h-[4.5rem] max-w-xs text-base font-semibold leading-6 text-neutral-500">
+              <p className="mt-2 max-w-xs text-base font-semibold leading-6 text-neutral-500 sm:min-h-[4.5rem]">
                 An enhanced, comprehensive setup for a higher-impact launch.
               </p>
               <div className="mt-5 rounded-full border border-[#7844c6]/10 bg-[linear-gradient(180deg,#8e79be_0%,#7f68b4_100%)] px-5 py-2 text-sm font-medium text-white shadow-[0_10px_24px_rgba(142,121,190,0.18)]">
@@ -537,7 +708,7 @@ export function PricingSection() {
               </div>
             </div>
 
-            <div className="mt-8 flex min-h-[18.25rem] flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfb_0%,#f8f2ff_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+            <div className="mt-8 flex flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfb_0%,#f8f2ff_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] sm:min-h-[18.25rem]">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
                 {[ 
@@ -685,7 +856,7 @@ export function ContactSection() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/inquiry"
-              className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[#8f6a2f] px-7 py-3.5 text-center text-sm font-medium text-white hover:bg-[#7a5b28]"
+              className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#c9934a_0%,#9f6f2c_100%)] px-7 py-3.5 text-center text-sm font-medium text-white shadow-[0_14px_28px_rgba(148,101,38,0.22)]"
             >
               Start My Business Setup
             </Link>
@@ -757,41 +928,69 @@ export function WhyStartFlow() {
 }
 
 export function FounderTestimonials() {
+  const normalizedTestimonials = [
+    {
+      ...founderTestimonials[0],
+      meta: "First-time founder \u2022 Florida"
+    },
+    {
+      ...founderTestimonials[1],
+      meta: "Small business owner \u2022 Mexico",
+      body:
+        "I wasn\u2019t overwhelmed anymore \u2014 I actually had a clear plan and direction. That alone changed everything for me."
+    },
+    {
+      ...founderTestimonials[2],
+      meta: "Startup beginner \u2022 Illinois"
+    }
+  ];
   return (
     <section className="border-b border-neutral-200 bg-[radial-gradient(circle_at_top_left,rgba(184,150,86,0.08),transparent_26%),linear-gradient(180deg,#fcfbf8_0%,#f5efe3_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-            Testimonials
+            TESTIMONIALS
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            Built for people like you
+            Real people. Real launches.
           </h2>
+          <p className="mt-4 max-w-2xl text-[15px] leading-7 text-neutral-600 sm:text-base sm:leading-8">
+            No guesswork. No confusion. Just clear direction from idea to launch.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {founderTestimonials.map((testimonial) => (
-            <div
+        <div className="mt-12 grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:auto-rows-fr lg:gap-6">
+          {normalizedTestimonials.map((testimonial, index) => (
+            <article
               key={testimonial.name}
-              className="interactive card-hover rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f8f1e3_100%)] p-7 shadow-[0_18px_42px_rgba(80,61,28,0.05)]"
+              className={`interactive flex h-full flex-col rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f8f1e3_100%)] transition-all duration-300 hover:-translate-y-1 ${
+                index === 0
+                  ? "p-7 shadow-[0_16px_36px_rgba(80,61,28,0.05)] hover:shadow-[0_20px_42px_rgba(80,61,28,0.07)] sm:p-8 lg:row-span-2 lg:max-w-[31rem]"
+                  : "p-6 shadow-[0_14px_34px_rgba(80,61,28,0.05)] hover:shadow-[0_18px_40px_rgba(80,61,28,0.06)] sm:p-7"
+              }`}
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#e2cfaa] bg-[linear-gradient(180deg,#fcf6ea_0%,#f1e3c7_100%)] text-sm font-semibold text-[#8f6a2f] shadow-[0_10px_20px_rgba(80,61,28,0.05)]">
+                <div className={`flex items-center justify-center rounded-full border border-[#e2cfaa] bg-[linear-gradient(180deg,#fcf6ea_0%,#f1e3c7_100%)] text-sm font-semibold text-[#8f6a2f] ${
+                  index === 0
+                    ? "h-11 w-11 shadow-[0_8px_16px_rgba(80,61,28,0.05)]"
+                    : "h-10 w-10 shadow-[0_8px_16px_rgba(80,61,28,0.04)]"
+                }`}>
                   {testimonial.name.slice(0, 1)}
                 </div>
                 <div>
-                  <p className="text-base font-semibold tracking-tight text-neutral-950">
+                  <p className={`${index === 0 ? "text-[1.02rem]" : "text-[1rem]"} font-semibold tracking-tight text-neutral-950`}>
                     {testimonial.name}
                   </p>
-                  <p className="text-sm text-neutral-500">
-                    {testimonial.role} • {testimonial.location}
-                  </p>
+                  <p className="text-sm text-neutral-500">{testimonial.meta}</p>
                 </div>
               </div>
-              <p className="mt-6 text-lg leading-8 text-neutral-700">
-                &ldquo;{testimonial.quote}&rdquo;
+              <h3 className={`${index === 0 ? "mt-7 max-w-[18ch] text-[1.32rem] leading-[1.16] sm:text-[1.5rem]" : "mt-6 text-[1.15rem] leading-[1.22] sm:text-[1.22rem]"} font-semibold tracking-tight text-neutral-950`}>
+                {testimonial.headline}
+              </h3>
+              <p className={`${index === 0 ? "mt-4 max-w-[34rem] text-[15px] leading-7 sm:text-base sm:leading-8" : "mt-3 text-[15px] leading-7"} text-neutral-600`}>
+                {testimonial.body}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
@@ -817,4 +1016,5 @@ export function AboutStartFlow() {
     </section>
   );
 }
+
 

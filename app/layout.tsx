@@ -73,7 +73,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <footer className="border-t border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 sm:px-6 lg:grid-cols-[1.3fr_0.8fr_0.8fr] lg:px-8 lg:py-18">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 sm:py-14 lg:grid-cols-[1.3fr_0.8fr_0.8fr] lg:px-8 lg:py-18">
             <div className="max-w-sm">
               <div className="inline-flex items-center gap-3 text-xl font-semibold tracking-tight text-neutral-950">
                 <span className="brand-logo-box shrink-0">
