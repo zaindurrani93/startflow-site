@@ -183,6 +183,13 @@ body {
     box-shadow 240ms var(--interactive-ease);
 }
 
+.hero-image-motion {
+  animation:
+    hero-image-enter 850ms var(--interactive-ease) both,
+    hero-image-float 6.8s ease-in-out 950ms infinite;
+  transform-origin: center;
+}
+
 .workflow-pill:hover span {
   background-color: #f3e7cb;
   color: #8f6a2f;
@@ -268,7 +275,35 @@ body {
   }
 }
 
+@keyframes hero-image-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-image-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .hero-image-motion {
+    animation: none;
+    transform: none;
+  }
+
   .stats-progress-fill {
     animation: none;
     transform: none;

@@ -1,5 +1,16 @@
 import Link from "next/link";
 
+function BrandName() {
+  return (
+    <span className="whitespace-nowrap">
+      <span className="text-[#171717]">Start</span>
+      <span className="bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent">
+        Flow
+      </span>
+    </span>
+  );
+}
+
 const differentiators = [
   {
     title: "Clarity over complexity",
@@ -26,7 +37,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <div className="max-w-3xl rounded-[2rem] border border-neutral-200 bg-white px-6 py-8 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-10">
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
-              About StartFlow
+              About <BrandName />
             </h1>
             <div className="mt-6 space-y-5 text-lg leading-8 text-neutral-600">
               <p>
@@ -100,7 +111,7 @@ export default function AboutPage() {
 
           <div className="rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
-              What Makes StartFlow Different
+              What Makes <BrandName /> Different
             </p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {differentiators.map((item) => (
