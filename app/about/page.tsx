@@ -11,13 +11,15 @@ function BrandName() {
   );
 }
 
+const accentHeadline = "bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent";
+
 const differentiators = [
   {
     title: "Clarity over complexity",
     description: "No unnecessary steps or confusing processes"
   },
   {
-    title: "Built for beginners",
+    title: "Beginner friendly",
     description: "Designed for people starting from zero"
   },
   {
@@ -35,7 +37,7 @@ export default function AboutPage() {
     <main className="bg-[linear-gradient(180deg,#ffffff_0%,#faf8f4_100%)]">
       <section className="border-b border-neutral-200">
         <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-          <div className="max-w-3xl rounded-[2rem] border border-neutral-200 bg-white px-6 py-8 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-10">
+          <div className="max-w-3xl rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] px-6 py-8 shadow-[0_16px_36px_rgba(80,61,28,0.05)] sm:px-8 sm:py-10">
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
               About <BrandName />
             </h1>
@@ -55,8 +57,8 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-18 lg:px-8">
         <div className="grid gap-6 lg:gap-8">
-          <div className="rounded-[2rem] border border-neutral-200 bg-white px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+          <div className="rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] px-6 py-7 shadow-[0_16px_36px_rgba(80,61,28,0.05)] sm:px-8 sm:py-8">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
               Who We Help
             </p>
             <div className="mt-5 max-w-3xl space-y-5 text-lg leading-8 text-neutral-600">
@@ -73,8 +75,8 @@ export default function AboutPage() {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-[2rem] border border-neutral-200 bg-white px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
-              <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+            <div className="rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] px-6 py-7 shadow-[0_16px_36px_rgba(80,61,28,0.05)] sm:px-8 sm:py-8">
+              <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
                 What We Believe
               </p>
               <div className="mt-5 max-w-3xl space-y-5 text-lg leading-8 text-neutral-600">
@@ -93,8 +95,8 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
-              <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+            <div className="rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] px-6 py-7 shadow-[0_16px_36px_rgba(80,61,28,0.05)] sm:px-8 sm:py-8">
+              <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
                 Our Approach
               </p>
               <div className="mt-5 space-y-5 text-lg leading-8 text-neutral-600">
@@ -109,15 +111,15 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfbf8_100%)] px-6 py-7 shadow-[0_18px_40px_rgba(17,24,39,0.04)] sm:px-8 sm:py-8">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+          <div className="rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] px-6 py-7 shadow-[0_16px_36px_rgba(80,61,28,0.05)] sm:px-8 sm:py-8">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
               What Makes <BrandName /> Different
             </p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {differentiators.map((item) => (
                 <div
                   key={item.title}
-                  className="interactive card-hover rounded-[1.85rem] border border-neutral-200 bg-white p-6"
+                  className="interactive card-hover rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] p-6 shadow-[0_16px_36px_rgba(80,61,28,0.05)]"
                 >
                   <h2 className="text-xl font-semibold tracking-tight text-neutral-950">
                     {item.title}
@@ -132,17 +134,13 @@ export default function AboutPage() {
 
       <section className="pb-24">
         <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
-          <div className="interactive cta-surface rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] px-8 py-14 shadow-[0_24px_60px_rgba(17,24,39,0.08)] sm:px-12">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+          <div className="interactive cta-surface rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] px-8 py-14 shadow-[0_18px_44px_rgba(80,61,28,0.06)] sm:px-12">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
               Next Step
             </p>
             <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-              Ready to take your idea seriously?
+              Ready to take your <span className={accentHeadline}>idea</span> seriously?
             </h2>
-            <p className="mt-4 max-w-2xl text-lg leading-8 text-neutral-600">
-              StartFlow gives you the structure and clarity to move forward without
-              the confusion.
-            </p>
             <div className="mt-8">
               <Link
                 href="/inquiry"

@@ -87,9 +87,9 @@ export function WorkflowFlow() {
                 key={step.id}
                 type="button"
                 onClick={() => handleStepClick(step.id)}
-                className={`relative z-10 flex items-center justify-center gap-2 rounded-full border px-6 py-4 text-sm font-medium shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:min-w-[9rem] ${
+                className={`relative z-10 flex w-full items-center justify-center gap-2 rounded-full border px-6 py-4 text-sm font-medium shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-auto sm:min-w-[9rem] ${
                   isActive
-                    ? "border-neutral-950 bg-neutral-950 text-white shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
+                    ? "border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_12px_30px_rgba(169,114,47,0.18)]"
                     : "border-neutral-200 bg-white text-neutral-900"
                 }`}
                 aria-pressed={isActive}
@@ -114,13 +114,13 @@ export function WorkflowFlow() {
                 data-step-id={step.id}
                 className={`scroll-mt-28 rounded-[1.75rem] border bg-white p-7 shadow-[0_10px_35px_rgba(0,0,0,0.03)] transition-all duration-300 sm:p-8 ${
                   isActive
-                    ? "border-neutral-950 shadow-[0_18px_45px_rgba(0,0,0,0.06)]"
+                    ? "border-[#d9bd81] shadow-[0_18px_45px_rgba(169,114,47,0.08)]"
                     : "border-neutral-200"
                 }`}
               >
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
                   <div className="max-w-2xl">
-                    <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                    <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
                       Step {index + 1}
                     </p>
                     <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">
@@ -133,7 +133,7 @@ export function WorkflowFlow() {
                   <div
                     className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl transition-colors duration-300 ${
                       isActive
-                        ? "bg-neutral-950 text-white"
+                        ? "border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_10px_24px_rgba(169,114,47,0.16)]"
                         : "bg-neutral-100 text-neutral-700"
                     }`}
                   >

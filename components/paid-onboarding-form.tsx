@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { BriefcaseBusiness, Sparkles } from "lucide-react";
+import { Rocket, Sparkles } from "lucide-react";
 import {
   initialOnboardingFormData,
   normalizeOnboardingFormData,
@@ -27,11 +27,15 @@ export function PaidOnboardingForm({
 }: PaidOnboardingFormProps) {
   const isBuild = packageType === "growth";
   const packageIconBubbleClass = isBuild
-    ? "border border-[#ddd4f3] bg-[linear-gradient(180deg,#f5f1ff_0%,#ece4ff_100%)] text-[#8e79be]"
-    : "border border-[#eadfcb] bg-[linear-gradient(180deg,#fbf5e8_0%,#f2e6cf_100%)] text-[#b89656]";
+    ? "border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_8px_16px_rgba(169,114,47,0.18)]"
+    : "border border-[#d9bd81] bg-[linear-gradient(180deg,#fff3d3_0%,#e7c17a_52%,#b98743_100%)] text-white shadow-[0_8px_16px_rgba(185,135,67,0.16)]";
   const packageBadgeClass = isBuild
-    ? "border-[#ddd4f3] bg-white/80"
+    ? "border-[#d9bd81] bg-white/80"
     : "border-[#eadfcb] bg-white/80";
+  const packageTextClass = isBuild
+    ? "bg-[linear-gradient(180deg,#cf9b53_0%,#8f5f24_100%)] bg-clip-text text-transparent"
+    : "text-[#8f6a2f]";
+  const packageTextStyle = isBuild ? undefined : { color: "#8f6a2f" };
   const [formData, setFormData] = useState<OnboardingFormData>({
     ...initialOnboardingFormData,
     packageType,
@@ -122,15 +126,15 @@ export function PaidOnboardingForm({
   }
 
   return (
-    <div className="mt-10 rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf6ee_100%)] p-8 shadow-[0_22px_65px_rgba(80,61,28,0.06)] sm:p-10">
+    <div className="mt-10 rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf6ee_100%)] p-6 shadow-[0_22px_65px_rgba(80,61,28,0.06)] sm:p-10">
       <div className="max-w-2xl">
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+        <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
           Business Intake
         </p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-          Tell us about your business
+        <h2 className="mt-4 text-2xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+          Tell us about your <span className="bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent">business</span>
         </h2>
-        <p className="mt-4 text-lg leading-8 text-neutral-600">
+        <p className="mt-4 text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
           This short form gives us the context we need to prepare your {packageName || "setup"}{" "}
           and follow up with a clear plan.
         </p>
@@ -140,11 +144,11 @@ export function PaidOnboardingForm({
         <div
           className={`rounded-[1.5rem] border px-5 py-4 ${
             isBuild
-              ? "border-[#ddd4f3] bg-[linear-gradient(180deg,#fffdfb_0%,#f7f1ff_100%)]"
+              ? "border-[#d9bd81] bg-[linear-gradient(180deg,#fffdfb_0%,#f8edd6_100%)]"
               : "border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f9f3e8_100%)]"
           }`}
         >
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8f6a2f]">
             Selected Package
           </p>
           <div
@@ -153,9 +157,9 @@ export function PaidOnboardingForm({
             <span
               className={`flex h-8 w-8 items-center justify-center rounded-full ${packageIconBubbleClass}`}
             >
-              {isBuild ? <Sparkles size={16} /> : <BriefcaseBusiness size={16} />}
+              {isBuild ? <Sparkles size={16} /> : <Rocket size={16} />}
             </span>
-            <span className="text-sm font-semibold text-neutral-950">
+            <span className={`text-sm font-semibold ${packageTextClass}`} style={packageTextStyle}>
               {packageName || "Confirmed"}
             </span>
           </div>
@@ -163,14 +167,14 @@ export function PaidOnboardingForm({
         <div
           className={`rounded-[1.5rem] border px-5 py-4 ${
             isBuild
-              ? "border-[#ddd4f3] bg-[linear-gradient(180deg,#fffdfb_0%,#f6f0ff_100%)]"
+              ? "border-[#d9bd81] bg-[linear-gradient(180deg,#fffdfb_0%,#f6e7ca_100%)]"
               : "border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f9f3e8_100%)]"
           }`}
         >
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8f6a2f]">
             Next Step
           </p>
-          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.08em] text-neutral-950">
+          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#8f6a2f]">
             Submit intake
           </p>
           <p className="mt-2 text-sm leading-6 text-neutral-500">
@@ -331,7 +335,7 @@ export function PaidOnboardingForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(169,114,47,0.22)] transition hover:shadow-[0_16px_36px_rgba(169,114,47,0.28)] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSubmitting ? "Submitting..." : "Submit Intake"}
         </button>

@@ -394,16 +394,12 @@ export function HomeVisualFeature() {
         </div>
 
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
             Real work, real momentum
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
             A <span className={accentHeadline}>clear path</span> for the stage where most people feel <span className={accentHeadline}>stuck</span>.
           </h2>
-          <p className="mt-5 text-lg leading-8 text-neutral-600">
-            StartFlow supports people who are ready to move forward, but need the structure, setup, and direction to do it with confidence.
-          </p>
-
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <div className="rounded-[1.4rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4 shadow-[0_14px_30px_rgba(17,24,39,0.04)]">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
@@ -520,9 +516,6 @@ export function HomePageLinks() {
               Everything you need, <span className={accentHeadline}>organized clearly</span>.
             </h2>
           </ScrollReveal>
-          <p className="mt-4 text-lg text-neutral-600">
-            Browse the core parts of StartFlow to understand the service, the process, and the support behind each package.
-          </p>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -553,7 +546,7 @@ export function ServicesSection() {
     <section className="bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="max-w-2xl">
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Services</p>
+        <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">Services</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
           What <BrandName /> helps you with.
         </h2>
@@ -586,7 +579,7 @@ export function HowItWorksSection() {
     <section className="border-y border-neutral-200 bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.08),transparent_30%),linear-gradient(180deg,#fcfbf8_0%,#f6f2ea_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">How It Works</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
             We make it <span className={accentHeadline}>simple</span> - from start to execution
           </h2>
@@ -627,9 +620,10 @@ export function PricingSection() {
     <section className="bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.08),transparent_28%),linear-gradient(180deg,#fffefe_0%,#f8f4ec_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:pb-24">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-neutral-500">Package</p>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-[#8f6a2f]">Package</p>
+        <div className="mx-auto mt-3 h-px w-20 bg-[linear-gradient(90deg,rgba(185,135,67,0)_0%,rgba(185,135,67,0.55)_50%,rgba(185,135,67,0)_100%)]" />
         <p className="mt-4 text-lg leading-8 text-neutral-600">
-          Choose the level of support that fits your stage
+          Choose the level of <span className={accentHeadline}>support</span> that fits your stage
         </p>
       </div>
 
@@ -637,20 +631,17 @@ export function PricingSection() {
         <div className="grid items-stretch gap-4 lg:grid-cols-2">
           <div className="interactive pricing-card flex h-full flex-col rounded-[2.2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#faf5ea_100%)] p-7 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-8">
               <div className="flex flex-col items-center text-center sm:min-h-[17.5rem]">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#eadfcb] bg-[linear-gradient(180deg,#fbf5e8_0%,#f2e6cf_100%)] text-[#8f6a2f]">
-                <BriefcaseBusiness size={28} />
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#d9bd81] bg-[linear-gradient(180deg,#fff3d3_0%,#e7c17a_52%,#b98743_100%)] text-white shadow-[0_12px_26px_rgba(185,135,67,0.2)]">
+                <Rocket size={28} />
               </div>
-              <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Launch</p>
-              <p className="pricing-amount mt-3 flex items-start gap-0.5 text-[2.35rem] text-neutral-950">
-                <span className="pricing-currency mt-1 text-[1.35rem] text-neutral-500">$</span>
-                <span>299</span>
+              <p className="mt-6 text-[13px] font-semibold uppercase tracking-[0.14em] text-[#8f6a2f]">Launch</p>
+              <p className="pricing-amount mt-3 flex items-start gap-0.5 text-[2.35rem]">
+                <span className="pricing-currency mt-1 text-[1.35rem] text-[#8f6a2f]">$</span>
+                <span className="text-[#8f6a2f]">299</span>
               </p>
-              <p className="mt-1 text-sm text-neutral-500">one-time</p>
-              <p className="mt-3 text-sm font-medium text-transparent sm:min-h-5">
-                For a stronger launch presence and support
-              </p>
-              <p className="mt-2 max-w-xs text-base font-semibold leading-6 text-neutral-500 sm:min-h-[4.5rem]">
-                A definitive roadmap for executing your vision.
+              <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.08em] text-neutral-400">non-recurring</p>
+              <p className="mt-3 max-w-xs text-[13px] font-medium leading-6 text-[#6c5945] sm:min-h-[3rem]">
+                A polished foundation for turning your idea into a clear launch plan.
               </p>
               <div className="mt-5 rounded-full border border-[#eadfcb] bg-[linear-gradient(180deg,#fcf6ea_0%,#f4e8cf_100%)] px-5 py-2 text-sm font-medium text-[#8f6a2f] shadow-[0_8px_20px_rgba(80,61,28,0.04)]">
                 Essential setup
@@ -658,8 +649,8 @@ export function PricingSection() {
             </div>
 
             <div className="mt-8 flex flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] sm:min-h-[18.25rem]">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8f6a2f]">What&apos;s included</p>
+              <ul className="mt-4 space-y-3 text-sm font-medium leading-6 text-[#3f352c]">
                 {[ 
                   "Business idea clarity & positioning",
                   "Target audience",
@@ -678,8 +669,8 @@ export function PricingSection() {
             </div>
 
             <div className="mt-4 flex flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#f9f3e8_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]">
-              <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-400">Best for</p>
-              <ul className="mt-3 space-y-2 text-[13px] leading-6 text-neutral-500">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#b98743]">Best for</p>
+              <ul className="mt-3 space-y-2 text-[13px] font-medium leading-6 text-[#5f5348]">
                 {[
                   "Clear business direction from the start",
                   "A simple professional setup you can build on",
@@ -694,43 +685,40 @@ export function PricingSection() {
 
             <Link
               href="/checkout/launch"
-              className="pricing-button button-secondary interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#eadfcb] bg-[#f9f3e7] px-5 py-3 text-center text-sm font-medium text-[#8f6a2f]"
+              className="pricing-button button-secondary interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#d9bd81] bg-[linear-gradient(180deg,#fff8ea_0%,#f1dfb8_100%)] px-5 py-3 text-center text-sm font-semibold text-[#8f6a2f] shadow-[0_12px_26px_rgba(169,114,47,0.12)] hover:border-[#cf9b53] hover:bg-[linear-gradient(180deg,#fff4dc_0%,#ead3a3_100%)] hover:shadow-[0_14px_32px_rgba(169,114,47,0.18)]"
             >
               Choose Launch
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
-          <div className={`interactive pricing-card pricing-featured relative flex h-full flex-col rounded-[2.2rem] border bg-[linear-gradient(180deg,#fffefd_0%,#f7f1ff_100%)] p-7 shadow-[0_18px_44px_rgba(95,74,140,0.07)] sm:p-8 ${accent.ring}`}>
-            <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-[linear-gradient(90deg,rgba(142,121,190,0)_0%,rgba(142,121,190,0.5)_50%,rgba(142,121,190,0)_100%)]" />
-            <div className="mb-5 inline-flex self-start rounded-full border border-[#ddd4f3] bg-[#f1edfb] px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[#8e79be] sm:absolute sm:right-5 sm:top-5 sm:mb-0 sm:self-auto">
+          <div className="interactive pricing-card pricing-featured relative flex h-full flex-col rounded-[2.2rem] border border-[#d9bd81] bg-[linear-gradient(180deg,#fffefd_0%,#f6ead1_100%)] p-7 shadow-[0_22px_54px_rgba(128,88,35,0.11)] sm:p-8">
+            <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-[linear-gradient(90deg,rgba(185,135,67,0)_0%,rgba(185,135,67,0.55)_50%,rgba(185,135,67,0)_100%)]" />
+            <div className="mb-5 inline-flex self-start rounded-full border border-[#d9bd81] bg-[linear-gradient(180deg,#fff8ea_0%,#f3e2bd_100%)] px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8f6a2f] shadow-[0_8px_18px_rgba(169,114,47,0.1)] sm:absolute sm:right-5 sm:top-5 sm:mb-0 sm:self-auto">
               Most Popular
             </div>
 
               <div className="flex flex-col items-center text-center sm:min-h-[17.5rem]">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f1edfb] text-[#8e79be]">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_12px_28px_rgba(169,114,47,0.22)]">
                 <Sparkles size={28} />
               </div>
-              <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-500">Build</p>
-              <p className="pricing-amount mt-3 flex items-start gap-0.5 text-[2.35rem] text-neutral-950">
-                <span className="pricing-currency mt-1 text-[1.35rem] text-neutral-500">$</span>
-                <span>499</span>
+              <p className="mt-6 bg-[linear-gradient(180deg,#cf9b53_0%,#8f5f24_100%)] bg-clip-text text-[13px] font-bold uppercase tracking-[0.14em] text-transparent">Build</p>
+              <p className="pricing-amount mt-3 flex items-start gap-0.5 text-[2.35rem]">
+                <span className="pricing-currency mt-1 bg-[linear-gradient(180deg,#cf9b53_0%,#8f5f24_100%)] bg-clip-text text-[1.35rem] text-transparent">$</span>
+                <span className="bg-[linear-gradient(180deg,#cf9b53_0%,#8f5f24_100%)] bg-clip-text text-transparent">499</span>
               </p>
-              <p className="mt-1 text-sm text-neutral-500">one-time</p>
-              <p className="mt-3 text-sm font-medium text-transparent sm:min-h-5">
-                For a stronger launch presence and support
+              <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.08em] text-neutral-400">non-recurring</p>
+              <p className="mt-3 max-w-xs text-[13px] font-medium leading-6 text-[#6c5945] sm:min-h-[3rem]">
+                A premium setup built to give your business a stronger, more complete launch presence.
               </p>
-              <p className="mt-2 max-w-xs text-base font-semibold leading-6 text-neutral-500 sm:min-h-[4.5rem]">
-                An enhanced, comprehensive setup for a higher-impact launch.
-              </p>
-              <div className="mt-5 rounded-full border border-[#7844c6]/10 bg-[linear-gradient(180deg,#8e79be_0%,#7f68b4_100%)] px-5 py-2 text-sm font-medium text-white shadow-[0_10px_24px_rgba(142,121,190,0.18)]">
+              <div className="mt-5 rounded-full border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] px-5 py-2 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(169,114,47,0.24)]">
                 Premium package
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfb_0%,#f8f2ff_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] sm:min-h-[18.25rem]">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">What&apos;s included</p>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
+            <div className="mt-8 flex flex-col rounded-[1.6rem] border border-[#d9bd81] bg-[linear-gradient(180deg,#fffdfb_0%,#f8edd6_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] sm:min-h-[18.25rem]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8f6a2f]">What&apos;s included</p>
+              <ul className="mt-4 space-y-3 text-sm font-medium leading-6 text-[#3f352c]">
                 {[ 
                   "Everything included in Launch",
                   "Premium Multi-page website",
@@ -741,16 +729,16 @@ export function PricingSection() {
                   "Priority support"
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <span className="inline-block h-[1.5px] w-2 shrink-0 rounded-full bg-[#8e79be]" />
+                    <span className="inline-block h-[1.5px] w-2 shrink-0 rounded-full bg-[#8f6a2f]" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mt-4 flex flex-col rounded-[1.6rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfb_0%,#f6f0ff_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
-              <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-400">Best for</p>
-              <ul className="mt-3 space-y-2 text-[13px] leading-6 text-neutral-500">
+            <div className="mt-4 flex flex-col rounded-[1.6rem] border border-[#d9bd81] bg-[linear-gradient(180deg,#fffdfb_0%,#f6e7ca_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#b98743]">Best for</p>
+              <ul className="mt-3 space-y-2 text-[13px] font-medium leading-6 text-[#5f5348]">
                 {[
                   "A stronger online presence from day one",
                   "Complete support for launch and growth",
@@ -765,7 +753,7 @@ export function PricingSection() {
 
             <Link
               href="/checkout/build"
-              className="pricing-button interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#ddd4f3] bg-[#8e79be] px-5 py-3 text-center text-sm font-medium text-white hover:bg-[#7f68b4]"
+              className="pricing-button interactive group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] px-5 py-3 text-center text-sm font-semibold text-white shadow-[0_16px_34px_rgba(169,114,47,0.24)] hover:shadow-[0_18px_40px_rgba(169,114,47,0.3)]"
             >
               Choose Build
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
@@ -775,7 +763,7 @@ export function PricingSection() {
 
         <div className="mt-8 rounded-[2rem] border border-[#eadfcb] bg-white/85 p-5 shadow-[0_18px_44px_rgba(80,61,28,0.04)] sm:p-6">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
               What to Expect
             </p>
           </div>
@@ -783,20 +771,20 @@ export function PricingSection() {
           <div className="mt-7 grid gap-4 md:grid-cols-3">
             <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4.5">
               <p className="text-base font-semibold tracking-tight text-neutral-950">
-                Delivery Timeline
+                Delivery <span className={accentHeadline}>Timeline</span>
               </p>
               <div className="mt-3 space-y-2.5">
                 <div className="flex items-center gap-2 text-[13px] leading-5 text-neutral-500">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-[#f9f3e7] text-[#b89656]">
-                    <BriefcaseBusiness size={12} />
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#d9bd81] bg-[linear-gradient(180deg,#fff3d3_0%,#e7c17a_52%,#b98743_100%)] text-white shadow-[0_8px_16px_rgba(185,135,67,0.16)]">
+                    <Rocket size={13} />
                   </span>
                   <p>
                     <span className="whitespace-nowrap font-medium text-neutral-700">Launch package</span>: 3-5 business days
                   </p>
                 </div>
                 <div className="flex items-center gap-2 text-[13px] leading-5 text-neutral-500">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#ddd4f3] bg-[#f1edfb] text-[#8e79be]">
-                    <Sparkles size={12} />
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_8px_16px_rgba(169,114,47,0.18)]">
+                    <Sparkles size={13} />
                   </span>
                   <p>
                     <span className="whitespace-nowrap font-medium text-neutral-700">Build package</span>: 5-10 business days
@@ -807,7 +795,7 @@ export function PricingSection() {
 
             <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4.5">
               <p className="text-base font-semibold tracking-tight text-neutral-950">
-                What&apos;s Included
+                What&apos;s <span className={accentHeadline}>Included</span>
               </p>
               <p className="mt-2.5 text-sm leading-6 text-neutral-500">
                 A structured setup process designed to give you clarity, direction,
@@ -817,7 +805,7 @@ export function PricingSection() {
 
             <div className="rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-4.5">
               <p className="text-base font-semibold tracking-tight text-neutral-950">
-                Ongoing Support
+                Ongoing <span className={accentHeadline}>Support</span>
               </p>
               <p className="mt-2.5 text-sm leading-6 text-neutral-500">
                 Optional monthly support or one-time updates are available after
@@ -829,7 +817,7 @@ export function PricingSection() {
 
         <div className="mt-6 rounded-[1.95rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffdfa_0%,#faf6ee_100%)] px-6 py-8 text-center shadow-[0_18px_44px_rgba(80,61,28,0.04)] sm:px-8">
           <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
-            Need something more tailored?
+            Need something more <span className={accentHeadline}>tailored</span>?
           </h3>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-neutral-600 sm:text-base">
             If you&apos;re looking for a more customized setup or have specific
@@ -843,7 +831,7 @@ export function PricingSection() {
               Request a Custom Setup
             </Link>
           </div>
-          <p className="mt-5 text-sm font-medium text-neutral-500">
+          <p className="mt-5 text-sm font-medium tracking-[0.01em] text-[#8f6a2f]">
             No hidden fees. No subscriptions.
           </p>
         </div>
@@ -875,8 +863,8 @@ export function ContactSection() {
               </span>
             </h2>
           </ScrollReveal>
-          <p className="mt-5 text-sm font-medium text-neutral-500">
-            Start today &mdash; most setups are completed within days.
+          <p className="mt-5 rounded-full border border-[#eadfcb] bg-[#fffaf1] px-4 py-2 text-xs font-medium leading-5 text-[#6c5945] shadow-[0_8px_18px_rgba(80,61,28,0.035)]">
+            <span className="font-semibold text-[#8f6a2f]">Start today</span> &mdash; most setups are completed within days.
           </p>
           <div className="mt-7 flex w-full max-w-sm flex-col justify-center gap-4 sm:max-w-none sm:flex-row">
             <Link
@@ -932,7 +920,7 @@ export function WhyStartFlow() {
             </h2>
           </ScrollReveal>
           <p className="mt-5 max-w-xl text-lg leading-8 text-neutral-600">
-            StartFlow gives beginners a guided process, so starting a business feels clear instead of overwhelming.
+            StartFlow provides a guided process, so starting a business feels clear instead of overwhelming.
           </p>
         </div>
 
@@ -996,15 +984,12 @@ export function FounderTestimonials() {
     <section className="border-b border-neutral-200 bg-[radial-gradient(circle_at_top_left,rgba(184,150,86,0.08),transparent_26%),linear-gradient(180deg,#fcfbf8_0%,#f5efe3_100%)]">
       <div className="testimonials-rotator mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
             TESTIMONIALS
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            Real people. Real <span className={accentHeadline}>launches</span>.
+            Clear direction. Confident <span className={accentHeadline}>launches</span>.
           </h2>
-          <p className="mt-4 max-w-2xl text-[15px] leading-7 text-neutral-600 sm:text-base sm:leading-8">
-            No guesswork. No confusion. Just clear direction from idea to launch.
-          </p>
         </div>
 
         <div className="relative mt-12 overflow-hidden">
@@ -1087,16 +1072,21 @@ export function AboutStartFlow() {
   return (
     <section id="about-startflow" className="border-b border-neutral-200 bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.07),transparent_30%),linear-gradient(180deg,#fcfbf8_0%,#f3ede1_100%)]">
       <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.15rem] border border-[#e8dcc4] bg-[linear-gradient(180deg,#fffdfa_0%,#f7f0e2_100%)] px-6 py-10 shadow-[0_22px_60px_rgba(80,61,28,0.06)] sm:px-10 sm:py-12">
+        <Link
+          href="/about"
+          className="interactive group relative block overflow-hidden rounded-[2.15rem] border border-[#e8dcc4] bg-[linear-gradient(180deg,#fffdfa_0%,#f7f0e2_100%)] px-6 py-10 shadow-[0_22px_60px_rgba(80,61,28,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#dcc799] hover:shadow-[0_26px_66px_rgba(80,61,28,0.1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b98743]/35 sm:px-10 sm:py-12"
+        >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.7),transparent_70%)]" />
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">About <BrandName /></p>
+          <p className="relative text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f] transition group-hover:text-[#7a5b28]">
+            About <BrandName />
+          </p>
           <div className="mx-auto mt-5 h-px w-16 bg-[#d9c291]" />
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-9 text-neutral-600">
             StartFlow was built for individuals and small businesses that need clarity,
             structure, and a clear path forward. We turn early-stage uncertainty into a
             focused plan with a professional setup and practical next steps.
           </p>
-        </div>
+        </Link>
       </div>
     </section>
   );

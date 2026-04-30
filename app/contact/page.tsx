@@ -18,6 +18,22 @@ type ContactPageContentProps = {
   isQuestionIntent?: boolean;
 };
 
+const accentHeadline = "bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent";
+const primaryGoldButton =
+  "button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] px-6 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(169,114,47,0.22)] hover:shadow-[0_16px_36px_rgba(169,114,47,0.28)]";
+
+function renderInquiryStepTitle(step: number) {
+  if (step === 1) {
+    return <>Let&apos;s start with the <span className={accentHeadline}>basics</span>.</>;
+  }
+
+  if (step === 2) {
+    return <>Tell us a little about the <span className={accentHeadline}>business</span>.</>;
+  }
+
+  return <>What do you want <span className={accentHeadline}>help</span> with right now?</>;
+}
+
 export function ContactPageContent({
   isQuestionIntent = false
 }: ContactPageContentProps) {
@@ -142,16 +158,16 @@ export function ContactPageContent({
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
               {isQuestionIntent ? "CONTACT" : "INQUIRY"}
             </p>
             {isQuestionIntent ? null : (
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
-                Start your setup with a simple guided form.
+              <h1 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
+                Start your <span className={accentHeadline}>setup</span> with a simple guided form.
               </h1>
             )}
             {isQuestionIntent ? null : (
-              <p className="mt-5 text-lg leading-8 text-neutral-600">
+                <p className="mt-5 text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
                 Share a few details and we&apos;ll follow up with the right next steps for your business.
               </p>
             )}
@@ -163,8 +179,8 @@ export function ContactPageContent({
             }`}
           >
             {isQuestionIntent ? null : (
-              <div className="interactive card-hover rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-8 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-10">
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+              <div className="interactive card-hover rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-6 shadow-[0_18px_44px_rgba(80,61,28,0.05)] sm:p-10">
+                <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
                   What to expect
                 </p>
                 <div className="mt-6 space-y-6">
@@ -184,7 +200,7 @@ export function ContactPageContent({
                         {item.id}
                       </div>
                       <div>
-                        <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                        <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
                           {item.label}
                         </p>
                       </div>
@@ -202,11 +218,11 @@ export function ContactPageContent({
             >
               {isSubmitted ? (
                 <div className="flex min-h-[28rem] flex-col items-center justify-center text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-950 text-white">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_14px_30px_rgba(169,114,47,0.22)]">
                     <CheckCircle2 size={28} />
                   </div>
                   <h2 className="mt-6 text-3xl font-semibold tracking-tight text-neutral-950">
-                    You&apos;re all set.
+                    You&apos;re all <span className={accentHeadline}>set</span>.
                   </h2>
                   <p className="mt-4 max-w-md text-lg leading-8 text-neutral-600">
                     Thanks - your details were sent. We&apos;ll follow up with next steps.
@@ -226,19 +242,19 @@ export function ContactPageContent({
                   />
                   {isQuestionIntent ? (
                     <div>
-                      <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
-                        Send a message
+                      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-950 sm:text-3xl">
+                        Send a <span className={accentHeadline}>message</span>
                       </h2>
                     </div>
                   ) : (
                     <>
                       <div className="flex items-center justify-between gap-4">
                         <div>
-                          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">
+                          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
                             Step {step} of {contactFormSteps.length}
                           </p>
-                          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
-                            {contactFormSteps[step - 1].title}
+                          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-950 sm:text-3xl">
+                            {renderInquiryStepTitle(step)}
                           </h2>
                         </div>
                         <p className="text-sm font-medium text-neutral-500">{progress}%</p>
@@ -246,7 +262,7 @@ export function ContactPageContent({
 
                       <div className="mt-6 h-2 w-full rounded-full bg-neutral-100">
                         <div
-                          className="h-full rounded-full bg-neutral-950 transition-all duration-300 ease-out"
+                          className="h-full rounded-full bg-[linear-gradient(90deg,#cf9b53_0%,#a9722f_100%)] transition-all duration-300 ease-out"
                           style={{ width: `${progress}%` }}
                         />
                       </div>
@@ -401,7 +417,7 @@ export function ContactPageContent({
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
+                        className={`${primaryGoldButton} disabled:cursor-not-allowed disabled:opacity-60`}
                       >
                         {isSubmitting ? "Sending..." : "Send Message"}
                       </button>
@@ -425,7 +441,7 @@ export function ContactPageContent({
                         <button
                           type="button"
                           onClick={goToNextStep}
-                          className="button-primary interactive inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95"
+                          className={`${primaryGoldButton} gap-2`}
                         >
                           Next
                           <ArrowRight size={16} />
@@ -434,7 +450,7 @@ export function ContactPageContent({
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-neutral-950 px-6 text-sm font-medium text-white hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
+                          className={`${primaryGoldButton} disabled:cursor-not-allowed disabled:opacity-60`}
                         >
                           {isSubmitting ? "Sending..." : "Send Details"}
                         </button>

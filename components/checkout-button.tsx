@@ -46,7 +46,7 @@ export function CheckoutButton({ packageType }: { packageType: StartFlowPackageK
         type="button"
         onClick={handleCheckout}
         disabled={isLoading}
-        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white shadow-sm transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(169,114,47,0.22)] transition hover:shadow-[0_16px_36px_rgba(169,114,47,0.28)] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isLoading ? "Redirecting..." : "Continue to Secure Checkout"}
         {!isLoading ? <ArrowRight size={16} /> : null}
