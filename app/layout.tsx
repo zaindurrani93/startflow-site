@@ -69,7 +69,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${playfairDisplay.variable} bg-white text-neutral-900`}>
+      <body className={`${playfairDisplay.variable} overflow-x-hidden bg-white text-neutral-900`}>
         <SiteHeader />
         {children}
         <footer className="border-t border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">

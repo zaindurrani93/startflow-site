@@ -41,9 +41,9 @@ const accent = {
 
 const accentHeadline = "bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent";
 
-function BrandName() {
+function BrandName({ className = "" }: { className?: string }) {
   return (
-    <span className="whitespace-nowrap">
+    <span className={`whitespace-nowrap ${className}`}>
       <span className="text-[#171717]">Start</span>
       <span className={accentHeadline}>Flow</span>
     </span>
@@ -116,7 +116,7 @@ const workflowItems = [
 const heroTrustPoints = [
   { label: "Beginner Friendly", icon: CheckCircle2 },
   { label: "Handled For You", icon: BriefcaseBusiness },
-  { label: "Structured & Simple", icon: Sparkles }
+  { label: "Structured Launch Plan", icon: Sparkles }
 ];
 
 const structureStats = [
@@ -170,46 +170,47 @@ const pageLinks = [
 const whyStartFlowItems = [
   {
     title: "Clarity First",
-    desc: "We turn confusion into a clear, structured plan."
+    desc: "We turn scattered ideas into a clear, structured direction."
   },
   {
     title: "Guided Support",
-    desc: "We walk you through every step - no guessing."
+    desc: "You are not left figuring it out alone - we guide the setup step by step."
   },
   {
     title: "Built For Real People",
-    desc: "Simple, thoughtful support for people who need a clearer place to start."
+    desc: "Designed for first-time founders, side hustlers, and small business owners who need practical help."
   },
   {
     title: "Launch-Ready",
-    desc: "Everything is designed to help you move forward with confidence."
+    desc: "Everything is built to help you move forward with confidence."
   }
 ];
 
 const whoThisIsForItems = [
-  "First-time founders",
-  "People with ideas but no structure",
-  "Anyone stuck on \"where do I start\""
+  "You have an idea, but no clear structure",
+  "You've been thinking about starting, but haven't taken action",
+  "You don't want to figure everything out alone",
+  "You want a clear path instead of guessing your next step"
 ];
 
 const founderTestimonials = [
   {
     name: "Sarah K.",
-    meta: "First-time founder • Florida",
+    meta: "First-time founder - Florida",
     headline: "I finally understood what to do.",
     body:
       "Before StartFlow, I had no idea where to start. After onboarding, everything became clear and structured. It actually felt manageable for the first time."
   },
   {
     name: "Javier S.",
-    meta: "Small business owner • Mexico",
+    meta: "Small business owner - Mexico",
     headline: "Everything finally made sense.",
     body:
-      "I wasn’t overwhelmed anymore — I actually had a clear plan and direction. That alone changed everything for me."
+      "I wasn't overwhelmed anymore - I actually had a clear plan and direction. That alone changed everything for me."
   },
   {
     name: "Aisha M.",
-    meta: "Startup beginner • Illinois",
+    meta: "Startup beginner - Illinois",
     headline: "I moved forward with confidence.",
     body:
       "I just needed direction. StartFlow simplified everything and gave me the clarity to finally take action."
@@ -238,20 +239,16 @@ export function HomeHero() {
                 </h1>
               </ScrollReveal>
 
-              <p className="mt-5 max-w-[30rem] text-[1.15rem] font-semibold leading-[1.32] tracking-tight text-[#2b231c] sm:text-[1.55rem]">
-                Everything you need to launch — handled with clarity, structure, and support.
+              <p className="mt-5 w-full max-w-[30rem] px-1 text-[1.02rem] font-semibold leading-[1.38] tracking-tight text-[#2b231c] sm:max-w-[31rem] sm:px-0 sm:text-[1.42rem] sm:leading-[1.3]">
+                Everything you need to <span className={accentHeadline}>launch</span> &mdash; so you&apos;re not stuck figuring out what to do next.
               </p>
 
-              <p className="mt-4 max-w-[28rem] text-[15px] leading-7 text-[#6c5945] sm:text-base sm:leading-8">
-                No confusion. No guesswork. Just a simple path from start to finish.
-              </p>
-
-              <div className="mt-8 flex w-full max-w-sm flex-col gap-3 sm:mt-9 sm:max-w-none sm:flex-row lg:justify-start">
+              <div className="mt-7 flex w-full max-w-sm flex-col gap-3 sm:mt-8 sm:max-w-none sm:flex-row lg:justify-start">
                 <Link
                   href="/inquiry"
                   className="button-primary interactive pointer-events-auto inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(180deg,#c9934a_0%,#9f6f2c_100%)] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(148,101,38,0.22)] hover:bg-[#a87633] sm:w-auto"
                 >
-                  Start My Setup
+                  Start My Business Setup
                   <ArrowRight size={16} />
                 </Link>
 
@@ -263,16 +260,16 @@ export function HomeHero() {
                 </Link>
               </div>
 
-              <div className="mt-8 grid w-full max-w-[35rem] grid-cols-3 gap-x-2 sm:max-w-[36rem] sm:gap-x-3 lg:max-w-[33rem]">
+              <div className="mt-7 flex w-full max-w-[20rem] flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:mt-8 sm:grid sm:max-w-[36rem] sm:grid-cols-3 sm:gap-x-3 lg:max-w-[34rem]">
                 {heroTrustPoints.map((item) => (
                   <div
                     key={item.label}
-                    className="flex min-w-0 items-center justify-center gap-1.5 text-center text-[10px] font-medium leading-4 tracking-[-0.01em] text-[#4e3d2c] sm:gap-2 sm:text-[11px] sm:leading-5 lg:justify-start lg:text-left"
+                    className="flex min-w-0 items-center justify-center gap-1.5 text-center text-[10.5px] font-medium leading-4 tracking-[-0.01em] text-[#4e3d2c] sm:gap-2 sm:text-[11px] sm:leading-5 lg:justify-start lg:text-left"
                   >
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-[#fffaf1] text-[#b98743] sm:h-6.5 sm:w-6.5">
-                      <item.icon size={12} strokeWidth={1.75} />
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-[#fffaf1] text-[#b98743] sm:h-6.5 sm:w-6.5">
+                      <item.icon size={11} strokeWidth={1.75} />
                     </span>
-                    <span className="min-w-0">{item.label}</span>
+                    <span className="min-w-0 whitespace-nowrap">{item.label}</span>
                   </div>
                 ))}
               </div>
@@ -303,6 +300,9 @@ export function WhyStructureMattersSection() {
   return (
     <section className={`${manrope.className} border-b border-neutral-200 bg-[linear-gradient(180deg,#fbf8f1_0%,#fffdf9_100%)]`}>
       <div className="mx-auto max-w-7xl px-4 pb-12 pt-3 sm:px-6 sm:pb-16 sm:pt-5 lg:px-8 lg:pb-18">
+        <p className="mx-auto mb-9 w-full max-w-3xl px-1 text-center text-[15px] font-medium leading-7 text-[#4e3d2c] sm:px-0 sm:text-base sm:leading-8">
+          Starting a business gets harder when there is no clear path. <BrandName className="font-medium" /> helps you move with direction before confusion slows you down.
+        </p>
         <div className="relative mx-auto max-w-6xl">
           <div className="pointer-events-none absolute bottom-0 left-5 top-7 w-px bg-[linear-gradient(180deg,rgba(216,192,154,0.22)_0%,rgba(185,135,67,0.52)_45%,rgba(216,192,154,0.1)_100%)] md:hidden" />
           <div className="pointer-events-none absolute left-[15%] right-[15%] top-8 hidden h-px bg-[linear-gradient(90deg,rgba(216,192,154,0.08)_0%,rgba(185,135,67,0.62)_50%,rgba(216,192,154,0.08)_100%)] md:block" />
@@ -317,40 +317,37 @@ export function WhyStructureMattersSection() {
                       <Icon size={17} strokeWidth={1.75} />
                     </div>
 
-                    <div className="min-w-0 pt-1 pr-1 md:max-w-[18rem] md:pt-5 md:pr-0">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#9a866d]">
+                    <div className="flex min-w-0 flex-1 flex-col pt-1 pr-1 md:min-h-[19.5rem] md:max-w-[18rem] md:pt-5 md:pr-0">
+                      <p className="min-h-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#9a866d]">
                         {stat.kind === "percentage" ? "Business survival" : "Growth barrier"}
                       </p>
 
-                      <p className="mt-3 text-[2.1rem] font-semibold tracking-tight text-[#201a16] sm:text-[2.55rem]">
-                        {stat.kind === "percentage" ? `${stat.value}%` : stat.value}
-                      </p>
+                      <div className="flex flex-1 flex-col">
+                        <p className="mt-3 min-h-[3.25rem] text-[2.1rem] font-semibold leading-none tracking-tight text-[#201a16] sm:text-[2.55rem]">
+                          {stat.kind === "percentage" ? `${stat.value}%` : stat.value}
+                        </p>
 
-                      <h3 className="mt-2 text-[1.05rem] font-semibold leading-[1.28] tracking-tight text-[#201a16] sm:text-[1.16rem]">
-                        {stat.label}
-                      </h3>
+                        <h3 className="mt-2 min-h-[3rem] text-[1.05rem] font-semibold leading-[1.28] tracking-tight text-[#201a16] sm:text-[1.16rem]">
+                          {stat.label}
+                        </h3>
 
-                      {stat.kind === "percentage" ? (
-                        <div className="mt-4">
-                          <div className="h-1.5 overflow-hidden rounded-full bg-[#eee5d7]">
+                        <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-[#eee5d7]">
+                          {stat.kind === "percentage" ? (
                             <div
                               className="stats-progress-fill h-full rounded-full bg-[linear-gradient(90deg,#b98743_0%,#d6bd8e_100%)]"
                               style={{ width: `${stat.value}%`, animationDelay: `${index * 140}ms` }}
                             />
-                          </div>
+                          ) : (
+                            <div className="h-full rounded-full bg-[linear-gradient(90deg,#b98743_0%,#d6bd8e_100%)]" />
+                          )}
                         </div>
-                      ) : (
-                        <div className="mt-4 flex items-center gap-2 md:justify-center">
-                          <span className="stats-priority-pulse inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#8f6a2f]" />
-                          <div className="h-[2px] flex-1 rounded-full bg-[linear-gradient(90deg,#b98743_0%,#eadfc8_100%)] md:max-w-[7rem]" />
-                        </div>
-                      )}
 
-                      <p className="mt-4 text-sm leading-6 text-[#695949] sm:text-[15px] sm:leading-7">
-                        {stat.description}
-                      </p>
+                        <p className="mt-4 min-h-[5.25rem] text-sm leading-6 text-[#695949] sm:text-[15px] sm:leading-7">
+                          {stat.description}
+                        </p>
+                      </div>
 
-                      <p className="mt-4 text-[11px] leading-5 text-[#8b7861]">
+                      <p className="mt-4 min-h-[2.5rem] text-[11px] leading-5 text-[#8b7861] md:mt-6">
                         {stat.source}
                       </p>
                     </div>
@@ -401,7 +398,7 @@ export function HomeVisualFeature() {
             Real work, real momentum
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            A clear path for the stage where most people feel <span className={accentHeadline}>stuck</span>.
+            A <span className={accentHeadline}>clear path</span> for the stage where most people feel <span className={accentHeadline}>stuck</span>.
           </h2>
           <p className="mt-5 text-lg leading-8 text-neutral-600">
             StartFlow supports people who are ready to move forward, but need the structure, setup, and direction to do it with confidence.
@@ -480,22 +477,30 @@ export function WhoThisIsForSection() {
   return (
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Who This Is For</p>
+        <div className="max-w-3xl">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">Who This Is For</p>
           <ScrollReveal>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-              Built for people who need a <span className={accentHeadline}>clear path</span> to get their business off the ground.
+              For people who are serious about <span className={accentHeadline}>starting a business</span>, but don&apos;t know where to begin.
             </h2>
           </ScrollReveal>
+          <p className="mt-4 max-w-xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
+            <BrandName /> was built for you if:
+          </p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-8 max-w-2xl space-y-3">
           {whoThisIsForItems.map((item) => (
             <div
               key={item}
-              className="interactive card-hover flex items-center justify-center rounded-[1.5rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-5 text-center"
+              className="flex items-start gap-3 rounded-2xl border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-3.5 shadow-[0_10px_24px_rgba(80,61,28,0.035)] sm:px-5"
             >
-              <p className="text-base font-semibold tracking-tight text-neutral-950">{item}</p>
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-[#fffaf1] text-[#8f6a2f]">
+                <CheckCircle2 size={12} strokeWidth={1.8} />
+              </span>
+              <p className="text-sm font-medium leading-6 text-[#5f5348] sm:text-[15px]">
+                {item}
+              </p>
             </div>
           ))}
         </div>
@@ -509,7 +514,7 @@ export function HomePageLinks() {
     <section className="bg-[linear-gradient(180deg,#ffffff_0%,#fdfbf7_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Explore</p>
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">Explore</p>
           <ScrollReveal>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
               Everything you need, <span className={accentHeadline}>organized clearly</span>.
@@ -852,23 +857,28 @@ export function ContactSection() {
   return (
     <section className="pb-24">
       <div className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-20 lg:px-8">
-        <div className="interactive cta-surface rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] px-8 py-14 shadow-[0_24px_60px_rgba(17,24,39,0.08)] sm:px-12">
+        <div className="interactive cta-surface flex flex-col items-center rounded-[2rem] border border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f1_100%)] px-8 py-12 text-center shadow-[0_24px_60px_rgba(17,24,39,0.08)] sm:px-12 sm:py-13">
           <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
             <Mail size={20} />
           </div>
-          <p className="mt-6 text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Next Step</p>
+          <p className="mt-6 text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">Next Step</p>
           <ScrollReveal>
-            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-              Ready to turn your idea into a real <span className={accentHeadline}>business</span>?
+            <h2 className="mt-4 max-w-2xl text-[2rem] font-semibold leading-[1.1] tracking-tight text-center no-underline decoration-transparent sm:text-4xl sm:leading-tight">
+              <span className="block sm:hidden">
+                Stop <span className={accentHeadline}>overthinking.</span>
+              </span>
+              <span className="mt-1 block sm:hidden">
+                Start <span className={accentHeadline}>building.</span>
+              </span>
+              <span className="hidden sm:inline">
+                Stop <span className={accentHeadline}>overthinking</span>. Start <span className={accentHeadline}>building</span>.
+              </span>
             </h2>
           </ScrollReveal>
-          <p className="mt-4 max-w-2xl text-lg leading-8 text-neutral-600">
-            StartFlow gives you a guided setup with strategy, structure, and hands-on support so your next steps feel clear from day one.
+          <p className="mt-5 text-sm font-medium text-neutral-500">
+            Start today &mdash; most setups are completed within days.
           </p>
-          <p className="mt-4 text-sm font-medium text-neutral-500">
-            Start today - most setups are completed within days.
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-7 flex w-full max-w-sm flex-col justify-center gap-4 sm:max-w-none sm:flex-row">
             <Link
               href="/inquiry"
               className="button-primary interactive inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#c9934a_0%,#9f6f2c_100%)] px-7 py-3.5 text-center text-sm font-medium text-white shadow-[0_14px_28px_rgba(148,101,38,0.22)]"
@@ -915,14 +925,14 @@ export function WhyStartFlow() {
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-18 sm:px-6 sm:py-22 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-neutral-500">Why <BrandName /></p>
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">Why <BrandName /></p>
           <ScrollReveal>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-              Built to <span className={accentHeadline}>simplify</span> your journey
+              Built to remove the <span className={accentHeadline}>guesswork</span>
             </h2>
           </ScrollReveal>
           <p className="mt-5 max-w-xl text-lg leading-8 text-neutral-600">
-            Clear support, thoughtful structure, and a simpler way to move from idea to action.
+            StartFlow gives beginners a guided process, so starting a business feels clear instead of overwhelming.
           </p>
         </div>
 
@@ -1091,5 +1101,6 @@ export function AboutStartFlow() {
     </section>
   );
 }
+
 
 
