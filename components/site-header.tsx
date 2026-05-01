@@ -4,6 +4,12 @@ import Image from "next/image";
 import { MouseEvent, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Manrope } from "next/font/google";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500", "600"]
+});
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -28,7 +34,7 @@ export function SiteHeader() {
 
     event.preventDefault();
     closeMenu();
-    window.history.replaceState(null, "", "/#top");
+    window.history.replaceState(null, "", "/#home");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -36,7 +42,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-neutral-200/80 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
         <Link
-          href="/#top"
+          href="/#home"
           onClick={handleLogoClick}
           className="inline-flex items-center gap-3 text-xl font-semibold tracking-tight text-neutral-950"
         >
@@ -55,14 +61,14 @@ export function SiteHeader() {
             <span className="brand-wordmark-flow">Flow</span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm text-neutral-600 md:flex">
+        <nav className={`${manrope.className} hidden items-center gap-8 text-sm text-neutral-600 md:flex`}>
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={`nav-link px-1 pb-1 pt-1 ${
                 pathname === item.href
-                  ? "active font-medium"
+                  ? "active font-medium text-[#c19a5b]"
                   : "text-neutral-600"
               }`}
             >
@@ -101,7 +107,7 @@ export function SiteHeader() {
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <nav className="px-5 py-3 sm:px-6">
+        <nav className={`${manrope.className} px-5 py-3 sm:px-6`}>
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -109,7 +115,7 @@ export function SiteHeader() {
               onClick={closeMenu}
               className={`nav-link-mobile flex min-h-12 items-center rounded-2xl px-4 text-base ${
                 pathname === item.href
-                  ? "active font-medium"
+                  ? "active bg-[#fffaf0] font-medium text-[#c19a5b]"
                   : "font-normal text-neutral-900"
               }`}
             >

@@ -83,24 +83,65 @@ const services = [
   }
 ];
 
+function ServiceTitle({ title }: { title: string }) {
+  const [first, ...rest] = title.split(" ");
+  const remainder = rest.join(" ");
+
+  return (
+    <>
+      <span className={accentHeadline}>{first}</span>
+      {remainder ? ` ${remainder}` : null}
+    </>
+  );
+}
+
+function EmphasizedLastWord({ text }: { text: string }) {
+  const words = text.split(" ");
+  const last = words.pop();
+  const first = words.join(" ");
+
+  return (
+    <>
+      {first ? `${first} ` : null}
+      {last ? <span className={accentHeadline}>{last}</span> : null}
+    </>
+  );
+}
+
+function EmphasizedFirstWord({ text }: { text: string }) {
+  const [first, ...rest] = text.split(" ");
+  const remainder = rest.join(" ");
+
+  return (
+    <>
+      {first ? <span className={accentHeadline}>{first}</span> : null}
+      {remainder ? ` ${remainder}` : null}
+    </>
+  );
+}
+
 const steps = [
   {
     num: "01",
+    icon: Target,
     title: "Choose Your Package",
     desc: "Select the plan that fits your current stage. We'll handle the rest."
   },
   {
     num: "02",
+    icon: CheckCircle2,
     title: "Complete Onboarding",
     desc: "Answer a few simple questions so we understand your business and goals."
   },
   {
     num: "03",
+    icon: Settings,
     title: "Strategy & Setup",
     desc: "We take your inputs and turn them into a clear strategy and setup."
   },
   {
     num: "04",
+    icon: Rocket,
     title: "Execution & Growth",
     desc: "We execute, refine, and support you as you move forward with confidence."
   }
@@ -226,13 +267,15 @@ export function HomeHero() {
           <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(28rem,1.15fr)] lg:gap-16">
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <div className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-[#eadfcb] bg-[#fffaf1] px-3.5 py-2 text-center text-[11px] font-medium leading-5 text-[#8f6a2f] shadow-[0_10px_22px_rgba(80,61,28,0.04)] sm:px-4 sm:text-[12px]">
-                <Sparkles size={14} />
+                <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#e1c995] bg-[linear-gradient(180deg,#fff7e8_0%,#f2dfba_100%)] text-[#9a6d30] shadow-[0_6px_14px_rgba(169,114,47,0.1)]">
+                  <Sparkles size={11} />
+                </span>
                 Done-for-you Business Setup
               </div>
 
               <ScrollReveal>
                 <h1 className={`${oswald.className} mt-5 max-w-[9ch] text-[2.85rem] font-semibold uppercase leading-[0.88] tracking-[-0.05em] text-[#171717] sm:max-w-[8ch] sm:text-[5rem] lg:max-w-[7ch] lg:text-[5.9rem]`}>
-                  <span className="block">Start your</span>
+                  <span className="block">Launch your</span>
                   <span className="block text-[1.06em] bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent">
                     business
                   </span>
@@ -240,7 +283,7 @@ export function HomeHero() {
               </ScrollReveal>
 
               <p className="mt-5 w-full max-w-[30rem] px-1 text-[1.02rem] font-semibold leading-[1.38] tracking-tight text-[#2b231c] sm:max-w-[31rem] sm:px-0 sm:text-[1.42rem] sm:leading-[1.3]">
-                Everything you need to <span className={accentHeadline}>launch</span> &mdash; so you&apos;re not stuck figuring out what to do next.
+                Everything you need to <span className={accentHeadline}>Start</span> &mdash; so you&apos;re not stuck figuring out what to do next.
               </p>
 
               <div className="mt-7 flex w-full max-w-sm flex-col gap-3 sm:mt-8 sm:max-w-none sm:flex-row lg:justify-start">
@@ -266,7 +309,7 @@ export function HomeHero() {
                     key={item.label}
                     className="flex min-w-0 items-center justify-center gap-1.5 text-center text-[10.5px] font-medium leading-4 tracking-[-0.01em] text-[#4e3d2c] sm:gap-2 sm:text-[11px] sm:leading-5 lg:justify-start lg:text-left"
                   >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-[#fffaf1] text-[#b98743] sm:h-6.5 sm:w-6.5">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#e1c995] bg-[linear-gradient(180deg,#fff7e8_0%,#f2dfba_100%)] text-[#9a6d30] shadow-[0_6px_14px_rgba(169,114,47,0.1)] sm:h-6.5 sm:w-6.5">
                       <item.icon size={11} strokeWidth={1.75} />
                     </span>
                     <span className="min-w-0 whitespace-nowrap">{item.label}</span>
@@ -313,7 +356,7 @@ export function WhyStructureMattersSection() {
               return (
                 <ScrollReveal key={stat.label} className={index === 1 ? "delay-100" : index === 2 ? "delay-200" : ""}>
                   <div className="relative flex gap-3 md:flex-col md:items-center md:text-center">
-                    <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-white text-[#ae8347] shadow-[0_10px_24px_rgba(80,61,28,0.06)]">
+                    <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_14px_30px_rgba(169,114,47,0.2)]">
                       <Icon size={17} strokeWidth={1.75} />
                     </div>
 
@@ -428,39 +471,46 @@ export function HomeVisualFeature() {
 export function WorkflowStrip({ isInteractive = true }: { isInteractive?: boolean }) {
   return (
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fbfaf7_100%)]">
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:px-8">
-        <div className="rounded-[2rem] border border-[#eee3cf] bg-white px-5 py-7 shadow-[0_18px_50px_rgba(80,61,28,0.04)] sm:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="rounded-[2rem] border border-[#ead8bd] bg-[linear-gradient(180deg,#fffefa_0%,#fbf4e7_58%,#f6ead7_100%)] px-3 py-6 shadow-[0_22px_56px_rgba(169,114,47,0.08)] sm:px-8 sm:py-7">
           <div className="flex flex-col items-center text-center">
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">How It Works</p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-            {workflowItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.label} className="flex items-center gap-4">
-                  {isInteractive ? (
-                    <Link
-                      href="/workflow"
-                      className={`workflow-pill interactive flex min-w-[9.5rem] items-center justify-center gap-2 rounded-full border bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
-                    >
-                      <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
-                        <Icon size={15} />
-                      </span>
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <div
-                      className={`flex min-w-[9.5rem] items-center justify-center gap-2 rounded-full border bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-5 py-3 text-sm font-medium text-neutral-800 shadow-[0_14px_30px_rgba(17,24,39,0.06)] ${accent.border}`}
-                    >
-                      <span className={`flex h-7 w-7 items-center justify-center rounded-full ${accent.bg} ${accent.text}`}>
-                        <Icon size={15} />
-                      </span>
-                      {item.label}
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">How It Works</p>
+            <div className="w-full">
+              <div className="mx-auto grid grid-cols-4 gap-1.5 lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-4">
+                {workflowItems.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label} className="relative flex min-w-0 items-center justify-center lg:gap-4">
+                      {isInteractive ? (
+                        <Link
+                          href="/workflow"
+                          className={`flex w-full min-w-0 items-center justify-center gap-1 rounded-full border bg-[linear-gradient(180deg,#fffdfa_0%,#f8f1e3_52%,#f3e6d2_100%)] px-1.5 py-2 text-[9px] font-semibold leading-none text-[#5a4732] shadow-[0_14px_30px_rgba(169,114,47,0.08)] ${accent.border} md:gap-1.5 md:px-2 md:py-2.5 md:text-[10px] md:leading-none lg:min-w-[9.5rem] lg:gap-2 lg:px-5 lg:py-3 lg:text-sm lg:leading-normal`}
+                        >
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_8px_16px_rgba(169,114,47,0.16)] md:h-[22px] md:w-[22px] lg:h-7 lg:w-7">
+                            <Icon size={11} className="md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
+                          </span>
+                          <span className="truncate">{item.label}</span>
+                        </Link>
+                      ) : (
+                        <div
+                          className={`flex w-full min-w-0 items-center justify-center gap-1 rounded-full border bg-[linear-gradient(180deg,#fffdfa_0%,#f8f1e3_52%,#f3e6d2_100%)] px-1.5 py-2 text-[9px] font-semibold leading-none text-[#5a4732] shadow-[0_14px_30px_rgba(169,114,47,0.08)] ${accent.border} md:gap-1.5 md:px-2 md:py-2.5 md:text-[10px] md:leading-none lg:min-w-[9.5rem] lg:gap-2 lg:px-5 lg:py-3 lg:text-sm lg:leading-normal`}
+                        >
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_8px_16px_rgba(169,114,47,0.16)] md:h-[22px] md:w-[22px] lg:h-7 lg:w-7">
+                            <Icon size={11} className="md:h-3 md:w-3 lg:h-[15px] lg:w-[15px]" />
+                          </span>
+                          <span className="truncate">{item.label}</span>
+                        </div>
+                      )}
+                      {index < 3 ? (
+                        <>
+                          <span className="absolute -right-2 top-1/2 z-10 flex h-4 w-4 -translate-y-1/2 items-center justify-center text-[10px] font-semibold leading-none text-[#c19a58] lg:hidden">-</span>
+                          <div className="hidden h-[1px] w-10 bg-[#dcc9a1] lg:block" />
+                        </>
+                      ) : null}
                     </div>
-                  )}
-                  {index < 3 ? <div className="hidden h-[1px] w-10 bg-[#dcc9a1] sm:block" /> : null}
-                </div>
-              );
-            })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -485,18 +535,21 @@ export function WhoThisIsForSection() {
           </p>
         </div>
 
-        <div className="mt-8 max-w-2xl space-y-3">
+        <div className="mt-8 max-w-2xl space-y-4">
           {whoThisIsForItems.map((item) => (
             <div
               key={item}
-              className="flex items-start gap-3 rounded-2xl border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] px-4 py-3.5 shadow-[0_10px_24px_rgba(80,61,28,0.035)] sm:px-5"
+              className="relative overflow-hidden rounded-[1.55rem] border border-[#e3cfab] bg-[linear-gradient(180deg,#fffefa_0%,#f8f0e2_100%)] px-4 py-4 shadow-[0_16px_36px_rgba(169,114,47,0.08)] sm:px-5"
             >
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#eadfcb] bg-[#fffaf1] text-[#8f6a2f]">
-                <CheckCircle2 size={12} strokeWidth={1.8} />
-              </span>
-              <p className="text-sm font-medium leading-6 text-[#5f5348] sm:text-[15px]">
-                {item}
-              </p>
+              <div className="pointer-events-none absolute inset-y-4 left-0 w-1 rounded-r-full bg-[linear-gradient(180deg,#e1b96f_0%,#b98743_100%)]" />
+              <div className="flex items-start gap-3.5">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#d9bd81] bg-[linear-gradient(180deg,#fff7e8_0%,#f2dfba_100%)] text-[#9a6d30] shadow-[0_8px_18px_rgba(169,114,47,0.1)]">
+                  <CheckCircle2 size={13} strokeWidth={1.9} />
+                </span>
+                <p className="text-[15px] font-semibold leading-6 text-[#4f3f32] sm:text-[15.5px]">
+                  {item}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -525,11 +578,17 @@ export function HomePageLinks() {
               href={item.href}
               className="interactive card-hover group rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-6"
             >
-              <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_12px_26px_rgba(169,114,47,0.18)]">
                 <item.icon size={20} />
               </div>
               <div className="flex items-start justify-between gap-4">
-                <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.label}</h3>
+                <h3 className="text-xl font-semibold tracking-tight text-neutral-950">
+                  {item.label === "How It Works" ? (
+                    <span className={accentHeadline}>{item.label}</span>
+                  ) : (
+                    <EmphasizedFirstWord text={item.label} />
+                  )}
+                </h3>
                 <ArrowRight size={18} className="mt-1 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-[#b89656]" />
               </div>
               <p className="mt-3 leading-7 text-neutral-600">{item.desc}</p>
@@ -561,10 +620,12 @@ export function ServicesSection() {
             key={service.title}
             className="interactive card-hover group rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-6"
           >
-            <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border ${accent.border} ${accent.soft} ${accent.text}`}>
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_12px_26px_rgba(169,114,47,0.18)]">
               <service.icon size={20} />
             </div>
-            <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{service.title}</h3>
+            <h3 className="text-xl font-semibold tracking-tight text-neutral-950">
+              <ServiceTitle title={service.title} />
+            </h3>
             <p className="mt-3 leading-7 text-neutral-600">{service.desc}</p>
           </div>
         ))}
@@ -579,37 +640,124 @@ export function HowItWorksSection() {
     <section className="border-y border-neutral-200 bg-[radial-gradient(circle_at_top,rgba(184,150,86,0.08),transparent_30%),linear-gradient(180deg,#fcfbf8_0%,#f6f2ea_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">How It Works</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
             We make it <span className={accentHeadline}>simple</span> - from start to execution
           </h2>
         </div>
 
-        <div className="relative mt-12">
-          <div className="absolute left-0 right-0 top-9 hidden h-px bg-[#dcc9a1] xl:block" />
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {steps.map((step, index) => (
-                <div
-                  key={step.num}
-                  className="interactive card-hover relative flex h-full flex-col rounded-[1.9rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-7"
-                >
-                  <div className="relative z-10 flex items-center">
-                    <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-500">
-                      Step {index + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-6 min-h-[3.75rem] text-2xl font-semibold leading-[1.15] tracking-tight text-neutral-950">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 leading-7 text-neutral-600">{step.desc}</p>
-                </div>
-              ))}
+        <div className="mt-10 rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#fffefd_0%,#fbf6eb_100%)] p-5 shadow-[0_20px_55px_rgba(80,61,28,0.05)] sm:p-7">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
+                Progress Path
+              </p>
+              <h3 className="mt-2 text-2xl font-semibold tracking-tight text-neutral-950">
+                Each completed step builds <span className={accentHeadline}>momentum</span>.
+              </h3>
             </div>
-        </div>
+            <p className="max-w-md text-sm leading-6 text-[#6c5945]">
+              From package selection to execution, the path gets stronger as each milestone is finished.
+            </p>
+          </div>
 
-        <p className="mt-8 max-w-3xl text-sm leading-7 text-neutral-500">
-          You focus on your business - we handle the structure, strategy, and direction.
-        </p>
+          <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-[#eee3cf] bg-[linear-gradient(180deg,#fffdfa_0%,#f8f1e2_100%)] px-4 py-5 sm:px-6">
+            <div className="relative">
+              <svg
+                viewBox="0 0 720 260"
+                className="h-[220px] w-full"
+                role="img"
+                aria-label="Step progress graph rising as each business setup step is completed"
+              >
+                <defs>
+                  <linearGradient id="how-it-works-line" x1="0%" x2="100%" y1="0%" y2="0%">
+                    <stop offset="0%" stopColor="#c9934a" />
+                    <stop offset="60%" stopColor="#b98743" />
+                    <stop offset="100%" stopColor="#8f6a2f" />
+                  </linearGradient>
+                  <linearGradient id="how-it-works-fill" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stopColor="rgba(201,147,74,0.28)" />
+                    <stop offset="100%" stopColor="rgba(201,147,74,0)" />
+                  </linearGradient>
+                </defs>
+
+                {[40, 120, 200].map((y) => (
+                  <line
+                    key={y}
+                    x1="36"
+                    x2="684"
+                    y1={y}
+                    y2={y}
+                    stroke="rgba(185,135,67,0.16)"
+                    strokeDasharray="5 9"
+                  />
+                ))}
+
+                <path
+                  d="M 60 210 L 60 190 L 250 155 L 450 108 L 660 62 L 660 210 Z"
+                  fill="url(#how-it-works-fill)"
+                />
+                <path
+                  d="M 60 190 L 250 155 L 450 108 L 660 62"
+                  fill="none"
+                  stroke="url(#how-it-works-line)"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {[
+                  { x: 60, y: 190 },
+                  { x: 250, y: 155 },
+                  { x: 450, y: 108 },
+                  { x: 660, y: 62 }
+                ].map((point, index) => (
+                  <g key={`${point.x}-${point.y}`}>
+                    <circle cx={point.x} cy={point.y} r="14" fill="#fff8ea" stroke="#c9934a" strokeWidth="4" />
+                    <circle cx={point.x} cy={point.y} r="5.5" fill="#a9722f" />
+                    <text
+                      x={point.x}
+                      y={point.y - 28}
+                      textAnchor="middle"
+                      fill="#8f6a2f"
+                      fontSize="12"
+                      fontWeight="700"
+                      letterSpacing="0.16em"
+                    >
+                      {`0${index + 1}`}
+                    </text>
+                  </g>
+                ))}
+              </svg>
+
+              <div className="mt-2 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                {steps.map((step, index) => {
+                  const Icon = step.icon;
+                  return (
+                    <div
+                      key={step.num}
+                      className="rounded-[1.35rem] border border-[#eadfcb] bg-white/80 px-4 py-4 shadow-[0_10px_24px_rgba(80,61,28,0.04)]"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[#a9722f]/15 bg-[linear-gradient(180deg,#e1b96f_0%,#cf9b53_48%,#a9722f_100%)] text-white shadow-[0_8px_18px_rgba(169,114,47,0.15)]">
+                          <Icon size={16} />
+                        </span>
+                        <div>
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8f6a2f]">
+                            Step {index + 1}
+                          </p>
+                          <span className="mt-1 block h-px w-12 bg-[linear-gradient(90deg,rgba(185,135,67,0.85)_0%,rgba(185,135,67,0.1)_100%)]" />
+                          <p className="mt-1 text-sm font-semibold tracking-tight text-neutral-950">
+                            <EmphasizedLastWord text={step.title} />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -864,7 +1012,7 @@ export function ContactSection() {
             </h2>
           </ScrollReveal>
           <p className="mt-5 rounded-full border border-[#eadfcb] bg-[#fffaf1] px-4 py-2 text-xs font-medium leading-5 text-[#6c5945] shadow-[0_8px_18px_rgba(80,61,28,0.035)]">
-            <span className="font-semibold text-[#8f6a2f]">Start today</span> &mdash; most setups are completed within days.
+            <span className="font-semibold text-[#8f6a2f]">Begin today</span> &mdash; most setups are completed within days.
           </p>
           <div className="mt-7 flex w-full max-w-sm flex-col justify-center gap-4 sm:max-w-none sm:flex-row">
             <Link
@@ -913,7 +1061,9 @@ export function WhyStartFlow() {
     <section className="border-b border-neutral-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfaf6_100%)]">
       <div className="mx-auto max-w-7xl px-5 py-18 sm:px-6 sm:py-22 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">Why <BrandName /></p>
+          <p className="text-sm font-medium tracking-[0.18em] text-[#8f6a2f]">
+            Why <BrandName />
+          </p>
           <ScrollReveal>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
               Built to remove the <span className={accentHeadline}>guesswork</span>
@@ -930,7 +1080,9 @@ export function WhyStartFlow() {
                 key={item.title}
                 className="interactive card-hover rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fcf8f1_100%)] p-7 shadow-[0_14px_36px_rgba(17,24,39,0.03)]"
               >
-              <h3 className="text-xl font-semibold tracking-tight text-neutral-950">{item.title}</h3>
+              <h3 className="text-xl font-semibold tracking-tight text-neutral-950">
+                <EmphasizedFirstWord text={item.title} />
+              </h3>
               <p className="mt-4 text-sm leading-7 text-neutral-600">{item.desc}</p>
             </div>
           ))}
@@ -988,7 +1140,7 @@ export function FounderTestimonials() {
             TESTIMONIALS
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            Clear direction. Confident <span className={accentHeadline}>launches</span>.
+            Clear direction. Confident <span className={accentHeadline}>launch</span>.
           </h2>
         </div>
 
@@ -1077,7 +1229,7 @@ export function AboutStartFlow() {
           className="interactive group relative block overflow-hidden rounded-[2.15rem] border border-[#e8dcc4] bg-[linear-gradient(180deg,#fffdfa_0%,#f7f0e2_100%)] px-6 py-10 shadow-[0_22px_60px_rgba(80,61,28,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#dcc799] hover:shadow-[0_26px_66px_rgba(80,61,28,0.1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b98743]/35 sm:px-10 sm:py-12"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.7),transparent_70%)]" />
-          <p className="relative text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f] transition group-hover:text-[#7a5b28]">
+          <p className="relative text-sm font-medium tracking-[0.18em] text-[#8f6a2f] transition group-hover:text-[#7a5b28]">
             About <BrandName />
           </p>
           <div className="mx-auto mt-5 h-px w-16 bg-[#d9c291]" />

@@ -90,39 +90,44 @@ export default function RootLayout({
                   <span className="brand-wordmark-flow">Flow</span>
                 </h2>
               </div>
-              <p className="mt-4 text-base leading-7 text-neutral-600">
-                Simplifying the process of starting your business — from idea to execution.
+              <p className="mt-4 text-base leading-7 text-[#5f5348]">
+                Simplifying the process of starting your business &mdash; from{" "}
+                <span className="bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent">
+                  idea to execution.
+                </span>
               </p>
               <Link
                 href="/contact"
                 className="footer-link mt-4 inline-flex text-sm font-medium text-[#8f6a2f]"
               >
-                  contact@startflowhq.com
-                </Link>
+                contact@startflowhq.com
+              </Link>
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900">Explore</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8f6a2f]">Explore</h3>
+              <div className="mt-3 h-px w-16 bg-[linear-gradient(90deg,rgba(207,155,83,0.55)_0%,rgba(207,155,83,0.12)_100%)]" />
               <div className="mt-5 flex flex-col gap-3">
-                <Link href="/services" className="footer-link text-sm text-neutral-600">
+                <Link href="/services" className="footer-link text-sm text-[#8f6a2f]">
                   Services
                 </Link>
-                <Link href="/pricing" className="footer-link text-sm text-neutral-600">
+                <Link href="/pricing" className="footer-link text-sm text-[#8f6a2f]">
                   Pricing
                 </Link>
-                <Link href="/workflow" className="footer-link text-sm text-neutral-600">
+                <Link href="/workflow" className="footer-link text-sm text-[#8f6a2f]">
                   How It Works
                 </Link>
               </div>
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900">Company</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8f6a2f]">Company</h3>
+              <div className="mt-3 h-px w-16 bg-[linear-gradient(90deg,rgba(207,155,83,0.55)_0%,rgba(207,155,83,0.12)_100%)]" />
               <div className="mt-5 flex flex-col gap-3">
-                <Link href="/about" className="footer-link text-sm text-neutral-600">
+                <Link href="/about" className="footer-link text-sm text-[#8f6a2f]">
                   About
                 </Link>
-                <Link href="/contact" className="footer-link text-sm text-neutral-600">
+                <Link href="/contact" className="footer-link text-sm text-[#8f6a2f]">
                   Contact
                 </Link>
               </div>
@@ -130,9 +135,9 @@ export default function RootLayout({
           </div>
 
           <div className="border-t border-neutral-200">
-            <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-sm text-neutral-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-              <p>© 2026 StartFlow. All rights reserved.</p>
-              <Link href="/privacy-policy" className="footer-link text-neutral-400">
+            <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-sm text-[#7b6b5a] sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+              <p>&copy; 2026 StartFlow. All rights reserved.</p>
+              <Link href="/privacy-policy" className="footer-link text-[#8f6a2f]">
                 Privacy Policy
               </Link>
             </div>
@@ -142,3 +147,4 @@ export default function RootLayout({
     </html>
   );
 }
+

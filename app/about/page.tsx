@@ -13,6 +13,18 @@ function BrandName() {
 
 const accentHeadline = "bg-[linear-gradient(180deg,#cf9b53_0%,#a9722f_100%)] bg-clip-text text-transparent";
 
+function EmphasizedFirstWord({ text }: { text: string }) {
+  const [first, ...rest] = text.split(" ");
+  const remainder = rest.join(" ");
+
+  return (
+    <>
+      {first ? <span className={accentHeadline}>{first}</span> : null}
+      {remainder ? ` ${remainder}` : null}
+    </>
+  );
+}
+
 const differentiators = [
   {
     title: "Clarity over complexity",
@@ -112,7 +124,7 @@ export default function AboutPage() {
           </div>
 
           <div className="rounded-[2rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] px-6 py-7 shadow-[0_16px_36px_rgba(80,61,28,0.05)] sm:px-8 sm:py-8">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#8f6a2f]">
+            <p className="text-sm font-medium tracking-[0.18em] text-[#8f6a2f]">
               What Makes <BrandName /> Different
             </p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -122,7 +134,7 @@ export default function AboutPage() {
                   className="interactive card-hover rounded-[1.85rem] border border-[#eadfcb] bg-[linear-gradient(180deg,#ffffff_0%,#fbf5e8_100%)] p-6 shadow-[0_16px_36px_rgba(80,61,28,0.05)]"
                 >
                   <h2 className="text-xl font-semibold tracking-tight text-neutral-950">
-                    {item.title}
+                    <EmphasizedFirstWord text={item.title} />
                   </h2>
                   <p className="mt-3 leading-7 text-neutral-600">{item.description}</p>
                 </div>

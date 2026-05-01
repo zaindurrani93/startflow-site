@@ -368,6 +368,14 @@ body {
   position: relative;
   display: inline-flex;
   align-items: center;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  letter-spacing: -0.01em;
   text-decoration: none;
   transition: color 240ms var(--interactive-ease);
 }
@@ -394,17 +402,25 @@ body {
 }
 
 .nav-link.active::after {
-  background-color: #8f6a2f;
+  background-color: #c19a5b;
 }
 
 .nav-link.active {
-  color: #1a1a1a;
+  color: #c19a5b;
 }
 
 .nav-link-mobile {
   position: relative;
   display: flex;
   align-items: center;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  letter-spacing: -0.01em;
   text-decoration: none;
   transition:
     color 240ms var(--interactive-ease),
@@ -436,10 +452,10 @@ body {
 }
 
 .nav-link-mobile.active::after {
-  background-color: #8f6a2f;
+  background-color: #c19a5b;
 }
 
 .nav-link-mobile.active {
-  color: #1a1a1a;
+  color: #c19a5b;
   background-color: #fffaf0;
 }
