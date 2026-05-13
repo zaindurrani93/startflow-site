@@ -34,8 +34,6 @@ export const runtime = "nodejs";
 
 const contactLogoUrl = "https://startflowhq.com/logo.png";
 const contactSenderEmail = "StartFlow <contact@startflowhq.com>";
-const contactReplyToEmail = "contact@startflowhq.com";
-
 const allowedContactKeys = [
   "name",
   "email",
@@ -144,7 +142,7 @@ export async function POST(request: Request) {
         "ACTION",
         [
           buildEmailField("Submitted By", formatValue(normalizedBody.name)),
-          buildEmailField("Reply To", contactReplyToEmail)
+          buildEmailField("Reply To", formatValue(normalizedBody.email))
         ].join("")
       )}
       ${buildEmailFooter()}
@@ -156,7 +154,7 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: contactSenderEmail,
         to: [toEmail],
-        replyTo: contactReplyToEmail,
+        replyTo: normalizedBody.email,
         subject: `StartFlow Inquiry (${normalizedBody.name})`,
         html
       }),

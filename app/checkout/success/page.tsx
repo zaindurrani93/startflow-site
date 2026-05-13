@@ -1,11 +1,13 @@
 import { CheckCircle2, Rocket, Sparkles } from "lucide-react";
 import { PaidOnboardingForm } from "@/components/paid-onboarding-form";
-import { getCheckoutSession } from "@/lib/stripe";
+import { sendCheckoutConfirmationEmail } from "@/lib/checkout-confirmation-email";
 import {
   getStartFlowPackageName,
   startFlowPackages,
   type StartFlowPackageKey
 } from "@/lib/startflow-packages";
+import { logServerError } from "@/lib/server-security";
+import { getCheckoutSession, updateCheckoutSessionMetadata } from "@/lib/stripe";
 
 export default async function CheckoutSuccessPage({
   searchParams
@@ -28,8 +30,29 @@ export default async function CheckoutSuccessPage({
       packageType = metadataPackage ?? packageType;
       customerEmail = session.customer_details?.email ?? "";
       paymentStatus = session.payment_status || paymentStatus;
+
+      if (
+        metadataPackage &&
+        session.payment_status === "paid" &&
+        customerEmail &&
+        session.metadata?.confirmationEmailSent !== "true"
+      ) {
+        const packageData = startFlowPackages[metadataPackage];
+
+        await sendCheckoutConfirmationEmail({
+          customerEmail,
+          packageData,
+          session
+        });
+
+        await updateCheckoutSessionMetadata(session.id, {
+          ...session.metadata,
+          confirmationEmailSent: "true",
+          confirmationEmailSentAt: new Date().toISOString()
+        });
+      }
     } catch (error) {
-      console.error("Success page session lookup failed", error);
+      logServerError("checkout-success-page", error);
     }
   }
 

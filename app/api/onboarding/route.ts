@@ -38,7 +38,6 @@ import {
 export const runtime = "nodejs";
 
 const onboardingSenderEmail = "StartFlow <contact@startflowhq.com>";
-const onboardingReplyToEmail = "contact@startflowhq.com";
 const onboardingLogoUrl = "https://startflowhq.com/logo.png";
 
 const allowedOnboardingKeys = [
@@ -193,7 +192,7 @@ export async function POST(request: Request) {
           "ACTION",
           [
             buildEmailField("Preferred Communication Method", formatValue(body.preferredCommunication)),
-            buildEmailField("Reply To", onboardingReplyToEmail)
+            buildEmailField("Reply To", formatValue(body.email))
           ].join("")
         )}
         ${buildEmailFooter()}
@@ -206,7 +205,7 @@ export async function POST(request: Request) {
         to: [toEmail],
         subject: `New StartFlow Onboarding (${body.fullName})`,
         html,
-        replyTo: onboardingReplyToEmail
+        replyTo: body.email
       }),
       12_000,
       "Onboarding email request timed out."

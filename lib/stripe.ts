@@ -19,3 +19,12 @@ export function getStripe() {
 export async function getCheckoutSession(sessionId: string) {
   return getStripe().checkout.sessions.retrieve(sessionId);
 }
+
+export async function updateCheckoutSessionMetadata(
+  sessionId: string,
+  metadata: Record<string, string>
+) {
+  return getStripe().checkout.sessions.update(sessionId, {
+    metadata
+  });
+}
